@@ -51,6 +51,7 @@ class Algo {
   
     returnRemaining() {
       interest.setTroops(interest.getTroops() + speed.getRemaining());
+      gameStatistics.expenses[1] -= speed.getRemaining();
       speed.removeEntry();
     }
   
@@ -73,10 +74,12 @@ class Interest {
   
     update() {
       if (time.getTicksElapsed() % 10 === 9) {
-        const newInterest = Math.floor(this.troops * this.getInterestRate() / 10000);
-        this.troops += newInterest < 1 ? 1 : newInterest;
+        const newInterest = Math.max(1, Math.floor(this.troops * this.getInterestRate() / 10000));
+        this.troops += newInterest;
+        gameStatistics.income[1] += newInterest;
         if (time.getTicksElapsed() % 100 === 99) {
-          this.troops += pixel.getLand();
+            this.troops += pixel.getLand();
+            gameStatistics.income[0] += pixel.getLand();
         }
       }
     }
@@ -180,15 +183,29 @@ class Pixel {
     }
 }
 
+// gameStatistics.js
+
+class GameStatistics {
+    constructor() {
+        this.income = [512,0]; //Land, Interest
+        this.expenses = [0,0]; //Tax, Attack
+    }
+    getOI() {
+        return this.income[1] + this.income[0];
+    }
+}
+
 // processAction.js
 
 class ProcessAction {
     constructor() {}
   
     update() {
-      if (!this.isInfoSend()) return;
-      if (time.getTicksElapsed() === 70) {
-        this.processAttack(228);
+      if (!this.isInfoSend()) return; //70, 77, 85, 92
+      if (time.getTicksElapsed() === 70) { //4 updates, 72 land, 78, 82, 86, 90 ==> 91 reinforcement, 94 continue
+        this.processAttack(168);
+      } else if (time.getTicksElapsed() === 91) { //For 144 overflow, 296T
+        this.processAttack(128);
       } else if (time.getTicksElapsed() === 175) {
         this.processAttack(449);
       } else if (time.getTicksElapsed() === 273) {
@@ -209,6 +226,8 @@ class ProcessAction {
       amount -= amount * 2 >= interest.getTroops() ? tax : 0;
       if (amount > 0) {
         interest.setTroops(interest.getTroops() - amount - tax);
+        gameStatistics.expenses[0] += tax;
+        gameStatistics.expenses[1] += amount;
         speed.addEntry(amount);
       }
     }
@@ -244,9 +263,13 @@ class Speed {
     }
   
     addEntry(amount) {
-      this.attacking = true;
-      this.intervalsLeft = 10;
-      this.remaining = amount;
+        if (this.attacking) {
+            this.remaining += amount;
+        } else {
+            this.attacking = true;
+            this.intervalsLeft = 10;
+            this.remaining = amount;
+        }
     }
   
     getRemaining() {
@@ -274,17 +297,15 @@ class Time {
       this.tick = 0;
       interest.setTroops(512);
       pixel.init();
-      // gameStatistics.init();
     }
   
     update() {
       interest.update();
       processAction.update();
       speed.update();
-      // gameStatistics.update();
       this.tick++;
-      if (this.tick <= 508) {
-        console.log(this.tick, interest.getTroops(), speed.getRemaining(), pixel.getLand());
+      if (this.tick <= 108) {
+        console.log(this.tick, interest.getTroops(), speed.getRemaining(), pixel.getLand(), gameStatistics.getOI());
         setTimeout(this.update.bind(this), this.timeInterval);
       }
     }
@@ -300,7 +321,7 @@ class Time {
 
 // index.js
 var algo = new Algo, interest = new Interest, pixel = new Pixel,processAction = new ProcessAction,
-    speed = new Speed, time = new Time; // gameStatistics = new GameStatistics;
+    speed = new Speed, time = new Time, gameStatistics = new GameStatistics;
 
 const gameInit = () => {
     time.init();
