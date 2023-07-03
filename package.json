@@ -1,9 +1,0 @@
-{
-    "name": "terriengine",
-    "version": "1.0.0",
-    "description": "A simulation engine for Territorial.io Openings.",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js"
-    }
-}
