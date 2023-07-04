@@ -206,7 +206,7 @@ class ProcessAction {
         this.processAttack(168);
       } else if (time.getTicksElapsed() === 91) { //For 144 overflow, 296T
         this.processAttack(128);
-      } else if (time.getTicksElapsed() === 175) {
+      } /*else if (time.getTicksElapsed() === 175) {
         this.processAttack(449);
       } else if (time.getTicksElapsed() === 273) {
         this.processAttack(669);
@@ -214,7 +214,7 @@ class ProcessAction {
         this.processAttack(1076);
       } else if (time.getTicksElapsed() === 462) {
         this.processAttack(2419);
-      }
+      }*/
     }
   
     isInfoSend() {
@@ -331,4 +331,3 @@ const gameTickInit = () => time.update();
 
 gameInit();
 gameTickInit();
-
