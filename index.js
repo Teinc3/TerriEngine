@@ -145,6 +145,7 @@ class Pixel {
     }
   
     init() {
+        this.mapArray = new Array(this.mapDims.x * this.mapDims.y).fill(0);
         for (let x = 99; x <= 102; x++) {
             for (let y = 99; y <= 102; y++) {
                 if (x === 99 || x === 102 || y === 99 || y === 102) {
@@ -167,9 +168,20 @@ class GameStatistics {
     init() {
         this.income = [512,0]; //Land, Interest
         this.expenses = [0,0]; //Tax, Attack
+        this.logs = [];
     }
     getOI() {
         return this.income[1] + this.income[0];
+    }
+    update() {
+        this.logs.push({
+            tick: time.tick,
+            troops: interest.troops,
+            land: pixel.getLand(),
+            remaining: speed.remaining,
+            oi: this.getOI(),
+            tax: this.expenses[0]
+        })
     }
 }
 
@@ -179,9 +191,9 @@ class ProcessAction {
     constructor() {}
   
     update() {
-        if (!this.isInfoSend()) console.log(time.tick, " is not an IFS tick!");
         for (let IFS of IFSes) {
             if (time.tick === IFS.IFS) {
+                if (!this.isInfoSend()) console.log(time.tick, " is not an IFS tick!");
                 if (this.processAttack(IFS.troops)) break;
                 else return false;
             }
@@ -202,7 +214,10 @@ class ProcessAction {
             gameStatistics.expenses[1] += amount;
             speed.addEntry(amount);
             return true;
-        } else return false;
+        } else {
+            console.log("Combination failed!", IFSes)
+            return false;
+        }
     }
 }
   
@@ -257,28 +272,35 @@ class Time {
         this.tick = 0;
         interest.troops = 512;
         pixel.init();
+        gameStatistics.init();
     }
   
     update() {
         interest.update();
         if (!processAction.update()) return true;
         speed.update();
+        gameStatistics.update();
         this.tick++;
-        if (this.tick == 109) {
+        if (this.tick == simEndTime) {
             gameStatistics.results.push({
                 IFSes: IFSes,
-                troops: interest.troops,
+                legacy: {
+                    troops: gameStatistics.logs.find(log => log.tick == legacyTime).troops,
+                    oi: gameStatistics.logs.find(log => log.tick == legacyTime).oi,
+                }, 
                 land: pixel.getLand(),
                 oi: gameStatistics.getOI(),
-                tax: gameStatistics.expenses[0]
-            })
-            //console.log(this.tick, interest.troops, speed.remaining, pixel.getLand(), gameStatistics.getOI(), gameStatistics.expenses[0]);
+                tax: gameStatistics.expenses[0],
+            });
             return true;
         } else return false;
     }
 }
 
 // index.js
+
+const fs = require('fs');
+
 var algo = new Algo, interest = new Interest, pixel = new Pixel, processAction = new ProcessAction, speed = new Speed, time = new Time, gameStatistics = new GameStatistics;
 
 /* Task:
@@ -291,29 +313,34 @@ var algo = new Algo, interest = new Interest, pixel = new Pixel, processAction =
 7. Log all final results in a JSON file.
 */
 
-var IFSes = [];
+var algoLoop, IFSes, legacyTime, simEndTime, enableInitAtk;
+
+function setupIFSes(initIFS) {
+    IFSes = [];
+    var currentIFS = initIFS + 7;
+    while (currentIFS < 99) { // Task 2
+        IFSes.push({ //We make an object containing attributes for IFS and next closest AU tick first, then use the objects to calculate the number of AUs between each IFS later.
+            IFS: currentIFS,
+            CAUT: 0, // Closest next AU tick. For now, we just set it to 0,
+            auDiffs: 0, // Number of AUs between this and next IFS/cyc end. For now, we just set it to 0
+            troops: 0 // Number of troops required for this IFS. For now, we just set it to 0
+        });
+        currentIFS += 7;
+    }
+}
 
 function testLoop() {
-    for (var initIFS = 56; initIFS <= 91; initIFS+=7) { // Task 1
+    for (var initIFS = 49; initIFS <= 91; initIFS+=7) { // Task 1
+        setupIFSes(initIFS);
         // Now we generate all possible binary combinations of enable/disable IFSes, note that the first IFS is always enabled
         // For example, if the array is [1,0,0], the combinations will be [1,0,0], [1,0,1], [1,1,0], [1,1,1] etc.
         var combinations = Array(IFSes.length).fill(0);
-        // Loop from the last element to the first element, toggle if needed and recursion until all combinations are generated
         for (var combinValue = Math.pow(2, IFSes.length) - 1; combinValue >= 0 ; combinValue--) {
-            combinations = combinations.map((value, index) => combinValue & (1 << index + 1) ? 1 : 0);
+            combinations = combinations.map((value, index) => combinValue & (1 << index) ? 1 : 0);
             // We also have to note that the first IFS is always enabled, so we set it to 1. Quit to next iteration if the first IFS is disabled
             if (!combinations[0]) continue;
             // Valid combination found, now we calculate the number of IFSes and their respective ticks
-            var currentIFS = initIFS + 7;
-            while (currentIFS < 99) { // Task 2
-                IFSes.push({ //We make an object containing attributes for IFS and next closest AU tick first, then use the objects to calculate the number of AUs between each IFS later.
-                    IFS: currentIFS,
-                    CAUT: 0, // Closest next AU tick. For now, we just set it to 0,
-                    auDiffs: 0, // Number of AUs between this and next IFS/cyc end. For now, we just set it to 0
-                    troops: 0 // Number of troops required for this IFS. For now, we just set it to 0
-                });
-                currentIFS += 7;
-            }
+            setupIFSes(initIFS);
             IFSes = IFSes.filter((IFS, index) => combinations[index]);
             // Initialize the simulation
             time.init();
@@ -326,7 +353,7 @@ function testLoop() {
                 }
                 IFS.CAUT = closestAU;
             })
-            IFSes = IFSes.filter(IFS => IFS.CAUT < 99); // We filter out IFSes that are too close to the end of the cycle, because theres no use to reinforce so late
+            IFSes = IFSes.filter(IFS => IFS.CAUT < 99); // We filter out IFSes that have AUs in the next cycle, because theres no use to reinforce for the border
             // Task 5, Now we calculate the number of AUs between each IFS and store it in the auDiffs attribute.
             // For the last IFS we calculate the number of AUs between it and the end of the cycle (tick 98, inclusive!)
             for (var IFSindex = 0; IFSindex < IFSes.length - 1; IFSindex++) {
@@ -354,11 +381,14 @@ function testLoop() {
             // We then check and see if the first IFS and init IFS are on different cycles (so interest!), if so we have 2 combins to test:
             // 1. Remove first IFS and just send the troops in the initIFS
             // 2. Initialize attack with 1 troop for initIFS, and just send the remaining troops in the first IFS
-            var cycleDiff = Math.floor((IFSes[0].IFS + 1)/10) - Math.floor((initIFS + 1)/10);
-            for (var options = 0; options <= cycleDiff; options++) {
+            var cycleDiff = Math.floor((IFSes[0].IFS + 1)/10) - Math.floor((initIFS + 1)/10); // 0/1
+            for (var options = 0; options <= Math.min(cycleDiff, enableInitAtk ? 1 : 0); options++) {
                 if (options == 0) { //Send all troops in initIFS
                     IFSes[0].IFS = initIFS;
                 } else { // Send all-1 troops in initIFS, and send 1 troop in first IFS
+                    //Note that since we ran option 0 already, we have to revert the last IFS edit.
+                    time.init();
+                    IFSes[0].IFS = initIFS + 7;
                     IFSes[0].troops--;
                     // Create an IFS object for the initIFS, unshift it to the IFSes array
                     IFSes.unshift({
@@ -372,6 +402,35 @@ function testLoop() {
             }
         }
     }
+    // We then sort and log all results by descending order of oi - taxes
+    gameStatistics.results.sort((a, b) => (b.oi - b.tax) - (a.oi - a.tax));
+    // Write the JSON string to a file
+    fs.writeFileSync('openings_data.json', JSON.stringify(gameStatistics.results), 'utf-8');
+
+    console.log("Done! The best opening is: ", gameStatistics.results[0]);
 }
 
-testLoop();
+function main() {
+    algoLoop = true;
+    enableInitAtk = false;
+    IFSes = [];
+    simEndTime = 208;
+    legacyTime = 108;
+    if (algoLoop) testLoop();
+    else {
+        IFSes = [
+            //Vkij V5 Cycle 1 :flushed:
+            {IFS: 63, troops: 1},
+            {IFS: 70, troops: 167},
+            {IFS: 84, troops: 128},
+            {IFS: 91, troops: 160}
+        ]
+        time.init();
+        var simEnd = false;
+        while (!simEnd) simEnd = time.update();
+        console.log("Done! Logs for this run: ", gameStatistics.logs);
+        fs.writeFileSync('opening_data.json', JSON.stringify(gameStatistics.logs), 'utf-8');
+    }
+}
+
+main();
