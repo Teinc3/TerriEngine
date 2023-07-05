@@ -179,14 +179,14 @@ class ProcessAction {
     constructor() {}
   
     update() {
-        var settings = [[70, 72],[84, 96],[91, 128]]
-        if (!this.isInfoSend()) return;
-        for (let pair of settings) {
-            if (time.tick === pair[0]) {
-                this.processAttack(pair[1]);
-                break;
+        if (!this.isInfoSend()) console.log(time.tick, " is not an IFS tick!");
+        for (let IFS of IFSes) {
+            if (time.tick === IFS.IFS) {
+                if (this.processAttack(IFS.troops)) break;
+                else return false;
             }
         }
+        return true;
     }
   
     isInfoSend() {
@@ -201,7 +201,8 @@ class ProcessAction {
             gameStatistics.expenses[0] += tax;
             gameStatistics.expenses[1] += amount;
             speed.addEntry(amount);
-        }
+            return true;
+        } else return false;
     }
 }
   
@@ -260,11 +261,12 @@ class Time {
   
     update() {
         interest.update();
-        processAction.update();
+        if (!processAction.update()) return true;
         speed.update();
         this.tick++;
         if (this.tick == 109) {
             gameStatistics.results.push({
+                IFSes: IFSes,
                 troops: interest.troops,
                 land: pixel.getLand(),
                 oi: gameStatistics.getOI(),
@@ -277,11 +279,7 @@ class Time {
 }
 
 // index.js
-var algo = new Algo, interest = new Interest, pixel = new Pixel, processAction = new ProcessAction,
-    speed = new Speed, time = new Time, gameStatistics = new GameStatistics;
-
-time.init();
-time.update();
+var algo = new Algo, interest = new Interest, pixel = new Pixel, processAction = new ProcessAction, speed = new Speed, time = new Time, gameStatistics = new GameStatistics;
 
 /* Task:
 1. Obtain a completely random infosend (IFS) tick as initial processAtk tick
@@ -293,77 +291,86 @@ time.update();
 7. Log all final results in a JSON file.
 */
 
-function generateCombinations(IFSes, combinations, currentIndex) {
-    if (currentIndex === IFSes.length) {
-        // All elements in combinations are set, do something with the combination
-        // Valid combination found, now we map the combination back to the IFSes array (overwrite)
-        // We make an object containing attributes for IFS and next closest AU tick first.
-        // We can then use the objects to calculate the number of AUs between each IFS later.
-        IFSes = IFSes.filter(index => combinations[index]).map(IFS => {
-            return {
-                IFS: IFS,
-                CAUT: 0, // Closest next AU tick. For now, we just set it to 0,
-                auDiffs: 0, // Number of AUs between this and next IFS/cyc end. For now, we just set it to 0
-                troops: 0 // Number of troops required for this IFS. For now, we just set it to 0
-            }
-        });
-        // Now we calculate the closest AU tick for each IFS
-        var auInterval = pixel.getLand() < 1E3 ? 4 : 3
-        IFSes.forEach(IFS => {
-            var closestAU = initIFS + 7;
-            while (closestAU < IFS.IFS) {
-                closestAU += auInterval;
-            }
-            IFS.CAUT = closestAU;
-        })
-        // Task 5, Now we calculate the number of AUs between each IFS and store it in the auDiffs attribute.
-        // For the last IFS we calculate the number of AUs between it and the end of the cycle (tick 98, inclusive!)
-        for (var j = 0; j <= IFSes.length - 1; j++) {
-            IFSes[j].auDiffs = (IFSes[j + 1].CAUT - IFSes[j].CAUT)/auInterval;
-        }
-        IFSes[IFSes.length - 1].auDiffs = Math.floor((98 - IFSes[IFSes.length - 1].CAUT)/auInterval); //Check if floor or ceil
-        // Now calculate the number of land (and troops) required for each IFS
-        // We start from the first IFS and work our way forward
-        var landDiff = 0, nextExpansion = (Math.sqrt(2*pixel.getLand() + 1)/2 - .5)*4;
-        IFSes.forEach(IFS => {
-            landDiff = 0;
-            // We Repeat this for auDiffs times: (add nextExpansion to landDiff, then nextExpansion += 4)
-            for (var k = 0; k < IFS.auDiffs; k++) {
-                landDiff += nextExpansion;
-                nextExpansion += 4;
-            }
-            // Then apply amount to troops
-            IFS.troops = 2 * landDiff + nextExpansion - 4;
-        })
-
-        // Now we execute the simulation
-        time.init();
-        var simEnd = false;
-        while (!simEnd) simEnd = time.update();
-        return;
-    }
-  
-    // Toggle IFS state to 0 (disable)
-    combinations[currentIndex] = 0;
-    generateCombinations(IFSes, combinations, currentIndex + 1);
-  
-    // Toggle IFS state to 1 (enable)
-    combinations[currentIndex] = 1;
-    generateCombinations(IFSes, combinations, currentIndex + 1);
-  }
+var IFSes = [];
 
 function testLoop() {
     for (var initIFS = 56; initIFS <= 91; initIFS+=7) { // Task 1
-        var IFSes = [], currentIFS = initIFS + 7;
-        while (currentIFS < 100) { // Task 2
-            IFSes.push(currentIFS);
-            currentIFS += 7;
-        }
-        // Now we generate all possible binary combinations of enable/disable IFSes
-        // For example, if the array is [0,0,0], the combinations will be [0,0,0], [0,0,1], [0,1,0], [0,1,1] etc.
+        // Now we generate all possible binary combinations of enable/disable IFSes, note that the first IFS is always enabled
+        // For example, if the array is [1,0,0], the combinations will be [1,0,0], [1,0,1], [1,1,0], [1,1,1] etc.
         var combinations = Array(IFSes.length).fill(0);
         // Loop from the last element to the first element, toggle if needed and recursion until all combinations are generated
-        generateCombinations(IFSes, combinations, 0);
+        for (var combinValue = Math.pow(2, IFSes.length) - 1; combinValue >= 0 ; combinValue--) {
+            combinations = combinations.map((value, index) => combinValue & (1 << index + 1) ? 1 : 0);
+            // We also have to note that the first IFS is always enabled, so we set it to 1. Quit to next iteration if the first IFS is disabled
+            if (!combinations[0]) continue;
+            // Valid combination found, now we calculate the number of IFSes and their respective ticks
+            var currentIFS = initIFS + 7;
+            while (currentIFS < 99) { // Task 2
+                IFSes.push({ //We make an object containing attributes for IFS and next closest AU tick first, then use the objects to calculate the number of AUs between each IFS later.
+                    IFS: currentIFS,
+                    CAUT: 0, // Closest next AU tick. For now, we just set it to 0,
+                    auDiffs: 0, // Number of AUs between this and next IFS/cyc end. For now, we just set it to 0
+                    troops: 0 // Number of troops required for this IFS. For now, we just set it to 0
+                });
+                currentIFS += 7;
+            }
+            IFSes = IFSes.filter((IFS, index) => combinations[index]);
+            // Initialize the simulation
+            time.init();
+            // Now we calculate the closest AU tick for each IFS
+            var auInterval = pixel.getLand() < 1E3 ? 4 : 3
+            IFSes.forEach(IFS => {
+                var closestAU = initIFS + 7;
+                while (closestAU < IFS.IFS) {
+                    closestAU += auInterval;
+                }
+                IFS.CAUT = closestAU;
+            })
+            IFSes = IFSes.filter(IFS => IFS.CAUT < 99); // We filter out IFSes that are too close to the end of the cycle, because theres no use to reinforce so late
+            // Task 5, Now we calculate the number of AUs between each IFS and store it in the auDiffs attribute.
+            // For the last IFS we calculate the number of AUs between it and the end of the cycle (tick 98, inclusive!)
+            for (var IFSindex = 0; IFSindex < IFSes.length - 1; IFSindex++) {
+                IFSes[IFSindex].auDiffs = (IFSes[IFSindex + 1].CAUT - IFSes[IFSindex].CAUT)/auInterval;
+            }
+            IFSes[IFSes.length - 1].auDiffs = 1 + Math.floor((98 - IFSes[IFSes.length - 1].CAUT)/auInterval); // We add 1 because the last IFS is inclusive itself
+            // Now calculate the number of land (and troops) required for each IFS
+            // We start from the first IFS and work our way forward
+            var landDiff = 0, currentBorder = (Math.sqrt(2*pixel.getLand() + 1)/2 - .5)*4;
+            IFSes.forEach(IFS => {
+                var oldBorderTroops = 0;
+                if (landDiff) { //Means not the first IFS
+                    landDiff = 0;
+                    // Save down the currentBorder, which we will deduct from troops later
+                    oldBorderTroops = currentBorder;
+                }
+                // We Repeat this for auDiffs times: (add nextExpansion to landDiff, then nextExpansion += 4)
+                for (var expansionCount = 0; expansionCount < IFS.auDiffs; expansionCount++) {
+                    landDiff += (currentBorder+4);
+                    currentBorder += 4;
+                }
+                // Then apply amount to troops
+                IFS.troops = 2 * landDiff + currentBorder - oldBorderTroops;
+            })
+            // We then check and see if the first IFS and init IFS are on different cycles (so interest!), if so we have 2 combins to test:
+            // 1. Remove first IFS and just send the troops in the initIFS
+            // 2. Initialize attack with 1 troop for initIFS, and just send the remaining troops in the first IFS
+            var cycleDiff = Math.floor((IFSes[0].IFS + 1)/10) - Math.floor((initIFS + 1)/10);
+            for (var options = 0; options <= cycleDiff; options++) {
+                if (options == 0) { //Send all troops in initIFS
+                    IFSes[0].IFS = initIFS;
+                } else { // Send all-1 troops in initIFS, and send 1 troop in first IFS
+                    IFSes[0].troops--;
+                    // Create an IFS object for the initIFS, unshift it to the IFSes array
+                    IFSes.unshift({
+                        IFS: initIFS,
+                        troops: 1
+                    });
+                }
+                // Now we execute the simulation
+                var simEnd = false;
+                while (!simEnd) simEnd = time.update();
+            }
+        }
     }
 }
 
