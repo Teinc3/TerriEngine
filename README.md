@@ -2,10 +2,10 @@
 TerriEngine is an opening engine for the strategy game territorial.io. It is a simplified version of the algorithm used in game to calculate expansion and attack moves written in node.js.
 
 ## Structure
-The engine files are stored within the /engine subdirectory and are as follows:
+The engine files are stored within the `/engine` subdirectory and are as follows:
 - **core.js**: The main engine file. This file combines all the other files and provides the main functions for the engine.
-- **algo.js**: The algorithm file. This file contains the functions that are used to calculate the expansion of a player. Most of the functions are ripped from the web client and simplified to singleplayer only.
-- **pixel.js**: The map file. This file contains the functions that handles the pixel data within the map.
+- **algo.js**: The algorithm file. This file contains the functions that are used to calculate the expansion process.
+- **pixel.js**: The map file. This file contains the functions that handles the pixel ownership within the map.
 - **interest.js**: The currency file. This file keeps tracks of your troops and handles interest and land income.
 - **processAction.js**: The action file. This file processes the attack instructions that are sent to the engine.
 - **time.js**: The time file. This file handles the time and the tick based functions.
@@ -20,7 +20,7 @@ To test the engine for a single use case, open your terminal, navigate to this r
 npm start [ticks to run simulation for]
 ```
 
-The engine will read a file named "ifs.json" from /data and output the results of the simulation to a file named "results.json" in the same directory.
+The engine will read `ifs.json` from `/data` and output the results of the simulation to a file named `results.json` in the same directory.
 
 ### Multiple use cases
 To include the engine as a module in your own project, add the following line to your code:
@@ -29,7 +29,8 @@ To include the engine as a module in your own project, add the following line to
 const engine = require('./engine/core.js');
 ```
 
-npm package coming soon :)
+## Hotkey Calculator
+The hotkey calculator is a tool that calculates the optimal hotkeys to press which changes the troop selector's percentage from an initial value to another.
 
 ## Note
 This engine is simplified and NOT a perfect representation of the game engine. Some discrepancies may include:

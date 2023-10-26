@@ -14,12 +14,7 @@ function hotkeys(startRatio, endRatio) {
         }
     }
     possibleKeys.sort((a, b) => a.endr - b.endr)
-    console.log(possibleKeys[0]);
-    if (possibleKeys.length == 2) console.log(possibleKeys[1]);
+    return possibleKeys
 }
 
-hotkeys(500,282);
-hotkeys(282,345);
-hotkeys(345,321);
-hotkeys(321,307);
-hotkeys(307,432);
+module.exports = hotkeys;
