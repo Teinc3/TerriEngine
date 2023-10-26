@@ -37,7 +37,7 @@ if (process.argv[2] > 0) {
         simEnded = time.update(simEndTime); 
     }
     fs.writeFileSync('./data/results.json', JSON.stringify(simEnded));
-    console.log("Simulation completed. Check /data for results.");
+    console.log("Simulation completed. Check /data/results.json for results.");
 }
 
 module.exports = {
