@@ -1,9 +1,8 @@
 // gameStatistics.js
-// This is also another class that doesn't have dependencies on other classes.
 
 class GameStatistics {
-    constructor() {
-        this.results = [];
+    constructor(deps) {
+        this.deps = deps;
     }
     init() {
         this.income = [512,0]; //Land, Interest
@@ -15,13 +14,26 @@ class GameStatistics {
     }
     update() {
         this.logs.push({
-            tick: time.tick,
-            troops: interest.troops,
-            land: pixel.getLand(),
-            remaining: speed.remaining,
+            tick: this.deps.time.tick,
+            troops: this.deps.interest.troops,
+            land: this.deps.pixel.getLand(),
+            remaining: this.deps.speed.remaining,
             oi: this.getOI(),
             tax: this.expenses[0]
         })
+    }
+    getResults(instructions) {
+        return {
+            IFSes: instructions.IFSes,
+            legacy: {
+                troops: this.logs.find(log => log.tick == instructions.legacyTime)?.troops,
+                oi: this.logs.find(log => log.tick == instructions.legacyTime)?.oi,
+            },
+            troops: this.deps.interest.troops,
+            land: this.deps.pixel.getLand(),
+            oi: this.getOI(),
+            tax: this.expenses[0],
+        }
     }
 }
 

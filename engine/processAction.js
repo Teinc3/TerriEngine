@@ -3,10 +3,16 @@
 class ProcessAction {
     constructor(deps) {
         this.deps = deps;
+
+        this.instructions;
     }
   
     update() {
-        var pendingAttacks = algoLoopPreset && this.deps.time.tick < (testCycle-1)*100+7 ? algoLoopPreset : IFSes;
+        let pendingAttacks;
+        if (this.instructions.loopPreset.endCycle && this.deps.time.tick < (this.instructions.loopPreset.endCycle - 1) * 100 + 7) {
+            pendingAttacks = this.instructions.loopPreset.preset;
+        } else pendingAttacks = this.instructions.IFSes;
+
         for (let IFS of pendingAttacks) {
             if (this.deps.time.tick === IFS.IFS) {
                 if (!this.isInfoSend()) console.log(this.deps.time.tick, " is not an IFS tick!");
@@ -22,7 +28,7 @@ class ProcessAction {
     }
   
     processAttack(amount) {
-        var tax = Math.floor(this.deps.interest.troops * 3 / 256);
+        let tax = Math.floor(this.deps.interest.troops * 3 / 256);
         amount -= amount * 2 >= this.deps.interest.troops ? tax : 0;
         if (amount > 0) {
             this.deps.interest.troops -= (amount + tax);
