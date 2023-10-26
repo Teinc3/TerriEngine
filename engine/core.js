@@ -1,4 +1,4 @@
-// index.js
+// core.js
 
 const Algo = require('./algo.js'),
     GameStatistics = require('./gameStatistics.js'),
@@ -20,3 +20,16 @@ speed.algo = algo;
 algo.interest = interest;
 interest.time = time;
 processAction.time = time;
+
+function init() {
+    time.init();
+}
+
+function update() {
+    return time.update();
+}
+
+module.exports = {
+    init,
+    update
+};
