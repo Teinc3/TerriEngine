@@ -8,19 +8,10 @@ class ProcessAction {
     }
   
     update() {
-        let pendingAttacks;
-        if (this.instructions.loopPreset.endCycle && this.deps.time.tick < (this.instructions.loopPreset.endCycle - 1) * 100 + 7) {
-            pendingAttacks = this.instructions.loopPreset.preset;
-        } else pendingAttacks = this.instructions.IFSes;
-
-        for (let IFS of pendingAttacks) {
-            if (this.deps.time.tick === IFS.IFS) {
-                if (!this.isInfoSend()) console.log(this.deps.time.tick, " is not an IFS tick!");
-                if (this.processAttack(IFS.troops)) break;
-                else return false;
-            }
-        }
-        return true;
+        const IFS = this.instructions.IFSes.find(IFS => IFS.IFS === this.deps.time.tick);
+        if (!IFS) return true;
+        if (!this.isInfoSend() && !this.instructions.ignoreIFS) console.log(this.deps.time.tick, " is not an IFS tick!");
+        return this.processAttack(IFS.troops);
     }
   
     isInfoSend() {
@@ -32,13 +23,12 @@ class ProcessAction {
         amount -= amount * 2 >= this.deps.interest.troops ? tax : 0;
         if (amount > 0) {
             this.deps.interest.troops -= (amount + tax);
-            if (this.deps.interest.troops < 0) return false //Combination failed nerd
+            if (this.deps.interest.troops < 0) return false // Combination failed nerd
             this.deps.gameStatistics.expenses[0] += tax;
             this.deps.gameStatistics.expenses[1] += amount;
             this.deps.speed.addEntry(amount);
             return true;
-        } else {
-            console.log("Combination failed!", IFSes)
+        } else { // Sim unsuccessful
             return false;
         }
     }

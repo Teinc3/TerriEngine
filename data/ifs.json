@@ -1,13 +1,10 @@
 {
-    "loopPreset": {
-        "endCycle": 0,
-        "preset": [
-
-        ]
-    },
     "IFSes": [
 
     ],
-    "legacyTime": 69,
-    "simEndTime": 100
+    "timings": {
+        "legacy": false,
+        "simDuration": 99
+    },
+    "ignoreIFS": false
 }

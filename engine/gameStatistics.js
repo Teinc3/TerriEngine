@@ -25,10 +25,10 @@ class GameStatistics {
     getResults(instructions) {
         return {
             IFSes: instructions.IFSes,
-            legacy: {
-                troops: this.logs.find(log => log.tick == instructions.legacyTime)?.troops,
-                oi: this.logs.find(log => log.tick == instructions.legacyTime)?.oi,
-            },
+            legacy: instructions?.timings?.legacy ? {
+                troops: this.logs.find(log => log.tick == instructions.timings.legacy)?.troops,
+                oi: this.logs.find(log => log.tick == instructions.timings.legacy)?.oi,
+            } : "Disabled",
             troops: this.deps.interest.troops,
             land: this.deps.pixel.getLand(),
             oi: this.getOI(),
