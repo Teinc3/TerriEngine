@@ -1,6 +1,6 @@
 {
   "name": "terriengine",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Opening engine for Territorial.io",
   "main": "index.js",
   "scripts": {
