@@ -11,7 +11,7 @@ class Speed {
     }
   
     setSpeedInterval() {
-        this.intervalsLeft = this.intervalsLeft === 10 ? this.newAttackIntervalsLeft : (this.depspixel.getLand() < 1E3 ? 3 : 2);
+        this.intervalsLeft = this.intervalsLeft === 10 ? this.newAttackIntervalsLeft : (this.deps.pixel.getLand() < 1E3 ? 3 : 2);
     }
   
     update() {
@@ -20,7 +20,7 @@ class Speed {
             this.setSpeedInterval();
         } else if (this.intervalsLeft-- === 0) {
             this.setSpeedInterval();
-            this.depsalgo.attackProcessInit();
+            this.deps.algo.attackProcessInit();
         }
     }
   

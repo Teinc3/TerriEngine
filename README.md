@@ -34,6 +34,7 @@ You can then use the engine by calling the following properties:
 ```javascript
 engine.init(); // Initialize the engine to the initial state
 const simResult = engine.update(); // Runs the engine for one tick and returns the simulation result.
+engine.deps.DEPENDENCY_NAME; // Access the dependencies of the engine. Replace DEPENDENCY_NAME with the name of the dependency.
 ```
 
 The simulation result varies depending on the state of simulation.

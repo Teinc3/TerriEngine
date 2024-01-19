@@ -1,0 +1,24 @@
+{
+    "IFSes": [
+        { "IFS": 70, "troops": 228 },
+        { "IFS": 175, "troops": 449 },
+        { "IFS": 273, "troops": 669 },
+        { "IFS": 371, "troops": 1076 },
+        { "IFS": 462, "troops": 2419 }
+    ],
+    "timings": {
+        "legacy": 508,
+        "simDuration": 608
+    },
+    "singleplayer": false,
+    "results": {
+        "troops": 12633,
+        "land": 2244,
+        "oi": 17251,
+        "tax": 154
+    },
+    "legacy": {
+        "troops": 6223,
+        "oi": 10841
+    }
+}
