@@ -20,7 +20,9 @@ class Time {
   
     update() { // Returns true if sim ended
         this.deps.interest.update();
-        if (!this.deps.processAction.update()) return true;
+        if (this.instructions.IFSes !== false) {
+            if (!this.deps.processAction.update()) return true;
+        }
         this.deps.speed.update();
         this.deps.gameStatistics.update();
         this.tick++;

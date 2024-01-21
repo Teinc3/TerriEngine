@@ -40,8 +40,6 @@ if (require.main === module) { // Run this if this file is run directly
 }
 
 module.exports = {
-    init: time.init,
-    update: time.update,
     deps: {
         algo,
         gameStatistics,

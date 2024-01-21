@@ -8,7 +8,7 @@ class ProcessAction {
     }
   
     update() {
-        const IFS = this.instructions.IFSes.find(IFS => IFS.IFS === this.deps.time.tick);
+        const IFS = this.instructions?.IFSes?.find(IFS => IFS?.IFS === this.deps.time.tick);
         if (!IFS) return true;
         if (!this.isInfoSend() && !this.instructions.singleplayer) throw new Error(`${this.deps.time.tick} is not an IFS tick!`);
         return this.processAttack(IFS.troops);

@@ -4,7 +4,7 @@
   "description": "Opening engine for Territorial.io",
   "main": "index.js",
   "scripts": {
-    "start": "node engine/core.js"
+    "start": "node examples/opener.js"
   },
   "repository": {
     "type": "git",

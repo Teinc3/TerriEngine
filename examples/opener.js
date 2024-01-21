@@ -1,13 +1,15 @@
 const fs = require('fs');
-const engine = require('./engine/core.js');
+const engine = require('../engine/core.js');
 
 const results = [];
 
 // read presets from file, if any
-const instructions = JSON.parse(fs.readFileSync('../data/ifs.json', 'utf-8'));
+// const instructions = JSON.parse(fs.readFileSync('../data/ifs.json', 'utf-8'));
+const instructionsFile = require('../data/ifs.json');
+const instructions = JSON.parse(JSON.stringify(instructionsFile));
 
 let startCycle = 1;
-if (instructions?.IFSes) {
+if (instructions?.IFSes[0]) {
     // Find the latest IFS and obtain the cycle number where we start brute-forcing
     instructions.IFSes.sort((a, b) => b.IFS - a.IFS);
     const latestIFS = instructions.IFSes[0].IFS;
@@ -28,50 +30,59 @@ function testLoop(testCycle) {
     
     // Calculate all possible IFS-Combinations for this cycle
     // Step 1. First calculate the initIFS and latestIFS for this cycle
-    for (let initIFS = getEarliestIFS(testCycle); initIFS <= getLatestIFS(testCycle); initIFS += 7) {
+    const initIFS = getEarliestIFS(testCycle);
+
+    // Step 2. Obtain all IFSes that are possible for this cycle.
+    let cycleIFSes = getCycleIFSes(initIFS);
+
+    // Step 3. Generate all possible combinations of IFSes for this cycle using a binary array
+    const numIFSes = cycleIFSes.length;
+    const combinations = Array(numIFSes).fill(0);
+
+    // Use a for loop to go through all IFS-Combinations this cycle
+    outerloop: for (let combinValue = 2 ** numIFSes - 1; combinValue >= 0; combinValue--) {
+        // Convert combinValue into the combinations array
+        let newCombination = combinations.map((_, index) => (combinValue >> (index)) & 1);
         
-        // Step 2. Obtain all IFSes that are possible for this cycle.
-        let cycleIFSes = getCycleIFSes(initIFS);
+        newCombination = [0, 0, 1, 0, 1, 0, 0]
+        // If the 1st and 2nd IFS are both disabled, then we skip this combination
+        // Also, if the first and second IFS is on the same cycle, then we skip this combination
+        // if (!newCombination[0] && !newCombination[1]) continue;
+        // if (newCombination[0] && newCombination[1] && Math.floor((cycleIFSes[0].IFS + 1) / 10) - Math.floor((cycleIFSes[1] + 1) / 10) == 0) continue;
+        
+        // Now we filter out all disabled IFSes
+        let newCycleIFSes = cycleIFSes.filter((_, index) => newCombination[index]);
 
-        // Step 3. Generate all possible combinations of IFSes for this cycle using a binary array
-        const numIFSes = cycleIFSes.length;
-        const combinations = Array(numIFSes).fill(0);
+        // Init the simulation if its the first cycle
+        if (testCycle === startCycle) engine.deps.time.init({
+            "IFSes": false,
+            "timings": {
+                "legacyTime": legacyTime,
+                "simDuration": simEndTime
+            }
+        });
 
-        // Use a for loop to go through all IFS-Combinations this cycle
-        for (let combinValue = 2 ** numIFSes - 1; combinValue >= 0; combinValue--) {
-            // Convert combinValue into the combinations array
-            combinations = combinations.map((_, index) => (combinValue >> (3 - index)) & 1);
+        // Run the simulation right up to the start of the first IFS
+        let results;
+        if (newCycleIFSes.length != 0) {
 
-            // If the 1st and 2nd IFS are both disabled, then we skip this combination
-            // Also, if the first and second IFS is on the same cycle, then we skip this combination
-            if (!combinations[0] && !combinations[1]) continue;
-            if (combinations[0] && combinations[1] && Math.floor((cycleIFSes[0].IFS + 1) / 10) - Math.floor((cycleIFSes[1] + 1) / 10) == 0) continue;
-
-            // Now we filter out all disabled IFSes
-            cycleIFSes = cycleIFSes.filter((_, index) => combinations[index]);
-
-            // Init the simulation if its the first cycle
-            if (testCycle === startCycle) engine.init(/*instructions*/);
-
-            // Run the simulation right up to the start of the first IFS
-            let results;
-            while (engine.deps.time.tick < cycleIFSes[0].IFS - 1) {
-                results = engine.update();
-                if (results !== false) continue; // This means the simulation has failed or ended (?), so we skip this combination
+            while (engine.deps.time.tick < newCycleIFSes[0].IFS - 1) {
+                results = engine.deps.time.update();
+                if (results !== false) continue outerloop; // This means the simulation has failed or ended (?), so we skip this combination
             }
             
             // Now we calculate the closest AU tick, as well as the difference in AUs between each IFS.
-            cycleIFSes.push({ IFS: testCycle * 100 - 1 });
+            newCycleIFSes.push({ IFS: testCycle * 100 - 1 });
 
             let index = 1,
-                closestAU = cycleIFSes[0] + 7;
+                closestAU = newCycleIFSes[0].IFS + 7;
             let accumulatedLand = engine.deps.pixel.getLand();
             let auInterval = accumulatedLand > 1E3 ? 3 : 4;
             
-            while (index < cycleIFSes.length) {
-                const IFS = cycleIFSes[index];
+            while (index < newCycleIFSes.length) {
+                const IFS = newCycleIFSes[index];
                 let auDiffs = 0;
-                while (closestAU > IFS.IFS) {
+                while (closestAU <= IFS.IFS) {
                     closestAU += auInterval;
                     auDiffs++;
                     if (auInterval == 4) {
@@ -79,27 +90,28 @@ function testLoop(testCycle) {
                         if (accumulatedLand > 1E3) auInterval = 3;
                     }
                 }
-                IFS.CAUT = closestAU;
+                const previousIFs = newCycleIFSes[index - 1];
+                previousIFs.CAUT = closestAU;
             
-                if (index > 1) {
-                    cycleIFSes[index - 1].auDiffs = auDiffs;
+                if (index >= 1) {
+                    newCycleIFSes[index - 1].auDiffs = auDiffs;
                     // Check if this IFS's CAUT exceeds the cycle-end IFS
-                    if (index == cycleIFSes.length - 2 && IFS.CAUT >= testCycle * 100 - 1) {
+                    if (index == newCycleIFSes.length - 2 && IFS.CAUT >= testCycle * 100 - 1) {
                         // Remove this IFS from the array
-                        cycleIFSes.splice(index, 1);
+                        newCycleIFSes.splice(index, 1);
                         break; // Exit the loop
                     }
                 }
                 index++;
             }
             
-            cycleIFSes.pop(); // Remove the cycle-end IFS
+            newCycleIFSes.pop(); // Remove the cycle-end IFS
 
             // Now we calculate the number of land (and troops) required for each IFS
             let landDiff = 0,
                 currentBorder = 2 * Math.sqrt(2 * engine.deps.pixel.getLand() + 1) - 2;
             
-            cycleIFSes.forEach(IFS => {
+            newCycleIFSes.forEach(IFS => {
                 let oldBorderTroops = 0;
 
                 if (landDiff) { // Means not the first IFS
@@ -118,25 +130,28 @@ function testLoop(testCycle) {
                 }
                 // Then apply amount to troops
                 IFS.troops = 2 * landDiff + currentBorder - oldBorderTroops;
-            })
+            });
 
-            // Run the sim up until the next cycle
-            while (engine.deps.time.tick < testCycle * 100 + 4) {
-                results = engine.update();
-                if (results !== false) continue; // This means the simulation has failed or ended (?), so we skip this combination
-            }       
+            console.log(newCycleIFSes);
+        }
+        break;
 
-            // Recursively call testLoop, which will test the next cycle
-            if (testCycle <= endCycle) {
-                testLoop(testCycle + 1); // Test the next cycle
-                // For the next combination in this cycle, we need to reset and rerun the simulation up until the start of this cycle
-                engine.init(/*instructions*/);
-            } else {
-                // Run the simulation until simEndTime
-                let results;
-                while (!(results = engine.update())) {}
-                // Process the results (will be done in the future)
-            }
+        // Run the sim up until the next cycle
+        while (engine.deps.time.tick < testCycle * 100 + 4) {
+            results = engine.deps.time.update();
+            if (results !== false) continue; // This means the simulation has failed or ended (?), so we skip this combination
+        }       
+
+        // Recursively call testLoop, which will test the next cycle
+        if (testCycle <= endCycle) {
+            testLoop(testCycle + 1); // Test the next cycle
+            // For the next combination in this cycle, we need to reset and rerun the simulation up until the start of this cycle
+            engine.deps.time.init(/*instructions*/);
+        } else {
+            // Run the simulation until simEndTime
+            let results;
+            while (!(results = engine.deps.time.update())) {}
+            // Process the results (will be done in the future)
         }
     }
 }
@@ -177,3 +192,5 @@ function layerFormula(land) {
 function main() {
     testLoop(startCycle);
 }
+
+main();
