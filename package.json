@@ -1,10 +1,11 @@
 {
   "name": "terriengine",
-  "version": "2.1.1",
+  "version": "2.2.1",
   "description": "Opening engine for Territorial.io",
-  "main": "index.js",
+  "main": "./engine/core.js",
   "scripts": {
-    "start": "node engine/core.js"
+    "start": "node engine/core.js",
+    "calc": "node ./examples/bfs.js"
   },
   "repository": {
     "type": "git",

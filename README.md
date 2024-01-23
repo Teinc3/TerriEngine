@@ -11,7 +11,7 @@ The engine files are stored within the `/engine` subdirectory and are as follows
 - **time.js**: The time file. This file handles the time and the tick based functions.
 - **gameStatistics.js**: The statistics file. This file keeps track of the game statistics (such as overall income etc) and returns the results at the end of the game.
 
-## Usage
+## API
 
 ### Single use case
 To test the engine for a single use case, run the following command in the repository directory:
@@ -20,32 +20,43 @@ To test the engine for a single use case, run the following command in the repos
 npm start
 ```
 
-The engine will read attack instructions from `/data/ifs.json` and output the results of the simulation to `results.json` in the same directory.
+The engine will read attack instructions from `/data/config.json` and output the results of the simulation to `results.json` in the same directory.
 
 ### Multiple use cases
-To include the engine as a module in your own project, add the following line to your code:
+To include the engine as a module in your own project, add `engine` to `package.json` and add the following line to your code:
 
 ```javascript
-const engine = require('./engine/core.js');
+const engine = require('engine');
 ```
 
-You can then use the engine by calling the following properties:
+You can then use the engine by calling the following methods:
     
 ```javascript
-engine.init(); // Initialize the engine to the initial state
+engine.init(INSTRUCTIONS); // Initialize the engine to the initial state
 const simResult = engine.update(); // Runs the engine for one tick and returns the simulation result.
-engine.deps.DEPENDENCY_NAME; // Access the dependencies of the engine. Replace DEPENDENCY_NAME with the name of the dependency.
 ```
 
+where `INSTRUCTIONS` is an array of attack instructions. See `/data/config.json` for an example.
+
 The simulation result varies depending on the state of simulation.
-- If the simulation is still running, the result will be `false`.
-- If there is an error with one of the attack instructions, the result will be `true`.
+- If the simulation is still running, the result will be `true`.
+- If there is an error with one of the attack instructions, the result will be `false`.
 - If the simulation has ended successfully, the result will be an object containing the statistics of the simulation.
+
+Ideally, you should call `engine.update()` in a while loop until the result is not strictly equivalent to `true`.
 
 ## Hotkey Calculator
 The hotkey calculator is a tool that calculates the optimal hotkeys to press which changes the troop selector's percentage from one initial value to another.
 
 Documentation for use cases will be added soon.
+
+## Terminologies
+
+* IFS: InFoSend - Ticks when attack instructions can be executed by the engine in multiplayer.
+* AU: Attack Update - Tick when a layer of land can be taken.
+* CAUT: Closest AU Tick - The tick when the next AU will occur.
+* AUDiffs: Attack Update Differences - The number of AU ticks between the current IFS and the next IFS.
+* PIAI: Pre-Interest Attack Initialization - We initialize an attack with 3 troops here. At the next AU during the next IFS, we will reinforce the bulk of the troops, if we can gain interest between the PIIT and the next AU.
 
 ## Note
 This engine is simplified and NOT a perfect representation of the game engine. Some discrepancies may include:

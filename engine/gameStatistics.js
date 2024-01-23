@@ -24,7 +24,7 @@ class GameStatistics {
     }
     getResults(instructions) {
         return {
-            IFSes: instructions.IFSes,
+            IFSes: [...instructions.IFSes],
             legacy: instructions?.timings?.legacy ? {
                 troops: this.logs.find(log => log.tick == instructions.timings.legacy)?.troops,
                 oi: this.logs.find(log => log.tick == instructions.timings.legacy)?.oi,
