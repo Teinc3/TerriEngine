@@ -4,7 +4,7 @@ const engine = require('./engine/core.js');
 const results = [];
 
 // read presets from file, if any
-const instructions = JSON.parse(fs.readFileSync('../data/ifs.json', 'utf-8'));
+const instructions = JSON.parse(fs.readFileSync('../data/config.json', 'utf-8'));
 
 let startCycle = 1;
 if (instructions?.IFSes) {

@@ -26,9 +26,9 @@ interest.deps.time = time;
 processAction.deps.time = time;
 
 if (require.main === module) { // Run this if this file is run directly
-    const instructions = JSON.parse(fs.readFileSync('./data/ifs.json', 'utf8'));
+    const instructions = JSON.parse(fs.readFileSync('./data/config.json', 'utf8'));
     if (!instructions || !instructions.IFSes || !instructions.timings || !instructions.timings.simDuration) {
-        throw new Error("Instructions cannot be loaded. Please check the validity of ifs.json in the /data folder.");
+        throw new Error("Instructions cannot be loaded. Please check the validity of config.json in the /data folder.");
     }
 
     time.init(instructions);
@@ -39,16 +39,4 @@ if (require.main === module) { // Run this if this file is run directly
     console.log("Simulation completed. Check /data/results.json for results.");
 }
 
-module.exports = {
-    init: time.init,
-    update: time.update,
-    deps: {
-        algo,
-        gameStatistics,
-        interest,
-        pixel,
-        processAction,
-        speed,
-        time
-    }
-};
+module.exports = time;
