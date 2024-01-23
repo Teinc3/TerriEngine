@@ -1,4 +1,5 @@
 const engine = require('../engine/core.js');
+const { performance } = require('perf_hooks');
 const configFileName = process.argv[2] || '../data/bfs_config.json'; // Or could be ./data/config.json
 
 // Load config file
@@ -53,8 +54,7 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
                 if (index == 0) { // We can use it as initIFS, just that we can't set option for PIAI
                     break;
                 } else {
-                    // Log Failures
-                    console.log(`${combinValue} (${baseCycleIFSes.map(obj => obj.IFS)}): FAILED (IFS NON-BUFFERABLE)`);
+                    // console.log(`${combinValue} (${baseCycleIFSes.map(obj => obj.IFS)}): FAILED (IFS NON-BUFFERABLE)`); // Log Failures
                     continue combinLoop;
                 }
             } else if (index == 0) { // We can set option for PIAI if its initIFS
@@ -78,6 +78,12 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
             }
 
             // If there are no attacks this cycle, we skip directly to next cycle
+
+/*             // CHECK
+            if (currentCycle == 2 && prevIFSes.length == 0 && cycleIFSes.length == 0) {
+                console.log("Damn interesting");
+            } */
+
             if (cycleIFSes.length !== 0) {
 
                 cycleIFSes[0].PIAI = false;
@@ -95,8 +101,7 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
                 while (engine.tick < (currentCycle - 1) * 100 + 4) {
                     engineResult = engine.update();
                     if (engineResult !== true) {
-                        // Log failures
-                        console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (CAN'T REACH CYCLE)`);
+                        //console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (CAN'T REACH CYCLE)`); // Log failures
                         continue combinLoop; // Obviously we wont last until PIAI, so we directly skip to combinLoop
                     }
                     // False results means the simulation has failed or ended prematurely (?), so we skip the combination
@@ -138,8 +143,7 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
                         // If this is the first IFS, then we check if the CAUT exceeds the cycle-end IFS
                         if (IFS.CAUT >= currentCycle * 100 - 1) {
                             // No way to actually get any land from this IFS, so we skip this combination
-                            // Log failures
-                            console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (NO POSSIBLE LAND)`);
+                            // console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (NO POSSIBLE LAND)`); // Log failures
                             continue piaiLoop; // It might be possible that we get a few AUs if this was piai, so we skip to the next piaiLoop
                         }
                     }
@@ -149,8 +153,7 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
                 cycleIFSes.pop(); // Remove the cycle-end IFS that assisted our CAUT calculations
 
                 if (cycleIFSes.length == 0) {
-                    // Log failures
-                    console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (DUPLICATE, NO POSSIBLE LAND)`);
+                    //console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (DUPLICATE, NO POSSIBLE LAND)`); // Log failures
                     continue combinLoop; // If we have no IFSes left, then we skip this combination (Since we should have already checked for this earlier)
                 }
 
@@ -197,38 +200,63 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
             while (engine.tick < currentCycle * 100 + 4) {
                 engineResult = engine.update();
                 if (!engineResult || typeof engineResult == 'object') { // false = failed
-                    // Log failures
-                    console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (INVALID ATTACK)`);
+                    //console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (INVALID ATTACK)`); //Log failures
                     continue combinLoop; // At the same tick, no PIAI will always have more troops than PIAI, so we skip this combination if it fails
                 }
                 // False results means the simulation has failed or ended prematurely (?), so we skip the combination
             }
 
-            // Log the results
+            // Push the results
             const result = engine.deps.gameStatistics.getResults(engine.instructions);
             results.push(result);
-            console.log(`${combinValue} (${result.IFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: (${result.troops}, ${result.land}) with ${result.oi}`);
+            //console.log(`${combinValue} (${result.IFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: (${result.troops}, ${result.land}) with ${result.oi}`);
         }
     }
 
-    // Here we do alpha-beta pruning for all collected combinations, and raise them to the next cycle.
-    results.sort((a, b) => b.oi - a.oi); // Sort by oi descending
-    //console.log(results);
-    console.log("END");
-
-    // And then we recursively call cycleLoop for all possible combinations here TODO
+    return pruneResults(results);
 }
 
-cycleLoop(startCycle, []);
+function main() {
+    // Here we run the cycle loop
+    let prevIFSes = [];
+    const performances = [];
+
+    for (let cycle = startCycle; cycle <= 2 /* endCycle */; cycle++) {
+        const cycleStartTime = performance.now();
+
+        if (prevIFSes.length == 0) {
+            prevIFSes = cycleLoop(cycle, []);
+        } else {
+            for (let index = 0; index < prevIFSes.length; index++) {
+                // Deepcopy the prevIFSes[index]
+                const prevIFS = JSON.parse(JSON.stringify(prevIFSes[index].IFSes));
+                prevIFSes[index] = cycleLoop(cycle, prevIFS);
+            }
+
+            // Merge the prevIFSes into a single array
+            prevIFSes = prevIFSes.reduce((arr, curr) => [...arr, ...curr], []);
+
+            // Prune the prevIFSes
+            prevIFSes = pruneResults(prevIFSes);
+        }
+
+        const cycleEndTime = performance.now();
+        performances.push(cycleEndTime - cycleStartTime);
+        console.log(`Cycle ${cycle} took ${cycleEndTime - cycleStartTime}ms`);
+    }
+
+    // Here we print the results
+    console.log(prevIFSes);
+    console.log(`Total time taken: ${performances.reduce((sum, curr) => sum + curr, 0)}ms`);
+}
 
 function getNextIFS(tick) { // When is the next time an attack can start in multiplayer?
     return Math.ceil(tick / 7) * 7;
 }
 
 function getEarliestIFS(cycle) {
-    return getNextIFS(40) // Temp overwrite
-    // Earliest possible ticks are set to 1: 50, 2: 140, 3: 230, 4: 320, 5: 410, 6: 500 + 4 (3 for 499 + 4 < 500 + 4)
-    return getNextIFS(Math.max((cycle - 1) * 100 + 3, cycle * 90 - 40));
+    // Earliest possible ticks are set to 1: 40, 2: 132, 3: 224, 4: 316, 5: 408, 6: 500 + 4 (3 for 499 + 4 < 500 + 4)
+    return getNextIFS(Math.max((cycle - 1) * 100 + 3, cycle * 92 - 52));
 }
 
 function getLatestIFS(cycle) {
@@ -260,3 +288,32 @@ function getCycleIFSes(currentIFS) {
     }
     return cycleIFSes;
 }
+
+function pruneResults(results) {
+    // Here we do alpha-beta pruning for all collected combinations, and raise them to the next cycle.
+    let selected = []; // This is the array of selected combinations
+
+    // Step 1: Group by land value
+    const landMap = results.reduce((map, result) => {
+        if (!map[result.land]) {
+            map[result.land] = [];
+        }
+        map[result.land].push(result);
+        return map;
+    }, {});
+
+    // Step 2 and 3: Find the result with the most troops for each land value and push to selected
+    for (let land in landMap) {
+        let maxTroopsResult = landMap[land].reduce((max, result) => result.troops > max.troops ? result : max, landMap[land][0]);
+        selected.push(maxTroopsResult);
+    }
+
+    // Step 4: Prune results where both land and troops are less than another result
+    selected = selected.filter((resultA, indexA) => {
+        return !selected.some((resultB, indexB) => indexB !== indexA && resultB.land > resultA.land && resultB.troops > resultA.troops);
+    });
+
+    return selected;
+}
+
+main();

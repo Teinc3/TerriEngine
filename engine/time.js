@@ -13,6 +13,7 @@ class Time {
 
         this.tick = 0;
         this.deps.interest.troops = 512;
+        this.deps.speed.removeEntry();
         this.deps.pixel.init();
         this.deps.gameStatistics.init();
     }
