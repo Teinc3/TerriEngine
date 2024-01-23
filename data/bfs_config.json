@@ -6,5 +6,6 @@
         "legacy": 508,
         "simDuration": 608
     },
-    "singleplayer": false
+    "singleplayer": false,
+    "noTaxOnAttack": true
 }

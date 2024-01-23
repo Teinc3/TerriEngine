@@ -20,8 +20,12 @@ class Interest {
     }
   
     getInterestRate() {
-        const landIRate = Math.floor(100 * (13440 - 6 * this.deps.time.tick) / 1920);
-        return landIRate < 0 ? 0 : landIRate > 700 ? 700 : landIRate;
+        let interestRate = Math.floor(100 * (13440 - 6 * this.deps.time.tick) / 1920);
+        const maxInterest = 100 * this.deps.pixel.getLand();
+        if (this.troops > maxInterest) {
+            interestRate -= Math.floor(2 * interestRate * (this.troops - maxInterest) / maxInterest);
+        }
+        return interestRate < 0 ? 0 : interestRate > 700 ? 700 : interestRate;
     }
 }
 

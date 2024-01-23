@@ -18,9 +18,11 @@ class ProcessAction {
     }
   
     processAttack(amount) {
-        let tax = Math.floor(this.deps.interest.troops * 3 / 256);
-        amount -= amount * 2 >= this.deps.interest.troops ? tax : 0;
-        if (amount > 0) {
+        const tax = Math.floor(this.deps.interest.troops * 3 / 256);
+        if (!this.deps.time.instructions?.noTaxOnAttack) {
+            amount -= amount * 2 >= this.deps.interest.troops ? tax : 0;
+        }
+        if (amount > 2) { // minDefensePerSquare
             this.deps.interest.troops -= (amount + tax);
             if (this.deps.interest.troops < 0) return false // Impossible attack
             this.deps.gameStatistics.expenses[0] += tax;
