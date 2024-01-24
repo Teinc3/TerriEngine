@@ -2,9 +2,9 @@
   "name": "terriengine",
   "version": "2.2.1",
   "description": "Opening engine for Territorial.io",
-  "main": "./engine/core.js",
+  "main": "./src/core.js",
   "scripts": {
-    "start": "node engine/core.js",
+    "start": "node src/core.js",
     "calc": "node ./examples/bfs.js"
   },
   "repository": {

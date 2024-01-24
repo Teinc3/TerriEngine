@@ -32,10 +32,12 @@ if (require.main === module) { // Run this if this file is run directly
     }
 
     time.init(instructions);
-    let results;
-    while (!(results = time.update())) {}
+    let results = true;
+    while (results === true) {
+        results = time.update();
+    }
 
-    fs.writeFileSync('./data/results.json', JSON.stringify(results));
+    fs.writeFileSync('./data/results.json', JSON.stringify(results, null, 2));
     console.log("Simulation completed. Check /data/results.json for results.");
 }
 

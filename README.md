@@ -2,7 +2,7 @@
 TerriEngine is an opening engine for the strategy game territorial.io. It is a simplified version of the algorithm used in game to calculate expansion and attack moves written in node.js.
 
 ## Structure
-The engine files are stored within the `/engine` subdirectory and are as follows:
+The engine files are stored within the `/src` subdirectory and are as follows:
 - **core.js**: The main engine file. This file combines all the other files and provides the main functions for the engine.
 - **algo.js**: The algorithm file. This file contains the functions that are used to calculate the expansion process.
 - **pixel.js**: The map file. This file contains the functions that handles the pixel ownership within the map.

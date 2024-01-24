@@ -1,5 +1,5 @@
 const fs = require('fs');
-const engine = require('./engine/core.js');
+const engine = require('./src/core.js');
 
 const results = [];
 

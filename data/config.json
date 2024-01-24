@@ -1,10 +1,12 @@
 {
-    "IFSes": [
-
-    ],
+    "IFSes": [],
     "timings": {
         "legacy": false,
-        "simDuration": 100
+        "simDuration": 508
     },
-    "singleplayer": false
+    "singleplayer": false,
+    "options": {
+        "noTaxOnAttack": true,
+        "storeSimLogs": true
+    }
 }

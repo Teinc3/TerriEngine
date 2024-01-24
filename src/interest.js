@@ -11,10 +11,12 @@ class Interest {
       if (this.deps.time.tick % 10 === 9) {
         const newInterest = Math.max(1, Math.floor(this.troops * this.getInterestRate() / 10000));
         this.troops += newInterest;
-        this.deps.gameStatistics.income[1] += newInterest;
+        this.capTroops();
+        this.deps.gameStatistics.income[1] += newInterest - this.capTroops();
         if (this.deps.time.tick % 100 === 99) {
             this.troops += this.deps.pixel.getLand();
-            this.deps.gameStatistics.income[0] += this.deps.pixel.getLand();
+            const troopsLost = this.capTroops();
+            this.deps.gameStatistics.income[0] += this.deps.pixel.getLand() - troopsLost;
         }
       }
     }
@@ -26,6 +28,16 @@ class Interest {
             interestRate -= Math.floor(2 * interestRate * (this.troops - maxInterest) / maxInterest);
         }
         return interestRate < 0 ? 0 : interestRate > 700 ? 700 : interestRate;
+    }
+
+    capTroops() {
+        const maxTroops = 150 * this.deps.pixel.getLand();
+        if (this.troops > maxTroops) {
+            const troopsLost = this.troops - maxTroops;
+            this.troops = maxTroops;
+            return troopsLost;
+        }
+        return 0;
     }
 }
 
