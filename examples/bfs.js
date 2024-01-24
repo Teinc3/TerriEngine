@@ -1,4 +1,4 @@
-const engine = require('../engine/core.js');
+const engine = require('../src/core.js');
 const fs = require('fs');
 const { performance } = require('perf_hooks');
 const configFileName = process.argv[2] || '../data/bfs_config.json'; // Or could be ./data/config.json
