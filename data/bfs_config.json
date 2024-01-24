@@ -1,11 +1,13 @@
 {
-    "IFSes": [
-
-    ],
+    "IFSes": [],
     "timings": {
         "legacy": 508,
         "simDuration": 608
     },
     "singleplayer": false,
-    "noTaxOnAttack": true
+    "options": {
+        "noTaxOnAttack": true,
+        "storeCycleResults": true
+    }
+
 }

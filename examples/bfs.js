@@ -1,4 +1,5 @@
 const engine = require('../engine/core.js');
+const fs = require('fs');
 const { performance } = require('perf_hooks');
 const configFileName = process.argv[2] || '../data/bfs_config.json'; // Or could be ./data/config.json
 
@@ -221,7 +222,7 @@ function main() {
     let prevIFSes = [];
     const performances = [];
 
-    for (let cycle = startCycle; cycle <= 2 /* endCycle */; cycle++) {
+    for (let cycle = startCycle; cycle <= endCycle; cycle++) {
         const cycleStartTime = performance.now();
 
         if (prevIFSes.length == 0) {
@@ -242,12 +243,17 @@ function main() {
 
         const cycleEndTime = performance.now();
         performances.push(cycleEndTime - cycleStartTime);
-        console.log(`Cycle ${cycle} took ${cycleEndTime - cycleStartTime}ms`);
+        console.log(`Cycle ${cycle} took ${Math.round((cycleEndTime - cycleStartTime)/10)/100} seconds.`);
+        if (config.options?.storeCycleResults) {
+            fs.writeFileSync(`./data/results_cycle${cycle}.json`, JSON.stringify(results));
+            console.log(`Cycle results logged to ./data/result_cycle${cycle}.json.`);        
+        }
     }
 
     // Here we print the results
-    console.log(prevIFSes);
-    console.log(`Total time taken: ${performances.reduce((sum, curr) => sum + curr, 0)}ms`);
+    console.log(`Total time taken: ${performances.reduce((sum, curr) => sum + curr, 0)}ms.`);
+    console.log("Simulation completed. Check ./data/results.json for results.");
+    fs.writeFileSync('./data/results.json', JSON.stringify(prevIFSes));
 }
 
 function getNextIFS(tick) { // When is the next time an attack can start in multiplayer?

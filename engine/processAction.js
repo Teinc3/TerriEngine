@@ -19,7 +19,7 @@ class ProcessAction {
   
     processAttack(amount) {
         const tax = Math.floor(this.deps.interest.troops * 3 / 256);
-        if (!this.deps.time.instructions?.noTaxOnAttack) {
+        if (!this.deps.time.instructions?.options?.noTaxOnAttack) {
             amount -= amount * 2 >= this.deps.interest.troops ? tax : 0;
         }
         if (amount > 2) { // minDefensePerSquare
