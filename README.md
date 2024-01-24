@@ -32,8 +32,9 @@ const engine = require('engine');
 You can then use the engine by calling the following methods:
     
 ```javascript
-engine.init(INSTRUCTIONS); // Initialize the engine to the initial state
-const simResult = engine.update(); // Runs the engine for one tick and returns the simulation result.
+engine.init(INSTRUCTIONS);
+const simResult = engine.update(); // either true, false or a results object
+console.log(engine.tick); // 1
 ```
 
 where `INSTRUCTIONS` is an array of attack instructions. See `/data/config.json` for an example.
@@ -43,9 +44,12 @@ The simulation result varies depending on the state of simulation.
 - If there is an error with one of the attack instructions, the result will be `false`.
 - If the simulation has ended successfully, the result will be an object containing the statistics of the simulation.
 
-Ideally, you should call `engine.update()` in a while loop until the result is not strictly equivalent to `true`.
+Ideally, you should call `engine.update()` in a while loop with condition en `true`.
 
 ## Hotkey Calculator
+
+**NOTE: This feature is outdated and will be updated soon.**
+
 The hotkey calculator is a tool that calculates the optimal hotkeys to press which changes the troop selector's percentage from one initial value to another.
 
 Documentation for use cases will be added soon.
@@ -61,4 +65,4 @@ Documentation for use cases will be added soon.
 ## Note
 This engine is simplified and NOT a perfect representation of the game engine. Some discrepancies may include:
 - Multiplayer interactions are not supported.
-- The engine does not support interest change due to high troop count or high land count. It is assumed to decrease at a linear rate.
+- The engine does not support interest change due to high land count. It is assumed to decrease at a linear rate.
