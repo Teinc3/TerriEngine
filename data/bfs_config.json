@@ -1,13 +1,14 @@
 {
     "IFSes": [],
     "timings": {
-        "legacy": 508,
-        "simDuration": 608
+        "legacy": 608,
+        "simDuration": 508
     },
     "singleplayer": false,
     "options": {
         "noTaxOnAttack": true,
-        "storeCycleResults": true
+        "storeCycleResults": true,
+        "pruneMoreTroops": true
     }
 
 }

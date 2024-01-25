@@ -1,3 +1,4 @@
 .DS_Store
 data/v5_private
 data/results.json
+data/bfs_data
