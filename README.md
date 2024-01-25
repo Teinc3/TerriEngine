@@ -1,6 +1,7 @@
 # TerriEngine
 TerriEngine is an opening engine for the strategy game territorial.io. It is a simplified version of the algorithm used in game to calculate expansion and attack moves written in node.js.
 
+
 ## Structure
 The engine files are stored within the `/src` subdirectory and are as follows:
 - **core.js**: The main engine file. This file combines all the other files and provides the main functions for the engine.
@@ -10,6 +11,7 @@ The engine files are stored within the `/src` subdirectory and are as follows:
 - **processAction.js**: The action file. This file processes the attack instructions that are sent to the engine.
 - **time.js**: The time file. This file handles the time and the tick based functions.
 - **gameStatistics.js**: The statistics file. This file keeps track of the game statistics (such as overall income etc) and returns the results at the end of the game.
+
 
 ## API
 
@@ -46,6 +48,30 @@ The simulation result varies depending on the state of simulation.
 
 Ideally, you should call `engine.update()` in a while loop with condition en `true`.
 
+
+## Opening Calculator
+
+The opening calculator is a tool that calculates the optimal opening moves to take in order to grant the player the greatest advantage in a multiplayer game.
+
+### Working Principle
+
+The calculator employs a Breadth-First Search (BFS) algorithm coupled with alpha-beta pruning to compute the optimal opening moves. The algorithm operates as follows:
+
+1. **Initialization**: The calculator begins at a specified cycle. For this cycle, it computes the ticks at which the player can execute attack instructions, referred to as InFoSend (IFS) ticks.
+
+2. **Tree Generation**: The calculator generates a tree of all possible attack instruction combinations for the cycle using a for loop. Depending on the IFS characteristics, the calculator also evaluates the feasibility of Pre-Interest Attack Initialization (PIAI).
+
+3. **Attack Update Differences (AUDiffs) Calculation**: For each attack instruction combination, the calculator computes the number of Attack Updates (AUs) that can be executed between the current IFS and the next IFS. It then calculates the amount of land that will be captured during this period and the corresponding number of troops required for the attack.
+
+4. **Simulation and Pruning**: The calculator simulates the attack instructions from previous cycles along with those from the current cycle. If the simulation fails due to insufficient troops, the calculator prunes the combination branch. If it succeeds, the calculator adds the combination branch to a results array.
+
+5. **Results Pruning**: After the for loop completes, the calculator prunes the results array, removing any branch that is directly inferior to another branch (such as having both a lower troop and land count than another).
+
+6. **Cycle Incrementation**: If the calculator has not reached the end of the game, it repeats the process for the next cycle by incrementing the cycle by 1 and injecting the results array into the calculator as previous instructions for forward simulation. This process continues until the end of the game.
+
+7. **Results Return**: Finally, the calculator returns the results array, which contains the optimal sequence of attack instructions.
+
+
 ## Hotkey Calculator
 
 **NOTE: This feature is outdated and will be updated soon.**
@@ -53,6 +79,7 @@ Ideally, you should call `engine.update()` in a while loop with condition en `tr
 The hotkey calculator is a tool that calculates the optimal hotkeys to press which changes the troop selector's percentage from one initial value to another.
 
 Documentation for use cases will be added soon.
+
 
 ## Terminologies
 
@@ -66,3 +93,9 @@ Documentation for use cases will be added soon.
 This engine is simplified and NOT a perfect representation of the game engine. Some discrepancies may include:
 - Multiplayer interactions are not supported.
 - The engine does not support interest change due to high land count. It is assumed to decrease at a linear rate.
+
+## TODO
+
+### Opening Calculator
+- Add option to drop last AU if it is not needed.
+- Add option to save engine state to boost performance.

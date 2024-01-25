@@ -19,9 +19,9 @@ if (config.IFSes && config.IFSes.length > 0) {
     startCycle = Math.ceil((latestIFS + 1) / 100) + 1; // 99 -> 2, 100 -> 3
 }
 
-const simDuration = config.simDuration,
-    legacyTime = config.legacyTime || simDuration - 100, // Next cycle start
-    endCycle = Math.floor((simDuration + 1) / 100); // watch legacy; 508 -> cyc5 end, 499 -> cyc4 end
+const simDuration = config.timings.simDuration || 108,
+    legacyTime = config.timings.legacy || simDuration - 100, // Next cycle start
+    endCycle = Math.floor((legacyTime + 1) / 100); // watch legacy; 508 -> cyc5 end, 499 -> cyc4 end
 
 function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimState in the future
 
@@ -241,19 +241,32 @@ function main() {
             prevIFSes = pruneResults(prevIFSes);
         }
 
+        // Make the attributes in every IFS object (within IFSes array of each result object) consistent in order to increase readability
+        prevIFSes.forEach(result => {
+            result.IFSes = result.IFSes.map(IFS => {
+                return {
+                    IFS: IFS.IFS,
+                    troops: IFS.troops,
+                    PIAI: IFS.PIAI,
+                    CAUT: IFS.CAUT,
+                    auDiffs: IFS.auDiffs
+                }
+            });
+        });
+
         const cycleEndTime = performance.now();
         performances.push(cycleEndTime - cycleStartTime);
         console.log(`Cycle ${cycle} took ${Math.round((cycleEndTime - cycleStartTime)/10)/100} seconds.`);
         if (config.options?.storeCycleResults) {
-            fs.writeFileSync(`./data/results_cycle${cycle}.json`, JSON.stringify(results));
-            console.log(`Cycle results logged to ./data/result_cycle${cycle}.json.`);        
+            fs.writeFileSync(`./data/bfs_data/cycle${cycle}.json`, JSON.stringify(prevIFSes, null, 2));
+            console.log(`Cycle results logged to ./data/bfs_data/cycle${cycle}.json.`);        
         }
     }
 
     // Here we print the results
     console.log(`Total time taken: ${performances.reduce((sum, curr) => sum + curr, 0)}ms.`);
-    console.log("Simulation completed. Check ./data/results.json for results.");
-    fs.writeFileSync('./data/results.json', JSON.stringify(prevIFSes));
+    console.log("Simulation completed. Check ./data/bfs_data/results.json for results.");
+    fs.writeFileSync('./data/bfs_data/results.json', JSON.stringify(prevIFSes));
 }
 
 function getNextIFS(tick) { // When is the next time an attack can start in multiplayer?
@@ -261,8 +274,30 @@ function getNextIFS(tick) { // When is the next time an attack can start in mult
 }
 
 function getEarliestIFS(cycle) {
-    // Earliest possible ticks are set to 1: 40, 2: 132, 3: 224, 4: 316, 5: 408, 6: 500 + 4 (3 for 499 + 4 < 500 + 4)
-    return getNextIFS(Math.max((cycle - 1) * 100 + 3, cycle * 92 - 52));
+    let earliestTick;
+    switch (cycle) {
+        case 1:
+            earliestTick = 50;
+            break;
+        case 2:
+            earliestTick = 110; // Because at 119 earliest red interest will come
+            break;
+        case 3:
+            earliestTick = 240;
+            break;
+        case 4:
+            earliestTick = 340;
+            break;
+        case 5:
+            earliestTick = 408;
+            break;
+        case 6:
+            earliestTick = 504;
+            break;
+        default:
+            earliestTick = (cycle - 1) * 100 + 4;
+    }
+    return getNextIFS(earliestTick);
 }
 
 function getLatestIFS(cycle) {
@@ -298,28 +333,44 @@ function getCycleIFSes(currentIFS) {
 function pruneResults(results) {
     // Here we do alpha-beta pruning for all collected combinations, and raise them to the next cycle.
     let selected = []; // This is the array of selected combinations
+    const landMap = {};
 
     // Step 1: Group by land value
-    const landMap = results.reduce((map, result) => {
-        if (!map[result.land]) {
-            map[result.land] = [];
+    for (const result of results) {
+        if (!landMap[result.land]) {
+            landMap[result.land] = [];
         }
-        map[result.land].push(result);
-        return map;
-    }, {});
+        landMap[result.land].push(result);
+    }
 
     // Step 2 and 3: Find the result with the most troops for each land value and push to selected
-    for (let land in landMap) {
-        let maxTroopsResult = landMap[land].reduce((max, result) => result.troops > max.troops ? result : max, landMap[land][0]);
+    for (const land in landMap) {
+        let maxTroopsResult = landMap[land][0];
+        for (const result of landMap[land]) {
+            if (result.troops > maxTroopsResult.troops || result.troops == maxTroopsResult.troops && result.IFSes.length < maxTroopsResult.IFSes.length) { // Easier to do this opening
+                maxTroopsResult = result;
+            }
+        }
         selected.push(maxTroopsResult);
     }
 
-    // Step 4: Prune results where both land and troops are less than another result
-    selected = selected.filter((resultA, indexA) => {
-        return !selected.some((resultB, indexB) => indexB !== indexA && resultB.land > resultA.land && resultB.troops > resultA.troops);
-    });
+    // Step 4 and 5: Prune results where both land and troops are less than another result
+    // and if 2 * (diff in land) > (diff in troops), then we prune B
+    for (let i = 0; i < selected.length; i++) {
+        for (let j = 0; j < selected.length; j++) {
+            if (i !== j && (selected[j].land > selected[i].land && selected[j].troops > selected[i].troops) || pruneMoreTroops(i, j)) {
+                selected.splice(i, 1);
+                i--; // adjust index after removal
+                break;
+            }
+        }
+    }
 
     return selected;
+
+    function pruneMoreTroops(i, j) {
+        return config?.options?.pruneMoreTroops && selected[j].land > selected[i].land && selected[j].troops < selected[i].troops && (selected[j].land - selected[i].land) > (selected[i].troops - selected[j].troops)
+    }
 }
 
 main();
