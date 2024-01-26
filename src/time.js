@@ -49,7 +49,7 @@ class Time {
     }
 
     saveState() {
-        return {
+        const saveState = {
             time: {
                 tick: this.tick,
                 instructions: this.instructions
@@ -69,9 +69,12 @@ class Time {
             gameStatistics: {
                 income: this.deps.gameStatistics.income,
                 expenses: this.deps.gameStatistics.expenses,
-                logs: this.deps.gameStatistics.logs
             }
         }
+        if (this.instructions?.options?.storeSimLogs) {
+            save.gameStatistics.logs = this.deps.gameStatistics.logs;
+        }
+        return saveState
     }
 }
 

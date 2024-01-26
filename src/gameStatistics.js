@@ -16,14 +16,16 @@ class GameStatistics {
     }
 
     update() {
-        this.logs.push({
-            tick: this.deps.time.tick,
-            troops: this.deps.interest.troops,
-            land: this.deps.pixel.land,
-            remaining: this.deps.speed.remaining,
-            oi: this.getOI(),
-            tax: this.expenses[0]
-        })
+        if (this.deps.time.instructions?.options?.storeSimLogs) {
+            this.logs.push({
+                tick: this.deps.time.tick,
+                troops: this.deps.interest.troops,
+                land: this.deps.pixel.land,
+                remaining: this.deps.speed.remaining,
+                oi: this.getOI(),
+                tax: this.expenses[0]
+            })
+        }
     }
 
     getResults(instructions) {
@@ -49,7 +51,9 @@ class GameStatistics {
     loadState(gameStatistics) {
         this.income = structuredClone(gameStatistics.income);
         this.expenses = structuredClone(gameStatistics.expenses);
-        this.logs = structuredClone(gameStatistics.logs);
+        if (this.deps.time.instructions?.options?.storeSimLogs) {
+            this.logs = structuredClone(gameStatistics.logs);
+        }
     }
 }
 
