@@ -26,11 +26,11 @@ const simDuration = config.timings.simDuration || 108,
 function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimState in the future
 
     // Generate all possible IFSes for this cycle
-    const minIFS = getEarliestIFS(currentCycle);
-    let baseCycleIFSes = getCycleIFSes(minIFS);
+    const minIFS = getEarliestIFS(currentCycle, endCycle);
+    const allCycleIFSes = getCycleIFSes(minIFS);
 
     // Generate all possible combinations of IFSes for this cycle using a binary array
-    const numIFSes = baseCycleIFSes.length;
+    const numIFSes = allCycleIFSes.length;
     let combinations = Array(numIFSes).fill(0);
 
     const results = [];
@@ -41,12 +41,8 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
         // Convert combinValue into the combinations array
         combinations.forEach((_, index) => combinations[index] = (combinValue >> (numIFSes - index - 1)) & 1);
 
-        // Generate all possible IFSes for this cycle
-        const minIFS = getEarliestIFS(currentCycle);
-        baseCycleIFSes = getCycleIFSes(minIFS);
-
-        // Filter out all disabled IFSes
-        baseCycleIFSes = baseCycleIFSes.filter((_, index) => combinations[index]);
+        // Filter out all disabled IFSes (And deepcopy our IFS objects)
+        const baseCycleIFSes = JSON.parse(JSON.stringify(allCycleIFSes.filter((_, index) => combinations[index])));
 
         // Check if there are enabled non-initIFS IFSes that cannot be buffered (Those that when -7 still has the same interest tick), then we skip this combination
         for (let index = 0; index < baseCycleIFSes.length; index++) {
@@ -79,12 +75,6 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
             }
 
             // If there are no attacks this cycle, we skip directly to next cycle
-
-/*             // CHECK
-            if (currentCycle == 2 && prevIFSes.length == 0 && cycleIFSes.length == 0) {
-                console.log("Damn interesting");
-            } */
-
             if (cycleIFSes.length !== 0) {
 
                 cycleIFSes[0].PIAI = false;
@@ -108,12 +98,18 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
                     // False results means the simulation has failed or ended prematurely (?), so we skip the combination
                 }
 
-                cycleIFSes.push({ IFS: currentCycle * 100 - 1 }); // This is added to ensure that the last IFS's AUs can be calculated properly as at x99 engine enters new cycle
+                /* This is added to ensure that the last IFS's AUs can be calculated properly as at x99 engine enters new cycle
+                However, if we are at last fullsend cycle -1, then we instead use the initIFS of the next cycle as the cycle-end IFS
+                This is because we might be interested in doing a fullsend opening for the next cycle
+                However, we need to make it very clear that next cycle will be a fullsend opening
+                Otherwise, our attacks will not connect to the next cycle and will Fail
+                */
+                cycleIFSes.push({ IFS: currentCycle * 100 - 1 });
 
                 // Now we calculate the closest AU tick, as well as the difference in AUs between each IFS.
                 let index = 0, // Initially this was 1, but because we want to prune the IFS if it's too late, we start from 0
                     closestAU = cycleIFSes[0].IFS + 7;
-                let accumulatedLand = engine.deps.pixel.getLand();
+                let accumulatedLand = engine.deps.pixel.land;
                 let auInterval = accumulatedLand > 1E3 ? 3 : 4;
 
                 while (index < cycleIFSes.length) {
@@ -160,7 +156,7 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
 
                 // Now we calculate the number of land (and troops) required for each IFS
                 let landDiff = 0,
-                currentBorder = 2 * Math.sqrt(2 * engine.deps.pixel.getLand() + 1) - 2;
+                currentBorder = 2 * Math.sqrt(2 * engine.deps.pixel.land + 1) - 2;
                 
                 cycleIFSes.forEach((IFS, index) => {
                     let oldBorderTroops = 0;
@@ -266,27 +262,27 @@ function main() {
     // Here we print the results
     console.log(`Total time taken: ${performances.reduce((sum, curr) => sum + curr, 0)}ms.`);
     console.log("Simulation completed. Check ./data/bfs_data/results.json for results.");
-    fs.writeFileSync('./data/bfs_data/results.json', JSON.stringify(prevIFSes));
+    fs.writeFileSync('./data/bfs_data/results.json', JSON.stringify(prevIFSes, null, 2));
 }
 
 function getNextIFS(tick) { // When is the next time an attack can start in multiplayer?
     return Math.ceil(tick / 7) * 7;
 }
 
-function getEarliestIFS(cycle) {
+function getEarliestIFS(cycle, endCycle) {
     let earliestTick;
     switch (cycle) {
         case 1:
-            earliestTick = 50;
+            earliestTick = 40;
             break;
         case 2:
-            earliestTick = 110; // Because at 119 earliest red interest will come
+            earliestTick = 104;
             break;
         case 3:
-            earliestTick = 240;
+            earliestTick = 230;
             break;
         case 4:
-            earliestTick = 340;
+            earliestTick = 320;
             break;
         case 5:
             earliestTick = 408;
@@ -297,6 +293,9 @@ function getEarliestIFS(cycle) {
         default:
             earliestTick = (cycle - 1) * 100 + 4;
     }
+    /* if (cycle >= 6 && cycle == endCycle) { // Might want to test for a full-send opening cycle
+        earliestTick = (cycle - 1) * 100 - 1;
+    } */
     return getNextIFS(earliestTick);
 }
 

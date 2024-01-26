@@ -19,7 +19,7 @@ class GameStatistics {
         this.logs.push({
             tick: this.deps.time.tick,
             troops: this.deps.interest.troops,
-            land: this.deps.pixel.getLand(),
+            land: this.deps.pixel.land,
             remaining: this.deps.speed.remaining,
             oi: this.getOI(),
             tax: this.expenses[0]
@@ -30,7 +30,7 @@ class GameStatistics {
         const result = {
             IFSes: [...instructions.IFSes],
             troops: this.deps.interest.troops,
-            land: this.deps.pixel.getLand(),
+            land: this.deps.pixel.land,
             oi: this.getOI(),
             tax: this.expenses[0],
         }

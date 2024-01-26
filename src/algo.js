@@ -60,7 +60,7 @@ class Algo {
     takeBorderPixels() {
         this.deps.speed.remaining -= this.markedPixels.length * this.neutCost;
         for (let pIndex of this.markedPixels) {
-            this.deps.pixel.mapArray[this.deps.pixel.getIndex(this.deps.pixel.getX(pIndex), this.deps.pixel.getY(pIndex))] = 2;
+            this.deps.pixel.setPixel(this.deps.pixel.getX(pIndex), this.deps.pixel.getY(pIndex), 2);
         }
         this.deps.pixel.updatePixels();
     }

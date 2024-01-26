@@ -7,7 +7,10 @@ class Pixel {
             x: 200,
             y: 200
         };
-        this.mapArray = new Array(this.mapDims.x * this.mapDims.y).fill(0);
+        this.mapArray = new Uint8Array(this.mapDims.x * this.mapDims.y).fill(0);
+        this.land = 0;
+
+        this.boundary = new Uint16Array(4);
     }
   
     getX(pIndex) {
@@ -22,14 +25,10 @@ class Pixel {
         return y * this.mapDims.x + x;
     }
   
-    getLand() {
-        return this.mapArray.filter((value) => value >= 1).length;
-    }
-  
     getBorderPixels() {
         const borderPixels = [];
-        for (let x = 0; x < this.mapDims.x; x++) {
-            for (let y = 0; y < this.mapDims.y; y++) {
+        for (let x = this.boundary[0]; x <= this.boundary[1]; x++) {
+            for (let y = this.boundary[2]; y <= this.boundary[3]; y++) {
                 if (this.mapArray[this.getIndex(x, y)] === 2) { // Border
                     if (this.mapArray[this.getIndex(x - 1, y)] === 0 || this.mapArray[this.getIndex(x + 1, y)] === 0 ||
                         this.mapArray[this.getIndex(x, y - 1)] === 0 || this.mapArray[this.getIndex(x, y + 1)] === 0) { 
@@ -42,15 +41,26 @@ class Pixel {
     }
   
     updatePixels() {
-        for (let x = 0; x < this.mapDims.x; x++) {
-            for (let y = 0; y < this.mapDims.y; y++) {
+        for (let x = this.boundary[0]; x <= this.boundary[1]; x++) {
+            for (let y = this.boundary[2]; y <= this.boundary[3]; y++) {
                 if (this.mapArray[this.getIndex(x, y)] === 2) {
                     if (this.mapArray[this.getIndex(x - 1, y)] && this.mapArray[this.getIndex(x + 1, y)] &&
                         this.mapArray[this.getIndex(x, y - 1)] && this.mapArray[this.getIndex(x, y + 1)]) {
-                        this.mapArray[this.getIndex(x, y)] = 1;
+                        this.setPixel(x, y, 1);
                     }
                 }
             }
+        }
+    }
+
+    setPixel(x, y, value) {
+        this.mapArray[this.getIndex(x, y)] = value;
+        if (value === 2) {
+            this.land++; // From 0 to 2
+            if (x < this.boundary[0]) this.boundary[0] = x;
+            else if (x > this.boundary[1]) this.boundary[1] = x;
+            if (y < this.boundary[2]) this.boundary[2] = y;
+            else if (y > this.boundary[3]) this.boundary[3] = y;
         }
     }
   
@@ -60,12 +70,15 @@ class Pixel {
             for (let y = 99; y <= 102; y++) {
                 if (x === 99 || x === 102 || y === 99 || y === 102) {
                     if ((x === 99 || x === 102) && (y === 99 || y === 102)) continue;
-                    this.mapArray[this.getIndex(x, y)] = 2;
+                    this.setPixel(x, y, 2);
                 } else {
-                    this.mapArray[this.getIndex(x, y)] = 1;
+                    this.setPixel(x, y, 1);
                 }
             }
         }
+        this.land = 12;
+        this.boundary[0] = this.boundary[2] = 99;
+        this.boundary[1] = this.boundary[3] = 102;
     }
 }
 
