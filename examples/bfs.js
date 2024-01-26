@@ -35,6 +35,17 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
 
     const results = [];
 
+    // Run the simulation to the start of this cycle
+    engine.init(config);
+    if (currentCycle !== startCycle) {
+        engine.addIFSes(prevIFSes);
+    }
+    let engineResult;
+    while (engine.tick < (currentCycle - 1) * 100 + 4) {
+        engineResult = engine.update();
+    }
+    const saveState = engine.saveState();
+
     // Use a for loop to go through all IFS-Combinations this cycle
     combinLoop: for (let combinValue = 0; combinValue < 2 ** numIFSes; combinValue++) { // 000... to 111...
 
@@ -42,7 +53,7 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
         combinations.forEach((_, index) => combinations[index] = (combinValue >> (numIFSes - index - 1)) & 1);
 
         // Filter out all disabled IFSes (And deepcopy our IFS objects)
-        const baseCycleIFSes = JSON.parse(JSON.stringify(allCycleIFSes.filter((_, index) => combinations[index])));
+        const baseCycleIFSes = structuredClone(allCycleIFSes.filter((_, index) => combinations[index]));
 
         // Check if there are enabled non-initIFS IFSes that cannot be buffered (Those that when -7 still has the same interest tick), then we skip this combination
         for (let index = 0; index < baseCycleIFSes.length; index++) {
@@ -63,16 +74,10 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
         // For the one ON, we unshift an IFS of tick IFS-7 and troops 3 to the cycleIFSes array
         piaiLoop: for (let piai = 0; piai < ((baseCycleIFSes.length == 0 || !baseCycleIFSes[0].PIAI) ? 1 : 2); piai++) {
 
-            const cycleIFSes = JSON.parse(JSON.stringify(baseCycleIFSes)); // Deep copy our base
+            const cycleIFSes = structuredClone(baseCycleIFSes); // Deep copy our base
 
-            // Init the engine using our new config
-            engine.init(config);
-
-            if (currentCycle !== startCycle) {
-                // Use engine savestate IN THE FUTURE;
-                // We set our instructions for now
-                engine.addIFSes(prevIFSes);
-            }
+            // Load the state from the previous sim
+            engine.loadState(saveState);
 
             // If there are no attacks this cycle, we skip directly to next cycle
             if (cycleIFSes.length !== 0) {
@@ -85,17 +90,6 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
                         auDiffs: 0,
                         PIAI: true
                     });
-                }
-                
-                // Run the simulation to the start of this cycle
-                let engineResult;
-                while (engine.tick < (currentCycle - 1) * 100 + 4) {
-                    engineResult = engine.update();
-                    if (engineResult !== true) {
-                        //console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (CAN'T REACH CYCLE)`); // Log failures
-                        continue combinLoop; // Obviously we wont last until PIAI, so we directly skip to combinLoop
-                    }
-                    // False results means the simulation has failed or ended prematurely (?), so we skip the combination
                 }
 
                 /* This is added to ensure that the last IFS's AUs can be calculated properly as at x99 engine enters new cycle
@@ -196,7 +190,7 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
             let engineResult;
             while (engine.tick < currentCycle * 100 + 4) {
                 engineResult = engine.update();
-                if (!engineResult || typeof engineResult == 'object') { // false = failed
+                if (engineResult !== true) { // false = failed
                     //console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (INVALID ATTACK)`); //Log failures
                     continue combinLoop; // At the same tick, no PIAI will always have more troops than PIAI, so we skip this combination if it fails
                 }
@@ -226,7 +220,7 @@ function main() {
         } else {
             for (let index = 0; index < prevIFSes.length; index++) {
                 // Deepcopy the prevIFSes[index]
-                const prevIFS = JSON.parse(JSON.stringify(prevIFSes[index].IFSes));
+                const prevIFS = structuredClone(prevIFSes[index].IFSes);
                 prevIFSes[index] = cycleLoop(cycle, prevIFS);
             }
 

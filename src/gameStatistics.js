@@ -45,6 +45,12 @@ class GameStatistics {
         }
         return result;
     }
+
+    loadState(gameStatistics) {
+        this.income = structuredClone(gameStatistics.income);
+        this.expenses = structuredClone(gameStatistics.expenses);
+        this.logs = structuredClone(gameStatistics.logs);
+    }
 }
 
 module.exports = GameStatistics;
