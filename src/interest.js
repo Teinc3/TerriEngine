@@ -39,6 +39,10 @@ class Interest {
         }
         return 0;
     }
+
+    loadState(troops) {
+        this.troops = troops;
+    }
 }
 
 module.exports = Interest;

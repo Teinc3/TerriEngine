@@ -34,6 +34,45 @@ class Time {
     addIFSes(IFSes) {
         this.instructions.IFSes = IFSes;
     }
+    
+    loadState(state) {
+        // Load state from a previous sim
+        // interest: troops
+        const { time, interest, pixel, speed, gameStatistics } = state;
+        
+        this.tick = time.tick;
+        this.instructions = structuredClone(time.instructions);
+        this.deps.pixel.loadState(pixel);
+        this.deps.speed.loadState(speed);
+        this.deps.gameStatistics.loadState(gameStatistics);
+        this.deps.interest.loadState(interest);
+    }
+
+    saveState() {
+        return {
+            time: {
+                tick: this.tick,
+                instructions: this.instructions
+            },
+            interest: this.deps.interest.troops,
+            pixel: {
+                mapArray: this.deps.pixel.mapArray,
+                land: this.deps.pixel.land,
+                boundary: this.deps.pixel.boundary
+            },
+            speed: {
+                newAttackIntervalsLeft: this.deps.speed.newAttackIntervalsLeft,
+                intervalsLeft: this.deps.speed.intervalsLeft,
+                attacking: this.deps.speed.attacking,
+                remaining: this.deps.speed.remaining
+            },
+            gameStatistics: {
+                income: this.deps.gameStatistics.income,
+                expenses: this.deps.gameStatistics.expenses,
+                logs: this.deps.gameStatistics.logs
+            }
+        }
+    }
 }
 
 module.exports = Time;
