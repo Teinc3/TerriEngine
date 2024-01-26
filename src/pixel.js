@@ -80,6 +80,15 @@ class Pixel {
         this.boundary[0] = this.boundary[2] = 99;
         this.boundary[1] = this.boundary[3] = 102;
     }
+
+    loadState(pixel) {
+        this.land = pixel.land;
+        this.boundary = structuredClone(pixel.boundary);
+        this.mapArray = new Uint8Array(pixel.mapArray.length);
+        for (let i = 0; i < this.mapArray.length; i++) {
+            this.mapArray[i] = pixel.mapArray[i];
+        }
+    }
 }
 
 module.exports = Pixel;

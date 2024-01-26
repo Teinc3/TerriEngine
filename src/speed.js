@@ -38,6 +38,14 @@ class Speed {
             this.remaining = amount;
         }
     }
+
+    loadState(speed) {
+        // Load state from a previous sim
+        this.newAttackIntervalsLeft = speed.newAttackIntervalsLeft;
+        this.intervalsLeft = speed.intervalsLeft;
+        this.attacking = speed.attacking;
+        this.remaining = speed.remaining;
+    }
 }
 
 module.exports = Speed;
