@@ -40,7 +40,7 @@ function testLoop() {
             // Initialize the simulation
             time.init();
             // Now we calculate the closest AU tick for each IFS
-            var auInterval = pixel.getLand() < 1E3 ? 4 : 3
+            var auInterval = pixel.land < 1E3 ? 4 : 3
             IFSes.forEach(IFS => {
                 var closestAU = initIFS + 7;
                 while (closestAU < IFS.IFS) {
@@ -57,7 +57,7 @@ function testLoop() {
             IFSes[IFSes.length - 1].auDiffs = 1 + Math.floor((testCycle*100 -2 - IFSes[IFSes.length - 1].CAUT)/auInterval); // We add 1 because the last IFS is inclusive itself
             // Now calculate the number of land (and troops) required for each IFS
             // We start from the first IFS and work our way forward
-            var landDiff = 0, currentBorder = (Math.sqrt(2*pixel.getLand() + 1)/2 - .5)*4;
+            var landDiff = 0, currentBorder = (Math.sqrt(2*pixel.land + 1)/2 - .5)*4;
             IFSes.forEach(IFS => {
                 var oldBorderTroops = 0;
                 if (landDiff) { //Means not the first IFS

@@ -65,7 +65,7 @@ function testLoop(testCycle) {
 
             let index = 1,
                 closestAU = cycleIFSes[0] + 7;
-            let accumulatedLand = engine.deps.pixel.getLand();
+            let accumulatedLand = engine.deps.pixel.land;
             let auInterval = accumulatedLand > 1E3 ? 3 : 4;
             
             while (index < cycleIFSes.length) {
@@ -97,7 +97,7 @@ function testLoop(testCycle) {
 
             // Now we calculate the number of land (and troops) required for each IFS
             let landDiff = 0,
-                currentBorder = 2 * Math.sqrt(2 * engine.deps.pixel.getLand() + 1) - 2;
+                currentBorder = 2 * Math.sqrt(2 * engine.deps.pixel.land + 1) - 2;
             
             cycleIFSes.forEach(IFS => {
                 let oldBorderTroops = 0;

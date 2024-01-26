@@ -48,6 +48,23 @@ The simulation result varies depending on the state of simulation.
 
 Ideally, you should call `engine.update()` in a while loop with condition en `true`.
 
+### Configurations
+The engine can be configured by modifying the `config.json` file in the `/data` subdirectory. The following configurations are available:
+
+- **IFSes**: You can insert a list of predefined attack instructions here. The engine will run the simulation correspondingly. Attribute can be left empty, but cannot be omitted.
+
+- **timings**: Set timings to control the engine's ending condition. The following settings are available:
+ - **simDuration**: The number of ticks to simulate before a result is returned. Default: `100`.
+ - **legacy** (optional): Displays the amount of troops and overall income during that tick. simDuration is usually used to rank results that end at legacy ticks. Default: `false`.
+
+- **singleplayer**: Allows attacks to be executed in Non-IFS ticks. Default: `false`.
+
+- **options**: Allows greater customization of engine configurations
+ - **noTaxOnAttack** (optional): Tax is deducted from the balance and not from the attack if the player sends more than 50% of their balance. Default: `false`.
+ - **storeCycleResults** (optional): Stores the results of each cycle in an array. Default: `false`.
+ - **pruneMoreTroops** (optional, BFS only): For two branches where the difference in land is greater than the difference in troops, prune the branch with more troops. Default: `false`.
+ - **storeSimLogs** (optional): Stores the simulation logs in the result object. Default: `false`.
+
 
 ## Opening Calculator
 

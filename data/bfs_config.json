@@ -1,8 +1,8 @@
 {
     "IFSes": [],
     "timings": {
-        "legacy": 608,
-        "simDuration": 508
+        "legacy": false,
+        "simDuration": 608
     },
     "singleplayer": false,
     "options": {
