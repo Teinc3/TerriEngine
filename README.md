@@ -105,6 +105,7 @@ Documentation for use cases will be added soon.
 * CAUT: Closest AU Tick - The tick when the next AU will occur.
 * AUDiffs: Attack Update Differences - The number of AU ticks between the current IFS and the next IFS.
 * PIAI: Pre-Interest Attack Initialization - We initialize an attack with 3 troops here. At the next AU during the next IFS, we will reinforce the bulk of the troops, if we can gain interest between the PIIT and the next AU.
+* AFAU: Abort Final Attack Update - If this is enabled, the last attack update will be removed and the attack will end prematurely before the cycle ends.
 
 ## Note
 This engine is simplified and NOT a perfect representation of the game engine. Some discrepancies may include:
@@ -115,4 +116,4 @@ This engine is simplified and NOT a perfect representation of the game engine. S
 
 ### Opening Calculator
 - Add option to drop last AU if it is not needed.
-- Add option to save engine state to boost performance.
+- Enable option for fullsend opening at the last cycle.

@@ -30,7 +30,7 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
 
     // Generate all possible combinations of IFSes for this cycle using a binary array
     const numIFSes = allCycleIFSes.length;
-    let combinations = Array(numIFSes).fill(0);
+    let combinations = Array(numIFSes + 1).fill(0);
 
     const results = [];
 
@@ -46,13 +46,14 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
     const saveState = engine.saveState();
 
     // Use a for loop to go through all IFS-Combinations this cycle
-    combinLoop: for (let combinValue = 0; combinValue < 2 ** numIFSes; combinValue++) { // 000... to 111...
+    combinLoop: for (let combinValue = 0; combinValue < 2 ** (numIFSes + 1); combinValue++) { // 000... to 111...
 
         // Convert combinValue into the combinations array
-        combinations.forEach((_, index) => combinations[index] = (combinValue >> (numIFSes - index - 1)) & 1);
+        combinations.forEach((_, index) => combinations[index] = (combinValue >> (numIFSes + 1 - index - 1)) & 1);
 
         // Filter out all disabled IFSes (And deepcopy our IFS objects)
         const baseCycleIFSes = structuredClone(allCycleIFSes.filter((_, index) => combinations[index]));
+        const abortFinalAU = !combinations[numIFSes]; // If true, then we abort the final AU (This is to prevent the final AU from being too late)
 
         // Check if there are enabled non-initIFS IFSes that cannot be buffered (Those that when -7 still has the same interest tick), then we skip this combination
         for (let index = 0; index < baseCycleIFSes.length; index++) {
@@ -65,13 +66,13 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
                     continue combinLoop;
                 }
             } else if (index == 0) { // We can set option for PIAI if its initIFS
-                IFS.PIAI = true;
+                IFS.remarks = "PIAI";
             }
         }
 
         // If PIAI is allowed for this IFS, then we make a for loop; one with PIAI ON and one OFF
         // For the one ON, we unshift an IFS of tick IFS-7 and troops 3 to the cycleIFSes array
-        piaiLoop: for (let piai = 0; piai < ((baseCycleIFSes.length == 0 || !baseCycleIFSes[0].PIAI) ? 1 : 2); piai++) {
+        piaiLoop: for (let piai = 0; piai < ((baseCycleIFSes.length == 0 || baseCycleIFSes[0].remarks !== "PIAI") ? 1 : 2); piai++) {
 
             const cycleIFSes = structuredClone(baseCycleIFSes); // Deep copy our base
 
@@ -81,13 +82,13 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
             // If there are no attacks this cycle, we skip directly to next cycle
             if (cycleIFSes.length !== 0) {
 
-                cycleIFSes[0].PIAI = false;
+                cycleIFSes[0].remarks = "default";
                 if (piai == 1) {
                     cycleIFSes.unshift({
                         IFS: cycleIFSes[0].IFS - 7,
                         troops: 3,
                         auDiffs: 0,
-                        PIAI: true
+                        remarks: "PIAI"
                     });
                 }
 
@@ -145,6 +146,15 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
                 if (cycleIFSes.length == 0) {
                     //console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (DUPLICATE, NO POSSIBLE LAND)`); // Log failures
                     continue combinLoop; // If we have no IFSes left, then we skip this combination (Since we should have already checked for this earlier)
+                } else if (abortFinalAU) {
+                    const IFS = cycleIFSes[cycleIFSes.length - 1];
+                    if (IFS.auDiffs <= 1) {
+                        //console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (ABORT FINAL AU)`); // Log failures
+                        continue combinLoop;
+                    }
+                    // Abort final AU
+                    IFS.auDiffs--;
+                    IFS.remarks = "AFAU";
                 }
 
                 // Now we calculate the number of land (and troops) required for each IFS
@@ -237,7 +247,7 @@ function main() {
                 const obj = {
                     IFS: IFS.IFS,
                     troops: IFS.troops,
-                    PIAI: IFS.PIAI,
+                    remarks: IFS.remarks,
                     CAUT: IFS.CAUT,
                     auDiffs: IFS.auDiffs
                 }
@@ -320,7 +330,7 @@ function getCycleIFSes(currentIFS) {
             CAUT: 0,
             auDiffs: 0,
             troops: 0,
-            PIAI: false
+            remarks: "default"
         });
         currentIFS += 7;
     }
