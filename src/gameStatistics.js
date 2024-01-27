@@ -39,6 +39,9 @@ class GameStatistics {
             oi: this.getOI(),
             tax: this.expenses[0],
         }
+        if (this.deps.speed.remaining > 0) {
+            result.remaining = this.deps.speed.remaining;
+        }
         if (this.storeSimLogs) {
             result.logs = this.logs;
             if (instructions?.timings?.legacy) {

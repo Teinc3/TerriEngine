@@ -39,9 +39,9 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
     if (currentCycle !== startCycle) {
         engine.addIFSes(prevIFSes);
     }
-    let engineResult;
+
     while (engine.tick < (currentCycle - 1) * 100 + 4) {
-        engineResult = engine.update();
+        engine.update();
     }
     const saveState = engine.saveState();
 
@@ -203,7 +203,7 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
         }
     }
 
-    return pruneResults(results);
+    return results;
 }
 
 function main() {
@@ -216,6 +216,7 @@ function main() {
 
         if (prevIFSes.length == 0) {
             prevIFSes = cycleLoop(cycle, []);
+            prevIFSes = pruneResults(prevIFSes, cycle);
         } else {
             for (let index = 0; index < prevIFSes.length; index++) {
                 // Deepcopy the prevIFSes[index]
@@ -227,25 +228,29 @@ function main() {
             prevIFSes = prevIFSes.reduce((arr, curr) => [...arr, ...curr], []);
 
             // Prune the prevIFSes
-            prevIFSes = pruneResults(prevIFSes);
+            prevIFSes = pruneResults(prevIFSes, cycle);
         }
 
         // Make the attributes in every IFS object (within IFSes array of each result object) consistent in order to increase readability
         prevIFSes.forEach(result => {
             result.IFSes = result.IFSes.map(IFS => {
-                return {
+                const obj = {
                     IFS: IFS.IFS,
                     troops: IFS.troops,
                     PIAI: IFS.PIAI,
                     CAUT: IFS.CAUT,
                     auDiffs: IFS.auDiffs
                 }
+                if (obj?.remaining) {
+                    obj.remaining = IFS.remaining;
+                }
+                return obj;
             });
         });
 
         const cycleEndTime = performance.now();
         performances.push(cycleEndTime - cycleStartTime);
-        console.log(`Cycle ${cycle} took ${Math.round((cycleEndTime - cycleStartTime)/10)/100} seconds.`);
+        console.log(`Cycle ${cycle} took ${Math.round((cycleEndTime - cycleStartTime)/10)/100} seconds with ${prevIFSes.length} combinations generated.`);
         if (config.options?.storeCycleResults) {
             fs.writeFileSync(`./data/bfs_data/cycle${cycle}.json`, JSON.stringify(prevIFSes, null, 2));
             console.log(`Cycle results logged to ./data/bfs_data/cycle${cycle}.json.`);        
@@ -322,7 +327,7 @@ function getCycleIFSes(currentIFS) {
     return cycleIFSes;
 }
 
-function pruneResults(results) {
+function pruneResults(results, cycle) {
     // Here we do alpha-beta pruning for all collected combinations, and raise them to the next cycle.
     let selected = []; // This is the array of selected combinations
     const landMap = {};
@@ -346,11 +351,10 @@ function pruneResults(results) {
         selected.push(maxTroopsResult);
     }
 
-    // Step 4 and 5: Prune results where both land and troops are less than another result
-    // and if 2 * (diff in land) > (diff in troops), then we prune B
+    // Step 4: Prune results where both land and troops are less than another result
     for (let i = 0; i < selected.length; i++) {
         for (let j = 0; j < selected.length; j++) {
-            if (i !== j && (selected[j].land > selected[i].land && selected[j].troops > selected[i].troops) || pruneMoreTroops(i, j)) {
+            if (i !== j && selected[j].land > selected[i].land && selected[j].troops >= selected[i].troops) {
                 selected.splice(i, 1);
                 i--; // adjust index after removal
                 break;
@@ -358,12 +362,40 @@ function pruneResults(results) {
         }
     }
 
-    return selected;
+    // Step 5: If pruneMoreTroops is enabled, then we do the following:
+    // For every remaining result we have, we run the engine up to the start of the next cycle
+    // If the difference in troops decreases for the result with more land, then we prune the result with less land
+    if (config.options?.pruneMoreTroops) {
+        for (let i = 0; i < selected.length; i++) {
+            // Run the engine up to the start of the next cycle for the current result
+            const nextCycleStart = (cycle + 1) * 100 + 4;
 
-    function pruneMoreTroops(i, j) {
-        if (!config?.options?.pruneMoreTroops) return false;
-        // return config?.options?.pruneMoreTroops && selected[j].land > selected[i].land && selected[j].troops < selected[i].troops && (selected[j].land - selected[i].land) > (selected[i].troops - selected[j].troops)
+            engine.init(config);
+            engine.tick = nextCycleStart - 100;
+            engine.land = 9999; // Set land to a large number so that red interest does not affect the result
+            engine.troops = selected[i].troops + (selected[i]?.remaining || 0); // Add remaining troops if any?
+            while (engine.tick < nextCycleStart) {
+                engine.update();
+            }
+            const futureBenchmark = engine.deps.pixel.troops - 9999 + selected[i].land;
+
+            for (let j = 0; j < selected.length; j++) {
+                if (i !== j && selected[j].land > selected[i].land) {
+                    // If the difference in troops decreases for the result with more land, prune the result with less land
+                    const diffBefore = selected[i].troops - selected[j].troops;
+                    const diffAfter = futureBenchmark - selected[j].troops;
+
+                    if (diffAfter < diffBefore) {
+                        selected.splice(i, 1);
+                        i--; // adjust index after removal
+                        break;
+                    }
+                }
+            }
+        }
     }
+
+    return selected;
 }
 
 main();
