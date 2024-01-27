@@ -8,7 +8,8 @@
     "options": {
         "noTaxOnAttack": true,
         "storeCycleResults": true,
-        "pruneMoreTroops": true
+        "pruneMoreTroops": true,
+        "storeSimLogs": false
     }
 
 }
