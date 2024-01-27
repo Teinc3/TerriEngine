@@ -19,9 +19,8 @@ if (config.IFSes && config.IFSes.length > 0) {
     startCycle = Math.ceil((latestIFS + 1) / 100) + 1; // 99 -> 2, 100 -> 3
 }
 
-const simDuration = config.timings.simDuration || 108,
-    legacyTime = config.timings.legacy || simDuration - 100, // Next cycle start
-    endCycle = Math.floor((legacyTime + 1) / 100); // watch legacy; 508 -> cyc5 end, 499 -> cyc4 end
+const simDuration = config.timings.simDuration || 108;
+    endCycle = Math.floor((simDuration + 1) / 100);
 
 function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimState in the future
 
@@ -267,19 +266,19 @@ function getEarliestIFS(cycle, endCycle) {
     let earliestTick;
     switch (cycle) {
         case 1:
-            earliestTick = 40;
+            earliestTick = 56;
             break;
         case 2:
             earliestTick = 104;
             break;
         case 3:
-            earliestTick = 230;
+            earliestTick = 240;
             break;
         case 4:
-            earliestTick = 320;
+            earliestTick = 330;
             break;
         case 5:
-            earliestTick = 408;
+            earliestTick = 420;
             break;
         case 6:
             earliestTick = 504;
@@ -362,7 +361,8 @@ function pruneResults(results) {
     return selected;
 
     function pruneMoreTroops(i, j) {
-        return config?.options?.pruneMoreTroops && selected[j].land > selected[i].land && selected[j].troops < selected[i].troops && (selected[j].land - selected[i].land) > (selected[i].troops - selected[j].troops)
+        if (!config?.options?.pruneMoreTroops) return false;
+        // return config?.options?.pruneMoreTroops && selected[j].land > selected[i].land && selected[j].troops < selected[i].troops && (selected[j].land - selected[i].land) > (selected[i].troops - selected[j].troops)
     }
 }
 
