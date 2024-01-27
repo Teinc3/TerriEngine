@@ -84,9 +84,11 @@ class Pixel {
     loadState(pixel) {
         this.land = pixel.land;
         this.boundary = structuredClone(pixel.boundary);
-        this.mapArray = new Uint8Array(pixel.mapArray.length);
-        for (let i = 0; i < this.mapArray.length; i++) {
-            this.mapArray[i] = pixel.mapArray[i];
+        this.mapArray = new Uint8Array(pixel.mapArray.length).fill(0);
+        for (let x = this.boundary[0]; x <= this.boundary[1]; x++) {
+            for (let y = this.boundary[2]; y <= this.boundary[3]; y++) {
+                this.mapArray[this.getIndex(x, y)] = pixel.mapArray[this.getIndex(x, y)];
+            }
         }
     }
 }
