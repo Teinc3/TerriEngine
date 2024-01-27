@@ -22,12 +22,16 @@ class Interest {
     }
   
     getInterestRate() {
-        let interestRate = Math.floor(100 * (13440 - 6 * this.deps.time.tick) / 1920);
+        let interestRate = this.getBaseIRate();
         const maxInterest = 100 * this.deps.pixel.land;
         if (this.troops > maxInterest) {
             interestRate -= Math.floor(2 * interestRate * (this.troops - maxInterest) / maxInterest);
         }
         return interestRate < 0 ? 0 : interestRate > 700 ? 700 : interestRate;
+    }
+
+    getBaseIRate() {
+        return Math.floor(100 * (13440 - 6 * this.deps.time.tick) / 1920);
     }
 
     capTroops() {
