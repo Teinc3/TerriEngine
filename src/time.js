@@ -56,9 +56,9 @@ class Time {
             },
             interest: this.deps.interest.troops,
             pixel: {
-                mapArray: this.deps.pixel.mapArray,
                 land: this.deps.pixel.land,
-                boundary: this.deps.pixel.boundary
+                border: this.deps.pixel.border,
+                borderIncrement: this.deps.pixel.borderIncrement
             },
             speed: {
                 newAttackIntervalsLeft: this.deps.speed.newAttackIntervalsLeft,

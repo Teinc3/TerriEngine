@@ -1,7 +1,7 @@
 // pixel.js
 // Surprisingly, this class doesn't have any dependencies. Amazing!
 
-class Pixel {
+/* class Pixel {
     constructor() {
         this.mapDims = {
             x: 200,
@@ -90,6 +90,25 @@ class Pixel {
                 this.mapArray[this.getIndex(x, y)] = pixel.mapArray[this.getIndex(x, y)];
             }
         }
+    }
+} */
+
+class Pixel {
+    constructor() {
+        this.land = 0;
+        this.border = 0;
+        this.borderIncrement = 0;
+    }
+
+    init() {
+        this.land = 12;
+        this.border = 8;
+        this.borderIncrement = 4;
+    }
+
+    loadState(pixel) {
+        this.land = pixel.land;
+        this.border = pixel.border;
     }
 }
 
