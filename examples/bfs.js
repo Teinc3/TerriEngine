@@ -144,6 +144,9 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
                 cycleIFSes.pop(); // Remove the cycle-end IFS that assisted our CAUT calculations
 
                 if (cycleIFSes.length == 0) {
+                    if (abortFinalAU) {
+                        combinValue++; // Without AFAU there would be no cycleIFSes anyways so skip
+                    }
                     //console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (DUPLICATE, NO POSSIBLE LAND)`); // Log failures
                     continue combinLoop; // If we have no IFSes left, then we skip this combination (Since we should have already checked for this earlier)
                 } else if (abortFinalAU) {
@@ -200,6 +203,9 @@ function cycleLoop(currentCycle, prevIFSes) { // Change prevIFSes to prevSimStat
             while (engine.tick < currentCycle * 100 + 4) {
                 engineResult = engine.update();
                 if (engineResult !== true) { // false = failed
+                    if (abortFinalAU) { // If we abort final AU but still fail, then we know the next combin (with final AU) will also fail
+                        combinValue++; // so we skip it
+                    }
                     //console.log(`${combinValue} (${cycleIFSes.map(obj => obj.IFS)}) @ PIAI ${piai == 1}: FAILED (INVALID ATTACK)`); //Log failures
                     continue combinLoop; // At the same tick, no PIAI will always have more troops than PIAI, so we skip this combination if it fails
                 }
