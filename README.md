@@ -64,6 +64,7 @@ The engine can be configured by modifying the `config.json` file in the `/data` 
  - **storeCycleResults** (optional): Stores the results of each cycle in an array. Default: `false`.
  - **pruneMoreTroops** (optional, BFS only): For two branches where the difference in land is greater than the difference in troops, prune the branch with more troops. Default: `false`.
  - **storeSimLogs** (optional): Stores the simulation logs in the result object. Default: `false`.
+ - **checkAllAUInterval** (optional): The opening calculator will check land to see if auInterval will change, up to the 60kl speed increase. Default: `false`.
 
 
 ## Opening Calculator
@@ -111,9 +112,3 @@ Documentation for use cases will be added soon.
 This engine is simplified and NOT a perfect representation of the game engine. Some discrepancies may include:
 - Multiplayer interactions are not supported.
 - The engine does not support interest change due to high land count. It is assumed to decrease at a linear rate.
-
-## TODO
-
-### Opening Calculator
-- Add option to drop last AU if it is not needed.
-- Enable option for fullsend opening at the last cycle.
