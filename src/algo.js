@@ -1,6 +1,6 @@
 // algo.js
 
-class Algo {
+/* class Algo {
     constructor(deps) {
         this.deps = deps;
         
@@ -63,6 +63,41 @@ class Algo {
             this.deps.pixel.setPixel(this.deps.pixel.getX(pIndex), this.deps.pixel.getY(pIndex), 2);
         }
         this.deps.pixel.updatePixels();
+    }
+} */
+
+class Algo {
+    constructor(deps) {
+        this.deps = deps;
+        
+        this.neutCost = 2;
+        this.markedPixelCount = 0;
+    }
+
+    attackProcessInit() {
+        this.markedPixelCount = this.deps.pixel.border + this.deps.pixel.borderIncrement;
+        if (this.markedPixelCount === 0) {
+            this.returnRemaining();
+        } else {
+            const remaining = this.deps.speed.remaining;
+            if (Math.floor(remaining / this.markedPixelCount) > this.neutCost) {
+                this.takeBorderPixels();
+            } else {
+                this.returnRemaining();
+            }
+        }
+    }
+
+    returnRemaining() {
+        this.deps.interest.troops += this.deps.speed.remaining;
+        this.deps.gameStatistics.expenses[1] -= this.deps.speed.remaining;
+        this.deps.speed.removeEntry();
+    }
+  
+    takeBorderPixels() {
+        this.deps.speed.remaining -= this.markedPixelCount * this.neutCost;
+        this.deps.pixel.land += this.markedPixelCount;
+        this.deps.pixel.border += this.deps.pixel.borderIncrement;
     }
 }
 
