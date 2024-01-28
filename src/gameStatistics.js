@@ -38,16 +38,15 @@ class GameStatistics {
             land: this.deps.pixel.land,
             oi: this.getOI(),
             tax: this.expenses[0],
-        }
-        if (this.deps.speed.remaining > 0) {
-            result.remaining = this.deps.speed.remaining;
+            remaining: this.deps.speed.remaining
         }
         if (this.storeSimLogs) {
             result.logs = this.logs;
             if (instructions?.timings?.legacy) {
                 result.legacy = {
                     troops: this.logs.find(log => log.tick == instructions.timings.legacy)?.troops,
-                    oi: this.logs.find(log => log.tick == instructions.timings.legacy)?.oi
+                    oi: this.logs.find(log => log.tick == instructions.timings.legacy)?.oi,
+                    remaining: this.logs.find(log => log.tick == instructions.timings.legacy)?.remaining
                 }
             }
         }

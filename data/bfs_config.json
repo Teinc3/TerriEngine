@@ -2,14 +2,15 @@
     "IFSes": [],
     "timings": {
         "legacy": false,
-        "simDuration": 608
+        "simDuration": 708
     },
     "singleplayer": false,
     "options": {
         "noTaxOnAttack": true,
         "storeCycleResults": true,
         "pruneMoreTroops": true,
-        "storeSimLogs": false
+        "storeSimLogs": false,
+        "checkAllAUInterval": true
     }
 
 }
