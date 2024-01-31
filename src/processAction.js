@@ -3,6 +3,8 @@
 class ProcessAction {
     constructor(deps) {
         this.deps = deps;
+
+        this.ratioBase = 1000;
     }
   
     update() { // Returns false if an illegal attack takes place
@@ -10,17 +12,24 @@ class ProcessAction {
         const IFS = instructions.IFSes.find(IFS => IFS.IFS === this.deps.time.tick);
         if (!IFS) return true; // No attack this tick, still safe
         if (!this.isInfoSend() && !instructions.singleplayer) throw new Error(`${this.deps.time.tick} is not an IFS tick!`);
-        return this.processAttack(IFS.troops); // Status of Attack
+        return this.processAttack(IFS); // Status of Attack
     }
   
     isInfoSend() {
         return this.deps.time.tick % 7 === 0;
     }
   
-    processAttack(amount) {
+    processAttack(IFS) {
+        let amount;
         const tax = Math.floor(this.deps.interest.troops * 3 / 256);
-        if (!this.deps.time.instructions?.options?.noTaxOnAttack) {
-            amount -= amount * 2 >= this.deps.interest.troops ? tax : 0;
+        const useRatio = IFS.hasOwnProperty('ratio');
+        if (useRatio) {
+            amount = Math.floor(this.deps.interest.troops * IFS.ratio / this.ratioBase);
+        } else {
+            amount = IFS.troops;
+        }
+        if (useRatio || !this.deps.time.instructions?.options?.noTaxOnAttack) {
+            amount -= (amount * 2 >= this.deps.interest.troops ? tax : 0);
         }
         if (amount > 2) { // minDefensePerSquare
             this.deps.interest.troops -= (amount + tax);
