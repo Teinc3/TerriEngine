@@ -1,6 +1,10 @@
 # TerriEngine
 TerriEngine is an opening engine for the strategy game territorial.io. It is a simplified version of the algorithm used in game to calculate expansion and attack moves written in node.js.
 
+> [!NOTE]
+> After the implementation of the Replay system in game (to synchronise registration ticks for both SP and MP commands), the algorithm implemented in the engine is not updated to reflect that in game.
+>
+> Unfortunately I am too lazy to update the algorithm and rewrite the Opening Calculator. This is why V6 opening does not actually work in the game now, but if you open up an older game version you would still be able to execute it flawlessly (at least in theory)
 
 ## Structure
 The engine files are stored within the `/src` subdirectory and are as follows:
