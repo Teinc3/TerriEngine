@@ -1,12 +1,24 @@
 {
-    "IFSes": [],
+    "IFSes": [
+        { "IFS": 70, "troops": 228 },
+        { "IFS": 175, "troops": 449 },
+        { "IFS": 273, "troops": 669 },
+        { "IFS": 371, "troops": 1076 },
+        { "IFS": 469, "troops": 1886 }
+    ],
     "timings": {
-        "legacy": false,
-        "simDuration": 508
+        "legacy": 508,
+        "simDuration": 608
     },
     "singleplayer": false,
-    "options": {
-        "noTaxOnAttack": true,
-        "storeSimLogs": true
+    "results": {
+        "troops": 13220,
+        "land": 1984,
+        "oi": 17322,
+        "tax": 158,
+        "legacy": {
+            "troops": 6731,
+            "oi": 10833 
+        }
     }
 }
