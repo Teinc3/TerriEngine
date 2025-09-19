@@ -1,0 +1,5775 @@
+{
+  "IFSes": [
+    {
+      "IFS": 70,
+      "ratio": 208
+    },
+    {
+      "IFS": 91,
+      "ratio": 178
+    },
+    {
+      "IFS": 175,
+      "ratio": 155
+    },
+    {
+      "IFS": 189,
+      "ratio": 256
+    },
+    {
+      "IFS": 259,
+      "ratio": 295
+    },
+    {
+      "IFS": 280,
+      "ratio": 314
+    },
+    {
+      "IFS": 294,
+      "ratio": 330
+    },
+    {
+      "IFS": 364,
+      "ratio": 2
+    },
+    {
+      "IFS": 371,
+      "ratio": 405
+    },
+    {
+      "IFS": 385,
+      "ratio": 276
+    },
+    {
+      "IFS": 392,
+      "ratio": 608
+    },
+    {
+      "IFS": 455,
+      "ratio": 1
+    },
+    {
+      "IFS": 462,
+      "ratio": 252
+    },
+    {
+      "IFS": 469,
+      "ratio": 412
+    },
+    {
+      "IFS": 483,
+      "ratio": 568
+    },
+    {
+      "IFS": 490,
+      "ratio": 872
+    },
+    {
+      "IFS": 553,
+      "ratio": 1
+    },
+    {
+      "IFS": 560,
+      "ratio": 516
+    },
+    {
+      "IFS": 581,
+      "ratio": 720
+    },
+    {
+      "IFS": 595,
+      "ratio": 520
+    },
+    {
+      "IFS": 644,
+      "ratio": 1
+    },
+    {
+      "IFS": 651,
+      "ratio": 399
+    },
+    {
+      "IFS": 672,
+      "ratio": 266
+    },
+    {
+      "IFS": 679,
+      "ratio": 496
+    },
+    {
+      "IFS": 693,
+      "ratio": 767
+    }
+  ],
+  "troops": 11968,
+  "land": 11100,
+  "oi": 35019,
+  "tax": 875,
+  "remaining": 0,
+  "logs": [
+    {
+      "tick": 0,
+      "troops": 512,
+      "land": 12,
+      "remaining": 0,
+      "oi": 512,
+      "tax": 0
+    },
+    {
+      "tick": 1,
+      "troops": 512,
+      "land": 12,
+      "remaining": 0,
+      "oi": 512,
+      "tax": 0
+    },
+    {
+      "tick": 2,
+      "troops": 512,
+      "land": 12,
+      "remaining": 0,
+      "oi": 512,
+      "tax": 0
+    },
+    {
+      "tick": 3,
+      "troops": 512,
+      "land": 12,
+      "remaining": 0,
+      "oi": 512,
+      "tax": 0
+    },
+    {
+      "tick": 4,
+      "troops": 512,
+      "land": 12,
+      "remaining": 0,
+      "oi": 512,
+      "tax": 0
+    },
+    {
+      "tick": 5,
+      "troops": 512,
+      "land": 12,
+      "remaining": 0,
+      "oi": 512,
+      "tax": 0
+    },
+    {
+      "tick": 6,
+      "troops": 512,
+      "land": 12,
+      "remaining": 0,
+      "oi": 512,
+      "tax": 0
+    },
+    {
+      "tick": 7,
+      "troops": 512,
+      "land": 12,
+      "remaining": 0,
+      "oi": 512,
+      "tax": 0
+    },
+    {
+      "tick": 8,
+      "troops": 512,
+      "land": 12,
+      "remaining": 0,
+      "oi": 512,
+      "tax": 0
+    },
+    {
+      "tick": 9,
+      "troops": 547,
+      "land": 12,
+      "remaining": 0,
+      "oi": 547,
+      "tax": 0
+    },
+    {
+      "tick": 10,
+      "troops": 547,
+      "land": 12,
+      "remaining": 0,
+      "oi": 547,
+      "tax": 0
+    },
+    {
+      "tick": 11,
+      "troops": 547,
+      "land": 12,
+      "remaining": 0,
+      "oi": 547,
+      "tax": 0
+    },
+    {
+      "tick": 12,
+      "troops": 547,
+      "land": 12,
+      "remaining": 0,
+      "oi": 547,
+      "tax": 0
+    },
+    {
+      "tick": 13,
+      "troops": 547,
+      "land": 12,
+      "remaining": 0,
+      "oi": 547,
+      "tax": 0
+    },
+    {
+      "tick": 14,
+      "troops": 547,
+      "land": 12,
+      "remaining": 0,
+      "oi": 547,
+      "tax": 0
+    },
+    {
+      "tick": 15,
+      "troops": 547,
+      "land": 12,
+      "remaining": 0,
+      "oi": 547,
+      "tax": 0
+    },
+    {
+      "tick": 16,
+      "troops": 547,
+      "land": 12,
+      "remaining": 0,
+      "oi": 547,
+      "tax": 0
+    },
+    {
+      "tick": 17,
+      "troops": 547,
+      "land": 12,
+      "remaining": 0,
+      "oi": 547,
+      "tax": 0
+    },
+    {
+      "tick": 18,
+      "troops": 547,
+      "land": 12,
+      "remaining": 0,
+      "oi": 547,
+      "tax": 0
+    },
+    {
+      "tick": 19,
+      "troops": 584,
+      "land": 12,
+      "remaining": 0,
+      "oi": 584,
+      "tax": 0
+    },
+    {
+      "tick": 20,
+      "troops": 584,
+      "land": 12,
+      "remaining": 0,
+      "oi": 584,
+      "tax": 0
+    },
+    {
+      "tick": 21,
+      "troops": 584,
+      "land": 12,
+      "remaining": 0,
+      "oi": 584,
+      "tax": 0
+    },
+    {
+      "tick": 22,
+      "troops": 584,
+      "land": 12,
+      "remaining": 0,
+      "oi": 584,
+      "tax": 0
+    },
+    {
+      "tick": 23,
+      "troops": 584,
+      "land": 12,
+      "remaining": 0,
+      "oi": 584,
+      "tax": 0
+    },
+    {
+      "tick": 24,
+      "troops": 584,
+      "land": 12,
+      "remaining": 0,
+      "oi": 584,
+      "tax": 0
+    },
+    {
+      "tick": 25,
+      "troops": 584,
+      "land": 12,
+      "remaining": 0,
+      "oi": 584,
+      "tax": 0
+    },
+    {
+      "tick": 26,
+      "troops": 584,
+      "land": 12,
+      "remaining": 0,
+      "oi": 584,
+      "tax": 0
+    },
+    {
+      "tick": 27,
+      "troops": 584,
+      "land": 12,
+      "remaining": 0,
+      "oi": 584,
+      "tax": 0
+    },
+    {
+      "tick": 28,
+      "troops": 584,
+      "land": 12,
+      "remaining": 0,
+      "oi": 584,
+      "tax": 0
+    },
+    {
+      "tick": 29,
+      "troops": 624,
+      "land": 12,
+      "remaining": 0,
+      "oi": 624,
+      "tax": 0
+    },
+    {
+      "tick": 30,
+      "troops": 624,
+      "land": 12,
+      "remaining": 0,
+      "oi": 624,
+      "tax": 0
+    },
+    {
+      "tick": 31,
+      "troops": 624,
+      "land": 12,
+      "remaining": 0,
+      "oi": 624,
+      "tax": 0
+    },
+    {
+      "tick": 32,
+      "troops": 624,
+      "land": 12,
+      "remaining": 0,
+      "oi": 624,
+      "tax": 0
+    },
+    {
+      "tick": 33,
+      "troops": 624,
+      "land": 12,
+      "remaining": 0,
+      "oi": 624,
+      "tax": 0
+    },
+    {
+      "tick": 34,
+      "troops": 624,
+      "land": 12,
+      "remaining": 0,
+      "oi": 624,
+      "tax": 0
+    },
+    {
+      "tick": 35,
+      "troops": 624,
+      "land": 12,
+      "remaining": 0,
+      "oi": 624,
+      "tax": 0
+    },
+    {
+      "tick": 36,
+      "troops": 624,
+      "land": 12,
+      "remaining": 0,
+      "oi": 624,
+      "tax": 0
+    },
+    {
+      "tick": 37,
+      "troops": 624,
+      "land": 12,
+      "remaining": 0,
+      "oi": 624,
+      "tax": 0
+    },
+    {
+      "tick": 38,
+      "troops": 624,
+      "land": 12,
+      "remaining": 0,
+      "oi": 624,
+      "tax": 0
+    },
+    {
+      "tick": 39,
+      "troops": 666,
+      "land": 12,
+      "remaining": 0,
+      "oi": 666,
+      "tax": 0
+    },
+    {
+      "tick": 40,
+      "troops": 666,
+      "land": 12,
+      "remaining": 0,
+      "oi": 666,
+      "tax": 0
+    },
+    {
+      "tick": 41,
+      "troops": 666,
+      "land": 12,
+      "remaining": 0,
+      "oi": 666,
+      "tax": 0
+    },
+    {
+      "tick": 42,
+      "troops": 666,
+      "land": 12,
+      "remaining": 0,
+      "oi": 666,
+      "tax": 0
+    },
+    {
+      "tick": 43,
+      "troops": 666,
+      "land": 12,
+      "remaining": 0,
+      "oi": 666,
+      "tax": 0
+    },
+    {
+      "tick": 44,
+      "troops": 666,
+      "land": 12,
+      "remaining": 0,
+      "oi": 666,
+      "tax": 0
+    },
+    {
+      "tick": 45,
+      "troops": 666,
+      "land": 12,
+      "remaining": 0,
+      "oi": 666,
+      "tax": 0
+    },
+    {
+      "tick": 46,
+      "troops": 666,
+      "land": 12,
+      "remaining": 0,
+      "oi": 666,
+      "tax": 0
+    },
+    {
+      "tick": 47,
+      "troops": 666,
+      "land": 12,
+      "remaining": 0,
+      "oi": 666,
+      "tax": 0
+    },
+    {
+      "tick": 48,
+      "troops": 666,
+      "land": 12,
+      "remaining": 0,
+      "oi": 666,
+      "tax": 0
+    },
+    {
+      "tick": 49,
+      "troops": 711,
+      "land": 12,
+      "remaining": 0,
+      "oi": 711,
+      "tax": 0
+    },
+    {
+      "tick": 50,
+      "troops": 711,
+      "land": 12,
+      "remaining": 0,
+      "oi": 711,
+      "tax": 0
+    },
+    {
+      "tick": 51,
+      "troops": 711,
+      "land": 12,
+      "remaining": 0,
+      "oi": 711,
+      "tax": 0
+    },
+    {
+      "tick": 52,
+      "troops": 711,
+      "land": 12,
+      "remaining": 0,
+      "oi": 711,
+      "tax": 0
+    },
+    {
+      "tick": 53,
+      "troops": 711,
+      "land": 12,
+      "remaining": 0,
+      "oi": 711,
+      "tax": 0
+    },
+    {
+      "tick": 54,
+      "troops": 711,
+      "land": 12,
+      "remaining": 0,
+      "oi": 711,
+      "tax": 0
+    },
+    {
+      "tick": 55,
+      "troops": 711,
+      "land": 12,
+      "remaining": 0,
+      "oi": 711,
+      "tax": 0
+    },
+    {
+      "tick": 56,
+      "troops": 711,
+      "land": 12,
+      "remaining": 0,
+      "oi": 711,
+      "tax": 0
+    },
+    {
+      "tick": 57,
+      "troops": 711,
+      "land": 12,
+      "remaining": 0,
+      "oi": 711,
+      "tax": 0
+    },
+    {
+      "tick": 58,
+      "troops": 711,
+      "land": 12,
+      "remaining": 0,
+      "oi": 711,
+      "tax": 0
+    },
+    {
+      "tick": 59,
+      "troops": 759,
+      "land": 12,
+      "remaining": 0,
+      "oi": 759,
+      "tax": 0
+    },
+    {
+      "tick": 60,
+      "troops": 759,
+      "land": 12,
+      "remaining": 0,
+      "oi": 759,
+      "tax": 0
+    },
+    {
+      "tick": 61,
+      "troops": 759,
+      "land": 12,
+      "remaining": 0,
+      "oi": 759,
+      "tax": 0
+    },
+    {
+      "tick": 62,
+      "troops": 759,
+      "land": 12,
+      "remaining": 0,
+      "oi": 759,
+      "tax": 0
+    },
+    {
+      "tick": 63,
+      "troops": 759,
+      "land": 12,
+      "remaining": 0,
+      "oi": 759,
+      "tax": 0
+    },
+    {
+      "tick": 64,
+      "troops": 759,
+      "land": 12,
+      "remaining": 0,
+      "oi": 759,
+      "tax": 0
+    },
+    {
+      "tick": 65,
+      "troops": 759,
+      "land": 12,
+      "remaining": 0,
+      "oi": 759,
+      "tax": 0
+    },
+    {
+      "tick": 66,
+      "troops": 759,
+      "land": 12,
+      "remaining": 0,
+      "oi": 759,
+      "tax": 0
+    },
+    {
+      "tick": 67,
+      "troops": 759,
+      "land": 12,
+      "remaining": 0,
+      "oi": 759,
+      "tax": 0
+    },
+    {
+      "tick": 68,
+      "troops": 759,
+      "land": 12,
+      "remaining": 0,
+      "oi": 759,
+      "tax": 0
+    },
+    {
+      "tick": 69,
+      "troops": 810,
+      "land": 12,
+      "remaining": 0,
+      "oi": 810,
+      "tax": 0
+    },
+    {
+      "tick": 70,
+      "troops": 633,
+      "land": 12,
+      "remaining": 168,
+      "oi": 810,
+      "tax": 9
+    },
+    {
+      "tick": 71,
+      "troops": 633,
+      "land": 12,
+      "remaining": 168,
+      "oi": 810,
+      "tax": 9
+    },
+    {
+      "tick": 72,
+      "troops": 633,
+      "land": 12,
+      "remaining": 168,
+      "oi": 810,
+      "tax": 9
+    },
+    {
+      "tick": 73,
+      "troops": 633,
+      "land": 12,
+      "remaining": 168,
+      "oi": 810,
+      "tax": 9
+    },
+    {
+      "tick": 74,
+      "troops": 633,
+      "land": 12,
+      "remaining": 168,
+      "oi": 810,
+      "tax": 9
+    },
+    {
+      "tick": 75,
+      "troops": 633,
+      "land": 12,
+      "remaining": 168,
+      "oi": 810,
+      "tax": 9
+    },
+    {
+      "tick": 76,
+      "troops": 633,
+      "land": 12,
+      "remaining": 168,
+      "oi": 810,
+      "tax": 9
+    },
+    {
+      "tick": 77,
+      "troops": 633,
+      "land": 24,
+      "remaining": 144,
+      "oi": 810,
+      "tax": 9
+    },
+    {
+      "tick": 78,
+      "troops": 633,
+      "land": 24,
+      "remaining": 144,
+      "oi": 810,
+      "tax": 9
+    },
+    {
+      "tick": 79,
+      "troops": 675,
+      "land": 24,
+      "remaining": 144,
+      "oi": 852,
+      "tax": 9
+    },
+    {
+      "tick": 80,
+      "troops": 675,
+      "land": 24,
+      "remaining": 144,
+      "oi": 852,
+      "tax": 9
+    },
+    {
+      "tick": 81,
+      "troops": 675,
+      "land": 40,
+      "remaining": 112,
+      "oi": 852,
+      "tax": 9
+    },
+    {
+      "tick": 82,
+      "troops": 675,
+      "land": 40,
+      "remaining": 112,
+      "oi": 852,
+      "tax": 9
+    },
+    {
+      "tick": 83,
+      "troops": 675,
+      "land": 40,
+      "remaining": 112,
+      "oi": 852,
+      "tax": 9
+    },
+    {
+      "tick": 84,
+      "troops": 675,
+      "land": 40,
+      "remaining": 112,
+      "oi": 852,
+      "tax": 9
+    },
+    {
+      "tick": 85,
+      "troops": 675,
+      "land": 60,
+      "remaining": 72,
+      "oi": 852,
+      "tax": 9
+    },
+    {
+      "tick": 86,
+      "troops": 675,
+      "land": 60,
+      "remaining": 72,
+      "oi": 852,
+      "tax": 9
+    },
+    {
+      "tick": 87,
+      "troops": 675,
+      "land": 60,
+      "remaining": 72,
+      "oi": 852,
+      "tax": 9
+    },
+    {
+      "tick": 88,
+      "troops": 675,
+      "land": 60,
+      "remaining": 72,
+      "oi": 852,
+      "tax": 9
+    },
+    {
+      "tick": 89,
+      "troops": 720,
+      "land": 84,
+      "remaining": 24,
+      "oi": 897,
+      "tax": 9
+    },
+    {
+      "tick": 90,
+      "troops": 720,
+      "land": 84,
+      "remaining": 24,
+      "oi": 897,
+      "tax": 9
+    },
+    {
+      "tick": 91,
+      "troops": 584,
+      "land": 84,
+      "remaining": 152,
+      "oi": 897,
+      "tax": 17
+    },
+    {
+      "tick": 92,
+      "troops": 584,
+      "land": 84,
+      "remaining": 152,
+      "oi": 897,
+      "tax": 17
+    },
+    {
+      "tick": 93,
+      "troops": 584,
+      "land": 112,
+      "remaining": 96,
+      "oi": 897,
+      "tax": 17
+    },
+    {
+      "tick": 94,
+      "troops": 584,
+      "land": 112,
+      "remaining": 96,
+      "oi": 897,
+      "tax": 17
+    },
+    {
+      "tick": 95,
+      "troops": 584,
+      "land": 112,
+      "remaining": 96,
+      "oi": 897,
+      "tax": 17
+    },
+    {
+      "tick": 96,
+      "troops": 584,
+      "land": 112,
+      "remaining": 96,
+      "oi": 897,
+      "tax": 17
+    },
+    {
+      "tick": 97,
+      "troops": 584,
+      "land": 144,
+      "remaining": 32,
+      "oi": 897,
+      "tax": 17
+    },
+    {
+      "tick": 98,
+      "troops": 584,
+      "land": 144,
+      "remaining": 32,
+      "oi": 897,
+      "tax": 17
+    },
+    {
+      "tick": 99,
+      "troops": 767,
+      "land": 144,
+      "remaining": 32,
+      "oi": 1080,
+      "tax": 17
+    },
+    {
+      "tick": 100,
+      "troops": 767,
+      "land": 144,
+      "remaining": 32,
+      "oi": 1080,
+      "tax": 17
+    },
+    {
+      "tick": 101,
+      "troops": 799,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1080,
+      "tax": 17
+    },
+    {
+      "tick": 102,
+      "troops": 799,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1080,
+      "tax": 17
+    },
+    {
+      "tick": 103,
+      "troops": 799,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1080,
+      "tax": 17
+    },
+    {
+      "tick": 104,
+      "troops": 799,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1080,
+      "tax": 17
+    },
+    {
+      "tick": 105,
+      "troops": 799,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1080,
+      "tax": 17
+    },
+    {
+      "tick": 106,
+      "troops": 799,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1080,
+      "tax": 17
+    },
+    {
+      "tick": 107,
+      "troops": 799,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1080,
+      "tax": 17
+    },
+    {
+      "tick": 108,
+      "troops": 799,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1080,
+      "tax": 17
+    },
+    {
+      "tick": 109,
+      "troops": 852,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1133,
+      "tax": 17
+    },
+    {
+      "tick": 110,
+      "troops": 852,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1133,
+      "tax": 17
+    },
+    {
+      "tick": 111,
+      "troops": 852,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1133,
+      "tax": 17
+    },
+    {
+      "tick": 112,
+      "troops": 852,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1133,
+      "tax": 17
+    },
+    {
+      "tick": 113,
+      "troops": 852,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1133,
+      "tax": 17
+    },
+    {
+      "tick": 114,
+      "troops": 852,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1133,
+      "tax": 17
+    },
+    {
+      "tick": 115,
+      "troops": 852,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1133,
+      "tax": 17
+    },
+    {
+      "tick": 116,
+      "troops": 852,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1133,
+      "tax": 17
+    },
+    {
+      "tick": 117,
+      "troops": 852,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1133,
+      "tax": 17
+    },
+    {
+      "tick": 118,
+      "troops": 852,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1133,
+      "tax": 17
+    },
+    {
+      "tick": 119,
+      "troops": 908,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1189,
+      "tax": 17
+    },
+    {
+      "tick": 120,
+      "troops": 908,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1189,
+      "tax": 17
+    },
+    {
+      "tick": 121,
+      "troops": 908,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1189,
+      "tax": 17
+    },
+    {
+      "tick": 122,
+      "troops": 908,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1189,
+      "tax": 17
+    },
+    {
+      "tick": 123,
+      "troops": 908,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1189,
+      "tax": 17
+    },
+    {
+      "tick": 124,
+      "troops": 908,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1189,
+      "tax": 17
+    },
+    {
+      "tick": 125,
+      "troops": 908,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1189,
+      "tax": 17
+    },
+    {
+      "tick": 126,
+      "troops": 908,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1189,
+      "tax": 17
+    },
+    {
+      "tick": 127,
+      "troops": 908,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1189,
+      "tax": 17
+    },
+    {
+      "tick": 128,
+      "troops": 908,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1189,
+      "tax": 17
+    },
+    {
+      "tick": 129,
+      "troops": 967,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1248,
+      "tax": 17
+    },
+    {
+      "tick": 130,
+      "troops": 967,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1248,
+      "tax": 17
+    },
+    {
+      "tick": 131,
+      "troops": 967,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1248,
+      "tax": 17
+    },
+    {
+      "tick": 132,
+      "troops": 967,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1248,
+      "tax": 17
+    },
+    {
+      "tick": 133,
+      "troops": 967,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1248,
+      "tax": 17
+    },
+    {
+      "tick": 134,
+      "troops": 967,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1248,
+      "tax": 17
+    },
+    {
+      "tick": 135,
+      "troops": 967,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1248,
+      "tax": 17
+    },
+    {
+      "tick": 136,
+      "troops": 967,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1248,
+      "tax": 17
+    },
+    {
+      "tick": 137,
+      "troops": 967,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1248,
+      "tax": 17
+    },
+    {
+      "tick": 138,
+      "troops": 967,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1248,
+      "tax": 17
+    },
+    {
+      "tick": 139,
+      "troops": 1030,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1311,
+      "tax": 17
+    },
+    {
+      "tick": 140,
+      "troops": 1030,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1311,
+      "tax": 17
+    },
+    {
+      "tick": 141,
+      "troops": 1030,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1311,
+      "tax": 17
+    },
+    {
+      "tick": 142,
+      "troops": 1030,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1311,
+      "tax": 17
+    },
+    {
+      "tick": 143,
+      "troops": 1030,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1311,
+      "tax": 17
+    },
+    {
+      "tick": 144,
+      "troops": 1030,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1311,
+      "tax": 17
+    },
+    {
+      "tick": 145,
+      "troops": 1030,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1311,
+      "tax": 17
+    },
+    {
+      "tick": 146,
+      "troops": 1030,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1311,
+      "tax": 17
+    },
+    {
+      "tick": 147,
+      "troops": 1030,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1311,
+      "tax": 17
+    },
+    {
+      "tick": 148,
+      "troops": 1030,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1311,
+      "tax": 17
+    },
+    {
+      "tick": 149,
+      "troops": 1097,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1378,
+      "tax": 17
+    },
+    {
+      "tick": 150,
+      "troops": 1097,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1378,
+      "tax": 17
+    },
+    {
+      "tick": 151,
+      "troops": 1097,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1378,
+      "tax": 17
+    },
+    {
+      "tick": 152,
+      "troops": 1097,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1378,
+      "tax": 17
+    },
+    {
+      "tick": 153,
+      "troops": 1097,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1378,
+      "tax": 17
+    },
+    {
+      "tick": 154,
+      "troops": 1097,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1378,
+      "tax": 17
+    },
+    {
+      "tick": 155,
+      "troops": 1097,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1378,
+      "tax": 17
+    },
+    {
+      "tick": 156,
+      "troops": 1097,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1378,
+      "tax": 17
+    },
+    {
+      "tick": 157,
+      "troops": 1097,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1378,
+      "tax": 17
+    },
+    {
+      "tick": 158,
+      "troops": 1097,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1378,
+      "tax": 17
+    },
+    {
+      "tick": 159,
+      "troops": 1168,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1449,
+      "tax": 17
+    },
+    {
+      "tick": 160,
+      "troops": 1168,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1449,
+      "tax": 17
+    },
+    {
+      "tick": 161,
+      "troops": 1168,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1449,
+      "tax": 17
+    },
+    {
+      "tick": 162,
+      "troops": 1168,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1449,
+      "tax": 17
+    },
+    {
+      "tick": 163,
+      "troops": 1168,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1449,
+      "tax": 17
+    },
+    {
+      "tick": 164,
+      "troops": 1168,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1449,
+      "tax": 17
+    },
+    {
+      "tick": 165,
+      "troops": 1168,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1449,
+      "tax": 17
+    },
+    {
+      "tick": 166,
+      "troops": 1168,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1449,
+      "tax": 17
+    },
+    {
+      "tick": 167,
+      "troops": 1168,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1449,
+      "tax": 17
+    },
+    {
+      "tick": 168,
+      "troops": 1168,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1449,
+      "tax": 17
+    },
+    {
+      "tick": 169,
+      "troops": 1243,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1524,
+      "tax": 17
+    },
+    {
+      "tick": 170,
+      "troops": 1243,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1524,
+      "tax": 17
+    },
+    {
+      "tick": 171,
+      "troops": 1243,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1524,
+      "tax": 17
+    },
+    {
+      "tick": 172,
+      "troops": 1243,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1524,
+      "tax": 17
+    },
+    {
+      "tick": 173,
+      "troops": 1243,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1524,
+      "tax": 17
+    },
+    {
+      "tick": 174,
+      "troops": 1243,
+      "land": 144,
+      "remaining": 0,
+      "oi": 1524,
+      "tax": 17
+    },
+    {
+      "tick": 175,
+      "troops": 1037,
+      "land": 144,
+      "remaining": 192,
+      "oi": 1524,
+      "tax": 31
+    },
+    {
+      "tick": 176,
+      "troops": 1037,
+      "land": 144,
+      "remaining": 192,
+      "oi": 1524,
+      "tax": 31
+    },
+    {
+      "tick": 177,
+      "troops": 1037,
+      "land": 144,
+      "remaining": 192,
+      "oi": 1524,
+      "tax": 31
+    },
+    {
+      "tick": 178,
+      "troops": 1037,
+      "land": 144,
+      "remaining": 192,
+      "oi": 1524,
+      "tax": 31
+    },
+    {
+      "tick": 179,
+      "troops": 1103,
+      "land": 144,
+      "remaining": 192,
+      "oi": 1590,
+      "tax": 31
+    },
+    {
+      "tick": 180,
+      "troops": 1103,
+      "land": 144,
+      "remaining": 192,
+      "oi": 1590,
+      "tax": 31
+    },
+    {
+      "tick": 181,
+      "troops": 1103,
+      "land": 144,
+      "remaining": 192,
+      "oi": 1590,
+      "tax": 31
+    },
+    {
+      "tick": 182,
+      "troops": 1103,
+      "land": 180,
+      "remaining": 120,
+      "oi": 1590,
+      "tax": 31
+    },
+    {
+      "tick": 183,
+      "troops": 1103,
+      "land": 180,
+      "remaining": 120,
+      "oi": 1590,
+      "tax": 31
+    },
+    {
+      "tick": 184,
+      "troops": 1103,
+      "land": 180,
+      "remaining": 120,
+      "oi": 1590,
+      "tax": 31
+    },
+    {
+      "tick": 185,
+      "troops": 1103,
+      "land": 180,
+      "remaining": 120,
+      "oi": 1590,
+      "tax": 31
+    },
+    {
+      "tick": 186,
+      "troops": 1103,
+      "land": 220,
+      "remaining": 40,
+      "oi": 1590,
+      "tax": 31
+    },
+    {
+      "tick": 187,
+      "troops": 1103,
+      "land": 220,
+      "remaining": 40,
+      "oi": 1590,
+      "tax": 31
+    },
+    {
+      "tick": 188,
+      "troops": 1103,
+      "land": 220,
+      "remaining": 40,
+      "oi": 1590,
+      "tax": 31
+    },
+    {
+      "tick": 189,
+      "troops": 860,
+      "land": 220,
+      "remaining": 340,
+      "oi": 1660,
+      "tax": 44
+    },
+    {
+      "tick": 190,
+      "troops": 860,
+      "land": 264,
+      "remaining": 252,
+      "oi": 1660,
+      "tax": 44
+    },
+    {
+      "tick": 191,
+      "troops": 860,
+      "land": 264,
+      "remaining": 252,
+      "oi": 1660,
+      "tax": 44
+    },
+    {
+      "tick": 192,
+      "troops": 860,
+      "land": 264,
+      "remaining": 252,
+      "oi": 1660,
+      "tax": 44
+    },
+    {
+      "tick": 193,
+      "troops": 860,
+      "land": 264,
+      "remaining": 252,
+      "oi": 1660,
+      "tax": 44
+    },
+    {
+      "tick": 194,
+      "troops": 860,
+      "land": 312,
+      "remaining": 156,
+      "oi": 1660,
+      "tax": 44
+    },
+    {
+      "tick": 195,
+      "troops": 860,
+      "land": 312,
+      "remaining": 156,
+      "oi": 1660,
+      "tax": 44
+    },
+    {
+      "tick": 196,
+      "troops": 860,
+      "land": 312,
+      "remaining": 156,
+      "oi": 1660,
+      "tax": 44
+    },
+    {
+      "tick": 197,
+      "troops": 860,
+      "land": 312,
+      "remaining": 156,
+      "oi": 1660,
+      "tax": 44
+    },
+    {
+      "tick": 198,
+      "troops": 860,
+      "land": 364,
+      "remaining": 52,
+      "oi": 1660,
+      "tax": 44
+    },
+    {
+      "tick": 199,
+      "troops": 1278,
+      "land": 364,
+      "remaining": 52,
+      "oi": 2078,
+      "tax": 44
+    },
+    {
+      "tick": 200,
+      "troops": 1278,
+      "land": 364,
+      "remaining": 52,
+      "oi": 2078,
+      "tax": 44
+    },
+    {
+      "tick": 201,
+      "troops": 1278,
+      "land": 364,
+      "remaining": 52,
+      "oi": 2078,
+      "tax": 44
+    },
+    {
+      "tick": 202,
+      "troops": 1330,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2078,
+      "tax": 44
+    },
+    {
+      "tick": 203,
+      "troops": 1330,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2078,
+      "tax": 44
+    },
+    {
+      "tick": 204,
+      "troops": 1330,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2078,
+      "tax": 44
+    },
+    {
+      "tick": 205,
+      "troops": 1330,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2078,
+      "tax": 44
+    },
+    {
+      "tick": 206,
+      "troops": 1330,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2078,
+      "tax": 44
+    },
+    {
+      "tick": 207,
+      "troops": 1330,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2078,
+      "tax": 44
+    },
+    {
+      "tick": 208,
+      "troops": 1330,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2078,
+      "tax": 44
+    },
+    {
+      "tick": 209,
+      "troops": 1414,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2162,
+      "tax": 44
+    },
+    {
+      "tick": 210,
+      "troops": 1414,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2162,
+      "tax": 44
+    },
+    {
+      "tick": 211,
+      "troops": 1414,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2162,
+      "tax": 44
+    },
+    {
+      "tick": 212,
+      "troops": 1414,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2162,
+      "tax": 44
+    },
+    {
+      "tick": 213,
+      "troops": 1414,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2162,
+      "tax": 44
+    },
+    {
+      "tick": 214,
+      "troops": 1414,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2162,
+      "tax": 44
+    },
+    {
+      "tick": 215,
+      "troops": 1414,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2162,
+      "tax": 44
+    },
+    {
+      "tick": 216,
+      "troops": 1414,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2162,
+      "tax": 44
+    },
+    {
+      "tick": 217,
+      "troops": 1414,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2162,
+      "tax": 44
+    },
+    {
+      "tick": 218,
+      "troops": 1414,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2162,
+      "tax": 44
+    },
+    {
+      "tick": 219,
+      "troops": 1503,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2251,
+      "tax": 44
+    },
+    {
+      "tick": 220,
+      "troops": 1503,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2251,
+      "tax": 44
+    },
+    {
+      "tick": 221,
+      "troops": 1503,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2251,
+      "tax": 44
+    },
+    {
+      "tick": 222,
+      "troops": 1503,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2251,
+      "tax": 44
+    },
+    {
+      "tick": 223,
+      "troops": 1503,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2251,
+      "tax": 44
+    },
+    {
+      "tick": 224,
+      "troops": 1503,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2251,
+      "tax": 44
+    },
+    {
+      "tick": 225,
+      "troops": 1503,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2251,
+      "tax": 44
+    },
+    {
+      "tick": 226,
+      "troops": 1503,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2251,
+      "tax": 44
+    },
+    {
+      "tick": 227,
+      "troops": 1503,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2251,
+      "tax": 44
+    },
+    {
+      "tick": 228,
+      "troops": 1503,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2251,
+      "tax": 44
+    },
+    {
+      "tick": 229,
+      "troops": 1597,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2345,
+      "tax": 44
+    },
+    {
+      "tick": 230,
+      "troops": 1597,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2345,
+      "tax": 44
+    },
+    {
+      "tick": 231,
+      "troops": 1597,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2345,
+      "tax": 44
+    },
+    {
+      "tick": 232,
+      "troops": 1597,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2345,
+      "tax": 44
+    },
+    {
+      "tick": 233,
+      "troops": 1597,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2345,
+      "tax": 44
+    },
+    {
+      "tick": 234,
+      "troops": 1597,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2345,
+      "tax": 44
+    },
+    {
+      "tick": 235,
+      "troops": 1597,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2345,
+      "tax": 44
+    },
+    {
+      "tick": 236,
+      "troops": 1597,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2345,
+      "tax": 44
+    },
+    {
+      "tick": 237,
+      "troops": 1597,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2345,
+      "tax": 44
+    },
+    {
+      "tick": 238,
+      "troops": 1597,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2345,
+      "tax": 44
+    },
+    {
+      "tick": 239,
+      "troops": 1696,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2444,
+      "tax": 44
+    },
+    {
+      "tick": 240,
+      "troops": 1696,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2444,
+      "tax": 44
+    },
+    {
+      "tick": 241,
+      "troops": 1696,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2444,
+      "tax": 44
+    },
+    {
+      "tick": 242,
+      "troops": 1696,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2444,
+      "tax": 44
+    },
+    {
+      "tick": 243,
+      "troops": 1696,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2444,
+      "tax": 44
+    },
+    {
+      "tick": 244,
+      "troops": 1696,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2444,
+      "tax": 44
+    },
+    {
+      "tick": 245,
+      "troops": 1696,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2444,
+      "tax": 44
+    },
+    {
+      "tick": 246,
+      "troops": 1696,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2444,
+      "tax": 44
+    },
+    {
+      "tick": 247,
+      "troops": 1696,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2444,
+      "tax": 44
+    },
+    {
+      "tick": 248,
+      "troops": 1696,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2444,
+      "tax": 44
+    },
+    {
+      "tick": 249,
+      "troops": 1801,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2549,
+      "tax": 44
+    },
+    {
+      "tick": 250,
+      "troops": 1801,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2549,
+      "tax": 44
+    },
+    {
+      "tick": 251,
+      "troops": 1801,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2549,
+      "tax": 44
+    },
+    {
+      "tick": 252,
+      "troops": 1801,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2549,
+      "tax": 44
+    },
+    {
+      "tick": 253,
+      "troops": 1801,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2549,
+      "tax": 44
+    },
+    {
+      "tick": 254,
+      "troops": 1801,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2549,
+      "tax": 44
+    },
+    {
+      "tick": 255,
+      "troops": 1801,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2549,
+      "tax": 44
+    },
+    {
+      "tick": 256,
+      "troops": 1801,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2549,
+      "tax": 44
+    },
+    {
+      "tick": 257,
+      "troops": 1801,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2549,
+      "tax": 44
+    },
+    {
+      "tick": 258,
+      "troops": 1801,
+      "land": 364,
+      "remaining": 0,
+      "oi": 2549,
+      "tax": 44
+    },
+    {
+      "tick": 259,
+      "troops": 1326,
+      "land": 364,
+      "remaining": 564,
+      "oi": 2660,
+      "tax": 66
+    },
+    {
+      "tick": 260,
+      "troops": 1326,
+      "land": 364,
+      "remaining": 564,
+      "oi": 2660,
+      "tax": 66
+    },
+    {
+      "tick": 261,
+      "troops": 1326,
+      "land": 364,
+      "remaining": 564,
+      "oi": 2660,
+      "tax": 66
+    },
+    {
+      "tick": 262,
+      "troops": 1326,
+      "land": 364,
+      "remaining": 564,
+      "oi": 2660,
+      "tax": 66
+    },
+    {
+      "tick": 263,
+      "troops": 1326,
+      "land": 364,
+      "remaining": 564,
+      "oi": 2660,
+      "tax": 66
+    },
+    {
+      "tick": 264,
+      "troops": 1326,
+      "land": 364,
+      "remaining": 564,
+      "oi": 2660,
+      "tax": 66
+    },
+    {
+      "tick": 265,
+      "troops": 1326,
+      "land": 364,
+      "remaining": 564,
+      "oi": 2660,
+      "tax": 66
+    },
+    {
+      "tick": 266,
+      "troops": 1326,
+      "land": 420,
+      "remaining": 452,
+      "oi": 2660,
+      "tax": 66
+    },
+    {
+      "tick": 267,
+      "troops": 1326,
+      "land": 420,
+      "remaining": 452,
+      "oi": 2660,
+      "tax": 66
+    },
+    {
+      "tick": 268,
+      "troops": 1326,
+      "land": 420,
+      "remaining": 452,
+      "oi": 2660,
+      "tax": 66
+    },
+    {
+      "tick": 269,
+      "troops": 1407,
+      "land": 420,
+      "remaining": 452,
+      "oi": 2741,
+      "tax": 66
+    },
+    {
+      "tick": 270,
+      "troops": 1407,
+      "land": 480,
+      "remaining": 332,
+      "oi": 2741,
+      "tax": 66
+    },
+    {
+      "tick": 271,
+      "troops": 1407,
+      "land": 480,
+      "remaining": 332,
+      "oi": 2741,
+      "tax": 66
+    },
+    {
+      "tick": 272,
+      "troops": 1407,
+      "land": 480,
+      "remaining": 332,
+      "oi": 2741,
+      "tax": 66
+    },
+    {
+      "tick": 273,
+      "troops": 1407,
+      "land": 480,
+      "remaining": 332,
+      "oi": 2741,
+      "tax": 66
+    },
+    {
+      "tick": 274,
+      "troops": 1407,
+      "land": 544,
+      "remaining": 204,
+      "oi": 2741,
+      "tax": 66
+    },
+    {
+      "tick": 275,
+      "troops": 1407,
+      "land": 544,
+      "remaining": 204,
+      "oi": 2741,
+      "tax": 66
+    },
+    {
+      "tick": 276,
+      "troops": 1407,
+      "land": 544,
+      "remaining": 204,
+      "oi": 2741,
+      "tax": 66
+    },
+    {
+      "tick": 277,
+      "troops": 1407,
+      "land": 544,
+      "remaining": 204,
+      "oi": 2741,
+      "tax": 66
+    },
+    {
+      "tick": 278,
+      "troops": 1407,
+      "land": 612,
+      "remaining": 68,
+      "oi": 2741,
+      "tax": 66
+    },
+    {
+      "tick": 279,
+      "troops": 1493,
+      "land": 612,
+      "remaining": 68,
+      "oi": 2827,
+      "tax": 66
+    },
+    {
+      "tick": 280,
+      "troops": 1008,
+      "land": 612,
+      "remaining": 536,
+      "oi": 2827,
+      "tax": 83
+    },
+    {
+      "tick": 281,
+      "troops": 1008,
+      "land": 612,
+      "remaining": 536,
+      "oi": 2827,
+      "tax": 83
+    },
+    {
+      "tick": 282,
+      "troops": 1008,
+      "land": 684,
+      "remaining": 392,
+      "oi": 2827,
+      "tax": 83
+    },
+    {
+      "tick": 283,
+      "troops": 1008,
+      "land": 684,
+      "remaining": 392,
+      "oi": 2827,
+      "tax": 83
+    },
+    {
+      "tick": 284,
+      "troops": 1008,
+      "land": 684,
+      "remaining": 392,
+      "oi": 2827,
+      "tax": 83
+    },
+    {
+      "tick": 285,
+      "troops": 1008,
+      "land": 684,
+      "remaining": 392,
+      "oi": 2827,
+      "tax": 83
+    },
+    {
+      "tick": 286,
+      "troops": 1008,
+      "land": 760,
+      "remaining": 240,
+      "oi": 2827,
+      "tax": 83
+    },
+    {
+      "tick": 287,
+      "troops": 1008,
+      "land": 760,
+      "remaining": 240,
+      "oi": 2827,
+      "tax": 83
+    },
+    {
+      "tick": 288,
+      "troops": 1008,
+      "land": 760,
+      "remaining": 240,
+      "oi": 2827,
+      "tax": 83
+    },
+    {
+      "tick": 289,
+      "troops": 1069,
+      "land": 760,
+      "remaining": 240,
+      "oi": 2888,
+      "tax": 83
+    },
+    {
+      "tick": 290,
+      "troops": 1069,
+      "land": 840,
+      "remaining": 80,
+      "oi": 2888,
+      "tax": 83
+    },
+    {
+      "tick": 291,
+      "troops": 1069,
+      "land": 840,
+      "remaining": 80,
+      "oi": 2888,
+      "tax": 83
+    },
+    {
+      "tick": 292,
+      "troops": 1069,
+      "land": 840,
+      "remaining": 80,
+      "oi": 2888,
+      "tax": 83
+    },
+    {
+      "tick": 293,
+      "troops": 1069,
+      "land": 840,
+      "remaining": 80,
+      "oi": 2888,
+      "tax": 83
+    },
+    {
+      "tick": 294,
+      "troops": 705,
+      "land": 924,
+      "remaining": 264,
+      "oi": 2888,
+      "tax": 95
+    },
+    {
+      "tick": 295,
+      "troops": 705,
+      "land": 924,
+      "remaining": 264,
+      "oi": 2888,
+      "tax": 95
+    },
+    {
+      "tick": 296,
+      "troops": 705,
+      "land": 924,
+      "remaining": 264,
+      "oi": 2888,
+      "tax": 95
+    },
+    {
+      "tick": 297,
+      "troops": 705,
+      "land": 924,
+      "remaining": 264,
+      "oi": 2888,
+      "tax": 95
+    },
+    {
+      "tick": 298,
+      "troops": 705,
+      "land": 1012,
+      "remaining": 88,
+      "oi": 2888,
+      "tax": 95
+    },
+    {
+      "tick": 299,
+      "troops": 1759,
+      "land": 1012,
+      "remaining": 88,
+      "oi": 3942,
+      "tax": 95
+    },
+    {
+      "tick": 300,
+      "troops": 1759,
+      "land": 1012,
+      "remaining": 88,
+      "oi": 3942,
+      "tax": 95
+    },
+    {
+      "tick": 301,
+      "troops": 1759,
+      "land": 1012,
+      "remaining": 88,
+      "oi": 3942,
+      "tax": 95
+    },
+    {
+      "tick": 302,
+      "troops": 1847,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 3942,
+      "tax": 95
+    },
+    {
+      "tick": 303,
+      "troops": 1847,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 3942,
+      "tax": 95
+    },
+    {
+      "tick": 304,
+      "troops": 1847,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 3942,
+      "tax": 95
+    },
+    {
+      "tick": 305,
+      "troops": 1847,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 3942,
+      "tax": 95
+    },
+    {
+      "tick": 306,
+      "troops": 1847,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 3942,
+      "tax": 95
+    },
+    {
+      "tick": 307,
+      "troops": 1847,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 3942,
+      "tax": 95
+    },
+    {
+      "tick": 308,
+      "troops": 1847,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 3942,
+      "tax": 95
+    },
+    {
+      "tick": 309,
+      "troops": 1958,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4053,
+      "tax": 95
+    },
+    {
+      "tick": 310,
+      "troops": 1958,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4053,
+      "tax": 95
+    },
+    {
+      "tick": 311,
+      "troops": 1958,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4053,
+      "tax": 95
+    },
+    {
+      "tick": 312,
+      "troops": 1958,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4053,
+      "tax": 95
+    },
+    {
+      "tick": 313,
+      "troops": 1958,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4053,
+      "tax": 95
+    },
+    {
+      "tick": 314,
+      "troops": 1958,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4053,
+      "tax": 95
+    },
+    {
+      "tick": 315,
+      "troops": 1958,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4053,
+      "tax": 95
+    },
+    {
+      "tick": 316,
+      "troops": 1958,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4053,
+      "tax": 95
+    },
+    {
+      "tick": 317,
+      "troops": 1958,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4053,
+      "tax": 95
+    },
+    {
+      "tick": 318,
+      "troops": 1958,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4053,
+      "tax": 95
+    },
+    {
+      "tick": 319,
+      "troops": 2075,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4170,
+      "tax": 95
+    },
+    {
+      "tick": 320,
+      "troops": 2075,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4170,
+      "tax": 95
+    },
+    {
+      "tick": 321,
+      "troops": 2075,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4170,
+      "tax": 95
+    },
+    {
+      "tick": 322,
+      "troops": 2075,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4170,
+      "tax": 95
+    },
+    {
+      "tick": 323,
+      "troops": 2075,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4170,
+      "tax": 95
+    },
+    {
+      "tick": 324,
+      "troops": 2075,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4170,
+      "tax": 95
+    },
+    {
+      "tick": 325,
+      "troops": 2075,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4170,
+      "tax": 95
+    },
+    {
+      "tick": 326,
+      "troops": 2075,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4170,
+      "tax": 95
+    },
+    {
+      "tick": 327,
+      "troops": 2075,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4170,
+      "tax": 95
+    },
+    {
+      "tick": 328,
+      "troops": 2075,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4170,
+      "tax": 95
+    },
+    {
+      "tick": 329,
+      "troops": 2198,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4293,
+      "tax": 95
+    },
+    {
+      "tick": 330,
+      "troops": 2198,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4293,
+      "tax": 95
+    },
+    {
+      "tick": 331,
+      "troops": 2198,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4293,
+      "tax": 95
+    },
+    {
+      "tick": 332,
+      "troops": 2198,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4293,
+      "tax": 95
+    },
+    {
+      "tick": 333,
+      "troops": 2198,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4293,
+      "tax": 95
+    },
+    {
+      "tick": 334,
+      "troops": 2198,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4293,
+      "tax": 95
+    },
+    {
+      "tick": 335,
+      "troops": 2198,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4293,
+      "tax": 95
+    },
+    {
+      "tick": 336,
+      "troops": 2198,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4293,
+      "tax": 95
+    },
+    {
+      "tick": 337,
+      "troops": 2198,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4293,
+      "tax": 95
+    },
+    {
+      "tick": 338,
+      "troops": 2198,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4293,
+      "tax": 95
+    },
+    {
+      "tick": 339,
+      "troops": 2328,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4423,
+      "tax": 95
+    },
+    {
+      "tick": 340,
+      "troops": 2328,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4423,
+      "tax": 95
+    },
+    {
+      "tick": 341,
+      "troops": 2328,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4423,
+      "tax": 95
+    },
+    {
+      "tick": 342,
+      "troops": 2328,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4423,
+      "tax": 95
+    },
+    {
+      "tick": 343,
+      "troops": 2328,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4423,
+      "tax": 95
+    },
+    {
+      "tick": 344,
+      "troops": 2328,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4423,
+      "tax": 95
+    },
+    {
+      "tick": 345,
+      "troops": 2328,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4423,
+      "tax": 95
+    },
+    {
+      "tick": 346,
+      "troops": 2328,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4423,
+      "tax": 95
+    },
+    {
+      "tick": 347,
+      "troops": 2328,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4423,
+      "tax": 95
+    },
+    {
+      "tick": 348,
+      "troops": 2328,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4423,
+      "tax": 95
+    },
+    {
+      "tick": 349,
+      "troops": 2465,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4560,
+      "tax": 95
+    },
+    {
+      "tick": 350,
+      "troops": 2465,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4560,
+      "tax": 95
+    },
+    {
+      "tick": 351,
+      "troops": 2465,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4560,
+      "tax": 95
+    },
+    {
+      "tick": 352,
+      "troops": 2465,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4560,
+      "tax": 95
+    },
+    {
+      "tick": 353,
+      "troops": 2465,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4560,
+      "tax": 95
+    },
+    {
+      "tick": 354,
+      "troops": 2465,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4560,
+      "tax": 95
+    },
+    {
+      "tick": 355,
+      "troops": 2465,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4560,
+      "tax": 95
+    },
+    {
+      "tick": 356,
+      "troops": 2465,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4560,
+      "tax": 95
+    },
+    {
+      "tick": 357,
+      "troops": 2465,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4560,
+      "tax": 95
+    },
+    {
+      "tick": 358,
+      "troops": 2465,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4560,
+      "tax": 95
+    },
+    {
+      "tick": 359,
+      "troops": 2609,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4704,
+      "tax": 95
+    },
+    {
+      "tick": 360,
+      "troops": 2609,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4704,
+      "tax": 95
+    },
+    {
+      "tick": 361,
+      "troops": 2609,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4704,
+      "tax": 95
+    },
+    {
+      "tick": 362,
+      "troops": 2609,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4704,
+      "tax": 95
+    },
+    {
+      "tick": 363,
+      "troops": 2609,
+      "land": 1012,
+      "remaining": 0,
+      "oi": 4704,
+      "tax": 95
+    },
+    {
+      "tick": 364,
+      "troops": 2574,
+      "land": 1012,
+      "remaining": 5,
+      "oi": 4704,
+      "tax": 125
+    },
+    {
+      "tick": 365,
+      "troops": 2574,
+      "land": 1012,
+      "remaining": 5,
+      "oi": 4704,
+      "tax": 125
+    },
+    {
+      "tick": 366,
+      "troops": 2574,
+      "land": 1012,
+      "remaining": 5,
+      "oi": 4704,
+      "tax": 125
+    },
+    {
+      "tick": 367,
+      "troops": 2574,
+      "land": 1012,
+      "remaining": 5,
+      "oi": 4704,
+      "tax": 125
+    },
+    {
+      "tick": 368,
+      "troops": 2574,
+      "land": 1012,
+      "remaining": 5,
+      "oi": 4704,
+      "tax": 125
+    },
+    {
+      "tick": 369,
+      "troops": 2724,
+      "land": 1012,
+      "remaining": 5,
+      "oi": 4854,
+      "tax": 125
+    },
+    {
+      "tick": 370,
+      "troops": 2724,
+      "land": 1012,
+      "remaining": 5,
+      "oi": 4854,
+      "tax": 125
+    },
+    {
+      "tick": 371,
+      "troops": 1590,
+      "land": 1104,
+      "remaining": 924,
+      "oi": 4854,
+      "tax": 156
+    },
+    {
+      "tick": 372,
+      "troops": 1590,
+      "land": 1104,
+      "remaining": 924,
+      "oi": 4854,
+      "tax": 156
+    },
+    {
+      "tick": 373,
+      "troops": 1590,
+      "land": 1104,
+      "remaining": 924,
+      "oi": 4854,
+      "tax": 156
+    },
+    {
+      "tick": 374,
+      "troops": 1590,
+      "land": 1200,
+      "remaining": 732,
+      "oi": 4854,
+      "tax": 156
+    },
+    {
+      "tick": 375,
+      "troops": 1590,
+      "land": 1200,
+      "remaining": 732,
+      "oi": 4854,
+      "tax": 156
+    },
+    {
+      "tick": 376,
+      "troops": 1590,
+      "land": 1200,
+      "remaining": 732,
+      "oi": 4854,
+      "tax": 156
+    },
+    {
+      "tick": 377,
+      "troops": 1590,
+      "land": 1300,
+      "remaining": 532,
+      "oi": 4854,
+      "tax": 156
+    },
+    {
+      "tick": 378,
+      "troops": 1590,
+      "land": 1300,
+      "remaining": 532,
+      "oi": 4854,
+      "tax": 156
+    },
+    {
+      "tick": 379,
+      "troops": 1682,
+      "land": 1300,
+      "remaining": 532,
+      "oi": 4946,
+      "tax": 156
+    },
+    {
+      "tick": 380,
+      "troops": 1682,
+      "land": 1404,
+      "remaining": 324,
+      "oi": 4946,
+      "tax": 156
+    },
+    {
+      "tick": 381,
+      "troops": 1682,
+      "land": 1404,
+      "remaining": 324,
+      "oi": 4946,
+      "tax": 156
+    },
+    {
+      "tick": 382,
+      "troops": 1682,
+      "land": 1404,
+      "remaining": 324,
+      "oi": 4946,
+      "tax": 156
+    },
+    {
+      "tick": 383,
+      "troops": 1682,
+      "land": 1512,
+      "remaining": 108,
+      "oi": 4946,
+      "tax": 156
+    },
+    {
+      "tick": 384,
+      "troops": 1682,
+      "land": 1512,
+      "remaining": 108,
+      "oi": 4946,
+      "tax": 156
+    },
+    {
+      "tick": 385,
+      "troops": 1199,
+      "land": 1512,
+      "remaining": 572,
+      "oi": 4946,
+      "tax": 175
+    },
+    {
+      "tick": 386,
+      "troops": 1199,
+      "land": 1624,
+      "remaining": 348,
+      "oi": 4946,
+      "tax": 175
+    },
+    {
+      "tick": 387,
+      "troops": 1199,
+      "land": 1624,
+      "remaining": 348,
+      "oi": 4946,
+      "tax": 175
+    },
+    {
+      "tick": 388,
+      "troops": 1199,
+      "land": 1624,
+      "remaining": 348,
+      "oi": 4946,
+      "tax": 175
+    },
+    {
+      "tick": 389,
+      "troops": 1268,
+      "land": 1740,
+      "remaining": 116,
+      "oi": 5015,
+      "tax": 175
+    },
+    {
+      "tick": 390,
+      "troops": 1268,
+      "land": 1740,
+      "remaining": 116,
+      "oi": 5015,
+      "tax": 175
+    },
+    {
+      "tick": 391,
+      "troops": 1268,
+      "land": 1740,
+      "remaining": 116,
+      "oi": 5015,
+      "tax": 175
+    },
+    {
+      "tick": 392,
+      "troops": 498,
+      "land": 1860,
+      "remaining": 632,
+      "oi": 5015,
+      "tax": 189
+    },
+    {
+      "tick": 393,
+      "troops": 498,
+      "land": 1860,
+      "remaining": 632,
+      "oi": 5015,
+      "tax": 189
+    },
+    {
+      "tick": 394,
+      "troops": 498,
+      "land": 1860,
+      "remaining": 632,
+      "oi": 5015,
+      "tax": 189
+    },
+    {
+      "tick": 395,
+      "troops": 498,
+      "land": 1984,
+      "remaining": 384,
+      "oi": 5015,
+      "tax": 189
+    },
+    {
+      "tick": 396,
+      "troops": 498,
+      "land": 1984,
+      "remaining": 384,
+      "oi": 5015,
+      "tax": 189
+    },
+    {
+      "tick": 397,
+      "troops": 498,
+      "land": 1984,
+      "remaining": 384,
+      "oi": 5015,
+      "tax": 189
+    },
+    {
+      "tick": 398,
+      "troops": 498,
+      "land": 2112,
+      "remaining": 128,
+      "oi": 5015,
+      "tax": 189
+    },
+    {
+      "tick": 399,
+      "troops": 2638,
+      "land": 2112,
+      "remaining": 128,
+      "oi": 7155,
+      "tax": 189
+    },
+    {
+      "tick": 400,
+      "troops": 2638,
+      "land": 2112,
+      "remaining": 128,
+      "oi": 7155,
+      "tax": 189
+    },
+    {
+      "tick": 401,
+      "troops": 2766,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7155,
+      "tax": 189
+    },
+    {
+      "tick": 402,
+      "troops": 2766,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7155,
+      "tax": 189
+    },
+    {
+      "tick": 403,
+      "troops": 2766,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7155,
+      "tax": 189
+    },
+    {
+      "tick": 404,
+      "troops": 2766,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7155,
+      "tax": 189
+    },
+    {
+      "tick": 405,
+      "troops": 2766,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7155,
+      "tax": 189
+    },
+    {
+      "tick": 406,
+      "troops": 2766,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7155,
+      "tax": 189
+    },
+    {
+      "tick": 407,
+      "troops": 2766,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7155,
+      "tax": 189
+    },
+    {
+      "tick": 408,
+      "troops": 2766,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7155,
+      "tax": 189
+    },
+    {
+      "tick": 409,
+      "troops": 2924,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7313,
+      "tax": 189
+    },
+    {
+      "tick": 410,
+      "troops": 2924,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7313,
+      "tax": 189
+    },
+    {
+      "tick": 411,
+      "troops": 2924,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7313,
+      "tax": 189
+    },
+    {
+      "tick": 412,
+      "troops": 2924,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7313,
+      "tax": 189
+    },
+    {
+      "tick": 413,
+      "troops": 2924,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7313,
+      "tax": 189
+    },
+    {
+      "tick": 414,
+      "troops": 2924,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7313,
+      "tax": 189
+    },
+    {
+      "tick": 415,
+      "troops": 2924,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7313,
+      "tax": 189
+    },
+    {
+      "tick": 416,
+      "troops": 2924,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7313,
+      "tax": 189
+    },
+    {
+      "tick": 417,
+      "troops": 2924,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7313,
+      "tax": 189
+    },
+    {
+      "tick": 418,
+      "troops": 2924,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7313,
+      "tax": 189
+    },
+    {
+      "tick": 419,
+      "troops": 3090,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7479,
+      "tax": 189
+    },
+    {
+      "tick": 420,
+      "troops": 3090,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7479,
+      "tax": 189
+    },
+    {
+      "tick": 421,
+      "troops": 3090,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7479,
+      "tax": 189
+    },
+    {
+      "tick": 422,
+      "troops": 3090,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7479,
+      "tax": 189
+    },
+    {
+      "tick": 423,
+      "troops": 3090,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7479,
+      "tax": 189
+    },
+    {
+      "tick": 424,
+      "troops": 3090,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7479,
+      "tax": 189
+    },
+    {
+      "tick": 425,
+      "troops": 3090,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7479,
+      "tax": 189
+    },
+    {
+      "tick": 426,
+      "troops": 3090,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7479,
+      "tax": 189
+    },
+    {
+      "tick": 427,
+      "troops": 3090,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7479,
+      "tax": 189
+    },
+    {
+      "tick": 428,
+      "troops": 3090,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7479,
+      "tax": 189
+    },
+    {
+      "tick": 429,
+      "troops": 3264,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7653,
+      "tax": 189
+    },
+    {
+      "tick": 430,
+      "troops": 3264,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7653,
+      "tax": 189
+    },
+    {
+      "tick": 431,
+      "troops": 3264,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7653,
+      "tax": 189
+    },
+    {
+      "tick": 432,
+      "troops": 3264,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7653,
+      "tax": 189
+    },
+    {
+      "tick": 433,
+      "troops": 3264,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7653,
+      "tax": 189
+    },
+    {
+      "tick": 434,
+      "troops": 3264,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7653,
+      "tax": 189
+    },
+    {
+      "tick": 435,
+      "troops": 3264,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7653,
+      "tax": 189
+    },
+    {
+      "tick": 436,
+      "troops": 3264,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7653,
+      "tax": 189
+    },
+    {
+      "tick": 437,
+      "troops": 3264,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7653,
+      "tax": 189
+    },
+    {
+      "tick": 438,
+      "troops": 3264,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7653,
+      "tax": 189
+    },
+    {
+      "tick": 439,
+      "troops": 3447,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7836,
+      "tax": 189
+    },
+    {
+      "tick": 440,
+      "troops": 3447,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7836,
+      "tax": 189
+    },
+    {
+      "tick": 441,
+      "troops": 3447,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7836,
+      "tax": 189
+    },
+    {
+      "tick": 442,
+      "troops": 3447,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7836,
+      "tax": 189
+    },
+    {
+      "tick": 443,
+      "troops": 3447,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7836,
+      "tax": 189
+    },
+    {
+      "tick": 444,
+      "troops": 3447,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7836,
+      "tax": 189
+    },
+    {
+      "tick": 445,
+      "troops": 3447,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7836,
+      "tax": 189
+    },
+    {
+      "tick": 446,
+      "troops": 3447,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7836,
+      "tax": 189
+    },
+    {
+      "tick": 447,
+      "troops": 3447,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7836,
+      "tax": 189
+    },
+    {
+      "tick": 448,
+      "troops": 3447,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 7836,
+      "tax": 189
+    },
+    {
+      "tick": 449,
+      "troops": 3639,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 8028,
+      "tax": 189
+    },
+    {
+      "tick": 450,
+      "troops": 3639,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 8028,
+      "tax": 189
+    },
+    {
+      "tick": 451,
+      "troops": 3639,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 8028,
+      "tax": 189
+    },
+    {
+      "tick": 452,
+      "troops": 3639,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 8028,
+      "tax": 189
+    },
+    {
+      "tick": 453,
+      "troops": 3639,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 8028,
+      "tax": 189
+    },
+    {
+      "tick": 454,
+      "troops": 3639,
+      "land": 2112,
+      "remaining": 0,
+      "oi": 8028,
+      "tax": 189
+    },
+    {
+      "tick": 455,
+      "troops": 3594,
+      "land": 2112,
+      "remaining": 3,
+      "oi": 8028,
+      "tax": 231
+    },
+    {
+      "tick": 456,
+      "troops": 3594,
+      "land": 2112,
+      "remaining": 3,
+      "oi": 8028,
+      "tax": 231
+    },
+    {
+      "tick": 457,
+      "troops": 3594,
+      "land": 2112,
+      "remaining": 3,
+      "oi": 8028,
+      "tax": 231
+    },
+    {
+      "tick": 458,
+      "troops": 3594,
+      "land": 2112,
+      "remaining": 3,
+      "oi": 8028,
+      "tax": 231
+    },
+    {
+      "tick": 459,
+      "troops": 3793,
+      "land": 2112,
+      "remaining": 3,
+      "oi": 8227,
+      "tax": 231
+    },
+    {
+      "tick": 460,
+      "troops": 3793,
+      "land": 2112,
+      "remaining": 3,
+      "oi": 8227,
+      "tax": 231
+    },
+    {
+      "tick": 461,
+      "troops": 3793,
+      "land": 2112,
+      "remaining": 3,
+      "oi": 8227,
+      "tax": 231
+    },
+    {
+      "tick": 462,
+      "troops": 2794,
+      "land": 2244,
+      "remaining": 694,
+      "oi": 8227,
+      "tax": 275
+    },
+    {
+      "tick": 463,
+      "troops": 2794,
+      "land": 2244,
+      "remaining": 694,
+      "oi": 8227,
+      "tax": 275
+    },
+    {
+      "tick": 464,
+      "troops": 2794,
+      "land": 2244,
+      "remaining": 694,
+      "oi": 8227,
+      "tax": 275
+    },
+    {
+      "tick": 465,
+      "troops": 2794,
+      "land": 2380,
+      "remaining": 422,
+      "oi": 8227,
+      "tax": 275
+    },
+    {
+      "tick": 466,
+      "troops": 2794,
+      "land": 2380,
+      "remaining": 422,
+      "oi": 8227,
+      "tax": 275
+    },
+    {
+      "tick": 467,
+      "troops": 2794,
+      "land": 2380,
+      "remaining": 422,
+      "oi": 8227,
+      "tax": 275
+    },
+    {
+      "tick": 468,
+      "troops": 2794,
+      "land": 2520,
+      "remaining": 142,
+      "oi": 8227,
+      "tax": 275
+    },
+    {
+      "tick": 469,
+      "troops": 1700,
+      "land": 2520,
+      "remaining": 1356,
+      "oi": 8381,
+      "tax": 309
+    },
+    {
+      "tick": 470,
+      "troops": 1700,
+      "land": 2520,
+      "remaining": 1356,
+      "oi": 8381,
+      "tax": 309
+    },
+    {
+      "tick": 471,
+      "troops": 1700,
+      "land": 2664,
+      "remaining": 1068,
+      "oi": 8381,
+      "tax": 309
+    },
+    {
+      "tick": 472,
+      "troops": 1700,
+      "land": 2664,
+      "remaining": 1068,
+      "oi": 8381,
+      "tax": 309
+    },
+    {
+      "tick": 473,
+      "troops": 1700,
+      "land": 2664,
+      "remaining": 1068,
+      "oi": 8381,
+      "tax": 309
+    },
+    {
+      "tick": 474,
+      "troops": 1700,
+      "land": 2812,
+      "remaining": 772,
+      "oi": 8381,
+      "tax": 309
+    },
+    {
+      "tick": 475,
+      "troops": 1700,
+      "land": 2812,
+      "remaining": 772,
+      "oi": 8381,
+      "tax": 309
+    },
+    {
+      "tick": 476,
+      "troops": 1700,
+      "land": 2812,
+      "remaining": 772,
+      "oi": 8381,
+      "tax": 309
+    },
+    {
+      "tick": 477,
+      "troops": 1700,
+      "land": 2964,
+      "remaining": 468,
+      "oi": 8381,
+      "tax": 309
+    },
+    {
+      "tick": 478,
+      "troops": 1700,
+      "land": 2964,
+      "remaining": 468,
+      "oi": 8381,
+      "tax": 309
+    },
+    {
+      "tick": 479,
+      "troops": 1793,
+      "land": 2964,
+      "remaining": 468,
+      "oi": 8474,
+      "tax": 309
+    },
+    {
+      "tick": 480,
+      "troops": 1793,
+      "land": 3120,
+      "remaining": 156,
+      "oi": 8474,
+      "tax": 309
+    },
+    {
+      "tick": 481,
+      "troops": 1793,
+      "land": 3120,
+      "remaining": 156,
+      "oi": 8474,
+      "tax": 309
+    },
+    {
+      "tick": 482,
+      "troops": 1793,
+      "land": 3120,
+      "remaining": 156,
+      "oi": 8474,
+      "tax": 309
+    },
+    {
+      "tick": 483,
+      "troops": 775,
+      "land": 3280,
+      "remaining": 833,
+      "oi": 8474,
+      "tax": 330
+    },
+    {
+      "tick": 484,
+      "troops": 775,
+      "land": 3280,
+      "remaining": 833,
+      "oi": 8474,
+      "tax": 330
+    },
+    {
+      "tick": 485,
+      "troops": 775,
+      "land": 3280,
+      "remaining": 833,
+      "oi": 8474,
+      "tax": 330
+    },
+    {
+      "tick": 486,
+      "troops": 775,
+      "land": 3444,
+      "remaining": 505,
+      "oi": 8474,
+      "tax": 330
+    },
+    {
+      "tick": 487,
+      "troops": 775,
+      "land": 3444,
+      "remaining": 505,
+      "oi": 8474,
+      "tax": 330
+    },
+    {
+      "tick": 488,
+      "troops": 775,
+      "land": 3444,
+      "remaining": 505,
+      "oi": 8474,
+      "tax": 330
+    },
+    {
+      "tick": 489,
+      "troops": 817,
+      "land": 3612,
+      "remaining": 169,
+      "oi": 8516,
+      "tax": 330
+    },
+    {
+      "tick": 490,
+      "troops": 105,
+      "land": 3612,
+      "remaining": 872,
+      "oi": 8516,
+      "tax": 339
+    },
+    {
+      "tick": 491,
+      "troops": 105,
+      "land": 3612,
+      "remaining": 872,
+      "oi": 8516,
+      "tax": 339
+    },
+    {
+      "tick": 492,
+      "troops": 105,
+      "land": 3784,
+      "remaining": 528,
+      "oi": 8516,
+      "tax": 339
+    },
+    {
+      "tick": 493,
+      "troops": 105,
+      "land": 3784,
+      "remaining": 528,
+      "oi": 8516,
+      "tax": 339
+    },
+    {
+      "tick": 494,
+      "troops": 105,
+      "land": 3784,
+      "remaining": 528,
+      "oi": 8516,
+      "tax": 339
+    },
+    {
+      "tick": 495,
+      "troops": 105,
+      "land": 3960,
+      "remaining": 176,
+      "oi": 8516,
+      "tax": 339
+    },
+    {
+      "tick": 496,
+      "troops": 105,
+      "land": 3960,
+      "remaining": 176,
+      "oi": 8516,
+      "tax": 339
+    },
+    {
+      "tick": 497,
+      "troops": 105,
+      "land": 3960,
+      "remaining": 176,
+      "oi": 8516,
+      "tax": 339
+    },
+    {
+      "tick": 498,
+      "troops": 281,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 8516,
+      "tax": 339
+    },
+    {
+      "tick": 499,
+      "troops": 4256,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12491,
+      "tax": 339
+    },
+    {
+      "tick": 500,
+      "troops": 4256,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12491,
+      "tax": 339
+    },
+    {
+      "tick": 501,
+      "troops": 4256,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12491,
+      "tax": 339
+    },
+    {
+      "tick": 502,
+      "troops": 4256,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12491,
+      "tax": 339
+    },
+    {
+      "tick": 503,
+      "troops": 4256,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12491,
+      "tax": 339
+    },
+    {
+      "tick": 504,
+      "troops": 4256,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12491,
+      "tax": 339
+    },
+    {
+      "tick": 505,
+      "troops": 4256,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12491,
+      "tax": 339
+    },
+    {
+      "tick": 506,
+      "troops": 4256,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12491,
+      "tax": 339
+    },
+    {
+      "tick": 507,
+      "troops": 4256,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12491,
+      "tax": 339
+    },
+    {
+      "tick": 508,
+      "troops": 4256,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12491,
+      "tax": 339
+    },
+    {
+      "tick": 509,
+      "troops": 4485,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12720,
+      "tax": 339
+    },
+    {
+      "tick": 510,
+      "troops": 4485,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12720,
+      "tax": 339
+    },
+    {
+      "tick": 511,
+      "troops": 4485,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12720,
+      "tax": 339
+    },
+    {
+      "tick": 512,
+      "troops": 4485,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12720,
+      "tax": 339
+    },
+    {
+      "tick": 513,
+      "troops": 4485,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12720,
+      "tax": 339
+    },
+    {
+      "tick": 514,
+      "troops": 4485,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12720,
+      "tax": 339
+    },
+    {
+      "tick": 515,
+      "troops": 4485,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12720,
+      "tax": 339
+    },
+    {
+      "tick": 516,
+      "troops": 4485,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12720,
+      "tax": 339
+    },
+    {
+      "tick": 517,
+      "troops": 4485,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12720,
+      "tax": 339
+    },
+    {
+      "tick": 518,
+      "troops": 4485,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12720,
+      "tax": 339
+    },
+    {
+      "tick": 519,
+      "troops": 4725,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12960,
+      "tax": 339
+    },
+    {
+      "tick": 520,
+      "troops": 4725,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12960,
+      "tax": 339
+    },
+    {
+      "tick": 521,
+      "troops": 4725,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12960,
+      "tax": 339
+    },
+    {
+      "tick": 522,
+      "troops": 4725,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12960,
+      "tax": 339
+    },
+    {
+      "tick": 523,
+      "troops": 4725,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12960,
+      "tax": 339
+    },
+    {
+      "tick": 524,
+      "troops": 4725,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12960,
+      "tax": 339
+    },
+    {
+      "tick": 525,
+      "troops": 4725,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12960,
+      "tax": 339
+    },
+    {
+      "tick": 526,
+      "troops": 4725,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12960,
+      "tax": 339
+    },
+    {
+      "tick": 527,
+      "troops": 4725,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12960,
+      "tax": 339
+    },
+    {
+      "tick": 528,
+      "troops": 4725,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 12960,
+      "tax": 339
+    },
+    {
+      "tick": 529,
+      "troops": 4977,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13212,
+      "tax": 339
+    },
+    {
+      "tick": 530,
+      "troops": 4977,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13212,
+      "tax": 339
+    },
+    {
+      "tick": 531,
+      "troops": 4977,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13212,
+      "tax": 339
+    },
+    {
+      "tick": 532,
+      "troops": 4977,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13212,
+      "tax": 339
+    },
+    {
+      "tick": 533,
+      "troops": 4977,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13212,
+      "tax": 339
+    },
+    {
+      "tick": 534,
+      "troops": 4977,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13212,
+      "tax": 339
+    },
+    {
+      "tick": 535,
+      "troops": 4977,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13212,
+      "tax": 339
+    },
+    {
+      "tick": 536,
+      "troops": 4977,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13212,
+      "tax": 339
+    },
+    {
+      "tick": 537,
+      "troops": 4977,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13212,
+      "tax": 339
+    },
+    {
+      "tick": 538,
+      "troops": 4977,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13212,
+      "tax": 339
+    },
+    {
+      "tick": 539,
+      "troops": 5241,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13476,
+      "tax": 339
+    },
+    {
+      "tick": 540,
+      "troops": 5241,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13476,
+      "tax": 339
+    },
+    {
+      "tick": 541,
+      "troops": 5241,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13476,
+      "tax": 339
+    },
+    {
+      "tick": 542,
+      "troops": 5241,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13476,
+      "tax": 339
+    },
+    {
+      "tick": 543,
+      "troops": 5241,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13476,
+      "tax": 339
+    },
+    {
+      "tick": 544,
+      "troops": 5241,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13476,
+      "tax": 339
+    },
+    {
+      "tick": 545,
+      "troops": 5241,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13476,
+      "tax": 339
+    },
+    {
+      "tick": 546,
+      "troops": 5241,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13476,
+      "tax": 339
+    },
+    {
+      "tick": 547,
+      "troops": 5241,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13476,
+      "tax": 339
+    },
+    {
+      "tick": 548,
+      "troops": 5241,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13476,
+      "tax": 339
+    },
+    {
+      "tick": 549,
+      "troops": 5517,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13752,
+      "tax": 339
+    },
+    {
+      "tick": 550,
+      "troops": 5517,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13752,
+      "tax": 339
+    },
+    {
+      "tick": 551,
+      "troops": 5517,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13752,
+      "tax": 339
+    },
+    {
+      "tick": 552,
+      "troops": 5517,
+      "land": 3960,
+      "remaining": 0,
+      "oi": 13752,
+      "tax": 339
+    },
+    {
+      "tick": 553,
+      "troops": 5448,
+      "land": 3960,
+      "remaining": 5,
+      "oi": 13752,
+      "tax": 403
+    },
+    {
+      "tick": 554,
+      "troops": 5448,
+      "land": 3960,
+      "remaining": 5,
+      "oi": 13752,
+      "tax": 403
+    },
+    {
+      "tick": 555,
+      "troops": 5448,
+      "land": 3960,
+      "remaining": 5,
+      "oi": 13752,
+      "tax": 403
+    },
+    {
+      "tick": 556,
+      "troops": 5448,
+      "land": 3960,
+      "remaining": 5,
+      "oi": 13752,
+      "tax": 403
+    },
+    {
+      "tick": 557,
+      "troops": 5448,
+      "land": 3960,
+      "remaining": 5,
+      "oi": 13752,
+      "tax": 403
+    },
+    {
+      "tick": 558,
+      "troops": 5448,
+      "land": 3960,
+      "remaining": 5,
+      "oi": 13752,
+      "tax": 403
+    },
+    {
+      "tick": 559,
+      "troops": 5734,
+      "land": 3960,
+      "remaining": 5,
+      "oi": 14038,
+      "tax": 403
+    },
+    {
+      "tick": 560,
+      "troops": 2776,
+      "land": 4140,
+      "remaining": 2536,
+      "oi": 14038,
+      "tax": 470
+    },
+    {
+      "tick": 561,
+      "troops": 2776,
+      "land": 4140,
+      "remaining": 2536,
+      "oi": 14038,
+      "tax": 470
+    },
+    {
+      "tick": 562,
+      "troops": 2776,
+      "land": 4140,
+      "remaining": 2536,
+      "oi": 14038,
+      "tax": 470
+    },
+    {
+      "tick": 563,
+      "troops": 2776,
+      "land": 4324,
+      "remaining": 2168,
+      "oi": 14038,
+      "tax": 470
+    },
+    {
+      "tick": 564,
+      "troops": 2776,
+      "land": 4324,
+      "remaining": 2168,
+      "oi": 14038,
+      "tax": 470
+    },
+    {
+      "tick": 565,
+      "troops": 2776,
+      "land": 4324,
+      "remaining": 2168,
+      "oi": 14038,
+      "tax": 470
+    },
+    {
+      "tick": 566,
+      "troops": 2776,
+      "land": 4512,
+      "remaining": 1792,
+      "oi": 14038,
+      "tax": 470
+    },
+    {
+      "tick": 567,
+      "troops": 2776,
+      "land": 4512,
+      "remaining": 1792,
+      "oi": 14038,
+      "tax": 470
+    },
+    {
+      "tick": 568,
+      "troops": 2776,
+      "land": 4512,
+      "remaining": 1792,
+      "oi": 14038,
+      "tax": 470
+    },
+    {
+      "tick": 569,
+      "troops": 2920,
+      "land": 4704,
+      "remaining": 1408,
+      "oi": 14182,
+      "tax": 470
+    },
+    {
+      "tick": 570,
+      "troops": 2920,
+      "land": 4704,
+      "remaining": 1408,
+      "oi": 14182,
+      "tax": 470
+    },
+    {
+      "tick": 571,
+      "troops": 2920,
+      "land": 4704,
+      "remaining": 1408,
+      "oi": 14182,
+      "tax": 470
+    },
+    {
+      "tick": 572,
+      "troops": 2920,
+      "land": 4900,
+      "remaining": 1016,
+      "oi": 14182,
+      "tax": 470
+    },
+    {
+      "tick": 573,
+      "troops": 2920,
+      "land": 4900,
+      "remaining": 1016,
+      "oi": 14182,
+      "tax": 470
+    },
+    {
+      "tick": 574,
+      "troops": 2920,
+      "land": 4900,
+      "remaining": 1016,
+      "oi": 14182,
+      "tax": 470
+    },
+    {
+      "tick": 575,
+      "troops": 2920,
+      "land": 5100,
+      "remaining": 616,
+      "oi": 14182,
+      "tax": 470
+    },
+    {
+      "tick": 576,
+      "troops": 2920,
+      "land": 5100,
+      "remaining": 616,
+      "oi": 14182,
+      "tax": 470
+    },
+    {
+      "tick": 577,
+      "troops": 2920,
+      "land": 5100,
+      "remaining": 616,
+      "oi": 14182,
+      "tax": 470
+    },
+    {
+      "tick": 578,
+      "troops": 2920,
+      "land": 5304,
+      "remaining": 208,
+      "oi": 14182,
+      "tax": 470
+    },
+    {
+      "tick": 579,
+      "troops": 3071,
+      "land": 5304,
+      "remaining": 208,
+      "oi": 14333,
+      "tax": 470
+    },
+    {
+      "tick": 580,
+      "troops": 3071,
+      "land": 5304,
+      "remaining": 208,
+      "oi": 14333,
+      "tax": 470
+    },
+    {
+      "tick": 581,
+      "troops": 860,
+      "land": 5512,
+      "remaining": 1968,
+      "oi": 14333,
+      "tax": 505
+    },
+    {
+      "tick": 582,
+      "troops": 860,
+      "land": 5512,
+      "remaining": 1968,
+      "oi": 14333,
+      "tax": 505
+    },
+    {
+      "tick": 583,
+      "troops": 860,
+      "land": 5512,
+      "remaining": 1968,
+      "oi": 14333,
+      "tax": 505
+    },
+    {
+      "tick": 584,
+      "troops": 860,
+      "land": 5724,
+      "remaining": 1544,
+      "oi": 14333,
+      "tax": 505
+    },
+    {
+      "tick": 585,
+      "troops": 860,
+      "land": 5724,
+      "remaining": 1544,
+      "oi": 14333,
+      "tax": 505
+    },
+    {
+      "tick": 586,
+      "troops": 860,
+      "land": 5724,
+      "remaining": 1544,
+      "oi": 14333,
+      "tax": 505
+    },
+    {
+      "tick": 587,
+      "troops": 860,
+      "land": 5940,
+      "remaining": 1112,
+      "oi": 14333,
+      "tax": 505
+    },
+    {
+      "tick": 588,
+      "troops": 860,
+      "land": 5940,
+      "remaining": 1112,
+      "oi": 14333,
+      "tax": 505
+    },
+    {
+      "tick": 589,
+      "troops": 904,
+      "land": 5940,
+      "remaining": 1112,
+      "oi": 14377,
+      "tax": 505
+    },
+    {
+      "tick": 590,
+      "troops": 904,
+      "land": 6160,
+      "remaining": 672,
+      "oi": 14377,
+      "tax": 505
+    },
+    {
+      "tick": 591,
+      "troops": 904,
+      "land": 6160,
+      "remaining": 672,
+      "oi": 14377,
+      "tax": 505
+    },
+    {
+      "tick": 592,
+      "troops": 904,
+      "land": 6160,
+      "remaining": 672,
+      "oi": 14377,
+      "tax": 505
+    },
+    {
+      "tick": 593,
+      "troops": 904,
+      "land": 6384,
+      "remaining": 224,
+      "oi": 14377,
+      "tax": 505
+    },
+    {
+      "tick": 594,
+      "troops": 904,
+      "land": 6384,
+      "remaining": 224,
+      "oi": 14377,
+      "tax": 505
+    },
+    {
+      "tick": 595,
+      "troops": 434,
+      "land": 6384,
+      "remaining": 684,
+      "oi": 14377,
+      "tax": 515
+    },
+    {
+      "tick": 596,
+      "troops": 434,
+      "land": 6612,
+      "remaining": 228,
+      "oi": 14377,
+      "tax": 515
+    },
+    {
+      "tick": 597,
+      "troops": 434,
+      "land": 6612,
+      "remaining": 228,
+      "oi": 14377,
+      "tax": 515
+    },
+    {
+      "tick": 598,
+      "troops": 434,
+      "land": 6612,
+      "remaining": 228,
+      "oi": 14377,
+      "tax": 515
+    },
+    {
+      "tick": 599,
+      "troops": 7296,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21011,
+      "tax": 515
+    },
+    {
+      "tick": 600,
+      "troops": 7296,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21011,
+      "tax": 515
+    },
+    {
+      "tick": 601,
+      "troops": 7296,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21011,
+      "tax": 515
+    },
+    {
+      "tick": 602,
+      "troops": 7296,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21011,
+      "tax": 515
+    },
+    {
+      "tick": 603,
+      "troops": 7296,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21011,
+      "tax": 515
+    },
+    {
+      "tick": 604,
+      "troops": 7296,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21011,
+      "tax": 515
+    },
+    {
+      "tick": 605,
+      "troops": 7296,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21011,
+      "tax": 515
+    },
+    {
+      "tick": 606,
+      "troops": 7296,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21011,
+      "tax": 515
+    },
+    {
+      "tick": 607,
+      "troops": 7296,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21011,
+      "tax": 515
+    },
+    {
+      "tick": 608,
+      "troops": 7296,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21011,
+      "tax": 515
+    },
+    {
+      "tick": 609,
+      "troops": 7667,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21382,
+      "tax": 515
+    },
+    {
+      "tick": 610,
+      "troops": 7667,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21382,
+      "tax": 515
+    },
+    {
+      "tick": 611,
+      "troops": 7667,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21382,
+      "tax": 515
+    },
+    {
+      "tick": 612,
+      "troops": 7667,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21382,
+      "tax": 515
+    },
+    {
+      "tick": 613,
+      "troops": 7667,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21382,
+      "tax": 515
+    },
+    {
+      "tick": 614,
+      "troops": 7667,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21382,
+      "tax": 515
+    },
+    {
+      "tick": 615,
+      "troops": 7667,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21382,
+      "tax": 515
+    },
+    {
+      "tick": 616,
+      "troops": 7667,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21382,
+      "tax": 515
+    },
+    {
+      "tick": 617,
+      "troops": 7667,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21382,
+      "tax": 515
+    },
+    {
+      "tick": 618,
+      "troops": 7667,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21382,
+      "tax": 515
+    },
+    {
+      "tick": 619,
+      "troops": 8054,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21769,
+      "tax": 515
+    },
+    {
+      "tick": 620,
+      "troops": 8054,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21769,
+      "tax": 515
+    },
+    {
+      "tick": 621,
+      "troops": 8054,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21769,
+      "tax": 515
+    },
+    {
+      "tick": 622,
+      "troops": 8054,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21769,
+      "tax": 515
+    },
+    {
+      "tick": 623,
+      "troops": 8054,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21769,
+      "tax": 515
+    },
+    {
+      "tick": 624,
+      "troops": 8054,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21769,
+      "tax": 515
+    },
+    {
+      "tick": 625,
+      "troops": 8054,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21769,
+      "tax": 515
+    },
+    {
+      "tick": 626,
+      "troops": 8054,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21769,
+      "tax": 515
+    },
+    {
+      "tick": 627,
+      "troops": 8054,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21769,
+      "tax": 515
+    },
+    {
+      "tick": 628,
+      "troops": 8054,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 21769,
+      "tax": 515
+    },
+    {
+      "tick": 629,
+      "troops": 8459,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22174,
+      "tax": 515
+    },
+    {
+      "tick": 630,
+      "troops": 8459,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22174,
+      "tax": 515
+    },
+    {
+      "tick": 631,
+      "troops": 8459,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22174,
+      "tax": 515
+    },
+    {
+      "tick": 632,
+      "troops": 8459,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22174,
+      "tax": 515
+    },
+    {
+      "tick": 633,
+      "troops": 8459,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22174,
+      "tax": 515
+    },
+    {
+      "tick": 634,
+      "troops": 8459,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22174,
+      "tax": 515
+    },
+    {
+      "tick": 635,
+      "troops": 8459,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22174,
+      "tax": 515
+    },
+    {
+      "tick": 636,
+      "troops": 8459,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22174,
+      "tax": 515
+    },
+    {
+      "tick": 637,
+      "troops": 8459,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22174,
+      "tax": 515
+    },
+    {
+      "tick": 638,
+      "troops": 8459,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22174,
+      "tax": 515
+    },
+    {
+      "tick": 639,
+      "troops": 8881,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22596,
+      "tax": 515
+    },
+    {
+      "tick": 640,
+      "troops": 8881,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22596,
+      "tax": 515
+    },
+    {
+      "tick": 641,
+      "troops": 8881,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22596,
+      "tax": 515
+    },
+    {
+      "tick": 642,
+      "troops": 8881,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22596,
+      "tax": 515
+    },
+    {
+      "tick": 643,
+      "troops": 8881,
+      "land": 6612,
+      "remaining": 0,
+      "oi": 22596,
+      "tax": 515
+    },
+    {
+      "tick": 644,
+      "troops": 8769,
+      "land": 6612,
+      "remaining": 8,
+      "oi": 22596,
+      "tax": 619
+    },
+    {
+      "tick": 645,
+      "troops": 8769,
+      "land": 6612,
+      "remaining": 8,
+      "oi": 22596,
+      "tax": 619
+    },
+    {
+      "tick": 646,
+      "troops": 8769,
+      "land": 6612,
+      "remaining": 8,
+      "oi": 22596,
+      "tax": 619
+    },
+    {
+      "tick": 647,
+      "troops": 8769,
+      "land": 6612,
+      "remaining": 8,
+      "oi": 22596,
+      "tax": 619
+    },
+    {
+      "tick": 648,
+      "troops": 8769,
+      "land": 6612,
+      "remaining": 8,
+      "oi": 22596,
+      "tax": 619
+    },
+    {
+      "tick": 649,
+      "troops": 9204,
+      "land": 6612,
+      "remaining": 8,
+      "oi": 23031,
+      "tax": 619
+    },
+    {
+      "tick": 650,
+      "troops": 9204,
+      "land": 6612,
+      "remaining": 8,
+      "oi": 23031,
+      "tax": 619
+    },
+    {
+      "tick": 651,
+      "troops": 5425,
+      "land": 6844,
+      "remaining": 3216,
+      "oi": 23031,
+      "tax": 726
+    },
+    {
+      "tick": 652,
+      "troops": 5425,
+      "land": 6844,
+      "remaining": 3216,
+      "oi": 23031,
+      "tax": 726
+    },
+    {
+      "tick": 653,
+      "troops": 5425,
+      "land": 6844,
+      "remaining": 3216,
+      "oi": 23031,
+      "tax": 726
+    },
+    {
+      "tick": 654,
+      "troops": 5425,
+      "land": 7080,
+      "remaining": 2744,
+      "oi": 23031,
+      "tax": 726
+    },
+    {
+      "tick": 655,
+      "troops": 5425,
+      "land": 7080,
+      "remaining": 2744,
+      "oi": 23031,
+      "tax": 726
+    },
+    {
+      "tick": 656,
+      "troops": 5425,
+      "land": 7080,
+      "remaining": 2744,
+      "oi": 23031,
+      "tax": 726
+    },
+    {
+      "tick": 657,
+      "troops": 5425,
+      "land": 7320,
+      "remaining": 2264,
+      "oi": 23031,
+      "tax": 726
+    },
+    {
+      "tick": 658,
+      "troops": 5425,
+      "land": 7320,
+      "remaining": 2264,
+      "oi": 23031,
+      "tax": 726
+    },
+    {
+      "tick": 659,
+      "troops": 5692,
+      "land": 7320,
+      "remaining": 2264,
+      "oi": 23298,
+      "tax": 726
+    },
+    {
+      "tick": 660,
+      "troops": 5692,
+      "land": 7564,
+      "remaining": 1776,
+      "oi": 23298,
+      "tax": 726
+    },
+    {
+      "tick": 661,
+      "troops": 5692,
+      "land": 7564,
+      "remaining": 1776,
+      "oi": 23298,
+      "tax": 726
+    },
+    {
+      "tick": 662,
+      "troops": 5692,
+      "land": 7564,
+      "remaining": 1776,
+      "oi": 23298,
+      "tax": 726
+    },
+    {
+      "tick": 663,
+      "troops": 5692,
+      "land": 7812,
+      "remaining": 1280,
+      "oi": 23298,
+      "tax": 726
+    },
+    {
+      "tick": 664,
+      "troops": 5692,
+      "land": 7812,
+      "remaining": 1280,
+      "oi": 23298,
+      "tax": 726
+    },
+    {
+      "tick": 665,
+      "troops": 5692,
+      "land": 7812,
+      "remaining": 1280,
+      "oi": 23298,
+      "tax": 726
+    },
+    {
+      "tick": 666,
+      "troops": 5692,
+      "land": 8064,
+      "remaining": 776,
+      "oi": 23298,
+      "tax": 726
+    },
+    {
+      "tick": 667,
+      "troops": 5692,
+      "land": 8064,
+      "remaining": 776,
+      "oi": 23298,
+      "tax": 726
+    },
+    {
+      "tick": 668,
+      "troops": 5692,
+      "land": 8064,
+      "remaining": 776,
+      "oi": 23298,
+      "tax": 726
+    },
+    {
+      "tick": 669,
+      "troops": 5970,
+      "land": 8320,
+      "remaining": 264,
+      "oi": 23576,
+      "tax": 726
+    },
+    {
+      "tick": 670,
+      "troops": 5970,
+      "land": 8320,
+      "remaining": 264,
+      "oi": 23576,
+      "tax": 726
+    },
+    {
+      "tick": 671,
+      "troops": 5970,
+      "land": 8320,
+      "remaining": 264,
+      "oi": 23576,
+      "tax": 726
+    },
+    {
+      "tick": 672,
+      "troops": 4313,
+      "land": 8580,
+      "remaining": 1332,
+      "oi": 23576,
+      "tax": 795
+    },
+    {
+      "tick": 673,
+      "troops": 4313,
+      "land": 8580,
+      "remaining": 1332,
+      "oi": 23576,
+      "tax": 795
+    },
+    {
+      "tick": 674,
+      "troops": 4313,
+      "land": 8580,
+      "remaining": 1332,
+      "oi": 23576,
+      "tax": 795
+    },
+    {
+      "tick": 675,
+      "troops": 4313,
+      "land": 8844,
+      "remaining": 804,
+      "oi": 23576,
+      "tax": 795
+    },
+    {
+      "tick": 676,
+      "troops": 4313,
+      "land": 8844,
+      "remaining": 804,
+      "oi": 23576,
+      "tax": 795
+    },
+    {
+      "tick": 677,
+      "troops": 4313,
+      "land": 8844,
+      "remaining": 804,
+      "oi": 23576,
+      "tax": 795
+    },
+    {
+      "tick": 678,
+      "troops": 4313,
+      "land": 9112,
+      "remaining": 268,
+      "oi": 23576,
+      "tax": 795
+    },
+    {
+      "tick": 679,
+      "troops": 2227,
+      "land": 9112,
+      "remaining": 2511,
+      "oi": 23786,
+      "tax": 848
+    },
+    {
+      "tick": 680,
+      "troops": 2227,
+      "land": 9112,
+      "remaining": 2511,
+      "oi": 23786,
+      "tax": 848
+    },
+    {
+      "tick": 681,
+      "troops": 2227,
+      "land": 9384,
+      "remaining": 1967,
+      "oi": 23786,
+      "tax": 848
+    },
+    {
+      "tick": 682,
+      "troops": 2227,
+      "land": 9384,
+      "remaining": 1967,
+      "oi": 23786,
+      "tax": 848
+    },
+    {
+      "tick": 683,
+      "troops": 2227,
+      "land": 9384,
+      "remaining": 1967,
+      "oi": 23786,
+      "tax": 848
+    },
+    {
+      "tick": 684,
+      "troops": 2227,
+      "land": 9660,
+      "remaining": 1415,
+      "oi": 23786,
+      "tax": 848
+    },
+    {
+      "tick": 685,
+      "troops": 2227,
+      "land": 9660,
+      "remaining": 1415,
+      "oi": 23786,
+      "tax": 848
+    },
+    {
+      "tick": 686,
+      "troops": 2227,
+      "land": 9660,
+      "remaining": 1415,
+      "oi": 23786,
+      "tax": 848
+    },
+    {
+      "tick": 687,
+      "troops": 2227,
+      "land": 9940,
+      "remaining": 855,
+      "oi": 23786,
+      "tax": 848
+    },
+    {
+      "tick": 688,
+      "troops": 2227,
+      "land": 9940,
+      "remaining": 855,
+      "oi": 23786,
+      "tax": 848
+    },
+    {
+      "tick": 689,
+      "troops": 2334,
+      "land": 9940,
+      "remaining": 855,
+      "oi": 23893,
+      "tax": 848
+    },
+    {
+      "tick": 690,
+      "troops": 2334,
+      "land": 10224,
+      "remaining": 287,
+      "oi": 23893,
+      "tax": 848
+    },
+    {
+      "tick": 691,
+      "troops": 2334,
+      "land": 10224,
+      "remaining": 287,
+      "oi": 23893,
+      "tax": 848
+    },
+    {
+      "tick": 692,
+      "troops": 2334,
+      "land": 10224,
+      "remaining": 287,
+      "oi": 23893,
+      "tax": 848
+    },
+    {
+      "tick": 693,
+      "troops": 544,
+      "land": 10512,
+      "remaining": 1474,
+      "oi": 23893,
+      "tax": 875
+    },
+    {
+      "tick": 694,
+      "troops": 544,
+      "land": 10512,
+      "remaining": 1474,
+      "oi": 23893,
+      "tax": 875
+    },
+    {
+      "tick": 695,
+      "troops": 544,
+      "land": 10804,
+      "remaining": 890,
+      "oi": 23893,
+      "tax": 875
+    },
+    {
+      "tick": 696,
+      "troops": 544,
+      "land": 10804,
+      "remaining": 890,
+      "oi": 23893,
+      "tax": 875
+    },
+    {
+      "tick": 697,
+      "troops": 544,
+      "land": 11100,
+      "remaining": 298,
+      "oi": 23893,
+      "tax": 875
+    },
+    {
+      "tick": 698,
+      "troops": 544,
+      "land": 11100,
+      "remaining": 298,
+      "oi": 23893,
+      "tax": 875
+    },
+    {
+      "tick": 699,
+      "troops": 11968,
+      "land": 11100,
+      "remaining": 0,
+      "oi": 35019,
+      "tax": 875
+    },
+    {
+      "tick": 700,
+      "troops": 11968,
+      "land": 11100,
+      "remaining": 0,
+      "oi": 35019,
+      "tax": 875
+    },
+    {
+      "tick": 701,
+      "troops": 11968,
+      "land": 11100,
+      "remaining": 0,
+      "oi": 35019,
+      "tax": 875
+    },
+    {
+      "tick": 702,
+      "troops": 11968,
+      "land": 11100,
+      "remaining": 0,
+      "oi": 35019,
+      "tax": 875
+    },
+    {
+      "tick": 703,
+      "troops": 11968,
+      "land": 11100,
+      "remaining": 0,
+      "oi": 35019,
+      "tax": 875
+    },
+    {
+      "tick": 704,
+      "troops": 11968,
+      "land": 11100,
+      "remaining": 0,
+      "oi": 35019,
+      "tax": 875
+    },
+    {
+      "tick": 705,
+      "troops": 11968,
+      "land": 11100,
+      "remaining": 0,
+      "oi": 35019,
+      "tax": 875
+    },
+    {
+      "tick": 706,
+      "troops": 11968,
+      "land": 11100,
+      "remaining": 0,
+      "oi": 35019,
+      "tax": 875
+    },
+    {
+      "tick": 707,
+      "troops": 11968,
+      "land": 11100,
+      "remaining": 0,
+      "oi": 35019,
+      "tax": 875
+    }
+  ]
+}
