@@ -4,7 +4,7 @@
         { "IFS": 175, "troops": 449 },
         { "IFS": 273, "troops": 669 },
         { "IFS": 371, "troops": 1076 },
-        { "IFS": 469, "troops": 1886 }
+        { "IFS": 462, "troops": 2419 }
     ],
     "timings": {
         "legacy": 508,
@@ -12,13 +12,13 @@
     },
     "singleplayer": false,
     "results": {
-        "troops": 13220,
-        "land": 1984,
-        "oi": 17322,
-        "tax": 158,
-        "legacy": {
-            "troops": 6731,
-            "oi": 10833 
-        }
+        "troops": 12633,
+        "land": 2244,
+        "oi": 17251,
+        "tax": 154
+    },
+    "legacy": {
+        "troops": 6223,
+        "oi": 10841
     }
 }
