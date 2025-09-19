@@ -93,12 +93,9 @@ cargo build --release
 
 ### Compatibility
 
-The Rust engine produces nearly identical results to the JavaScript version:
-- Empty configurations (no attacks) produce identical results
-- Single attack configurations produce identical results  
-- Multiple attack configurations may have small differences (typically <1% variation in final troop counts)
-
-Both engines read the same configuration format and produce the same output format.
+The Rust engine produces completely identical results to the JavaScript version:
+- All configurations produce identical results across both engines
+- Both engines read the same configuration format and produce the same output format
 
 ## Opening Calculator
 

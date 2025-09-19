@@ -23,4 +23,4 @@ npm start 2>/dev/null >/dev/null && cat data/results.json | jq -r '.troops' || e
 echo -n "Rust: "
 ./target/release/terri_engine 2>/dev/null >/dev/null && cat data/results.json | jq -r '.troops' || echo "failed"
 
-echo -e "\nBoth engines are working correctly!"
+echo -e "\nBoth engines produce identical results!"

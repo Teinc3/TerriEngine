@@ -1,5 +1,7 @@
 use crate::pixel::Pixel;
 use crate::algo::Algo;
+use crate::interest::Interest;
+use crate::game_statistics::GameStatistics;
 use serde::Serialize;
 
 #[derive(Debug, Clone, Serialize)]
@@ -40,25 +42,20 @@ impl Speed {
         };
     }
 
-    pub fn update(&mut self, pixel: &mut Pixel, algo: &mut Algo) -> Option<i32> {
+    pub fn update(&mut self, pixel: &mut Pixel, algo: &mut Algo, interest: &mut Interest, game_statistics: &mut GameStatistics) {
         if !self.attacking {
-            return None;
+            return;
         }
         
         if self.intervals_left == 10 {
             self.set_speed_interval(pixel);
         } else if self.intervals_left == 0 {
+            self.intervals_left -= 1; // Mimic the post-decrement: check 0, then decrement to -1
             self.set_speed_interval(pixel);
-            let old_remaining = self.remaining;
-            let should_return_troops = algo.attack_process_init(self, pixel);
-            if should_return_troops {
-                return Some(old_remaining);
-            }
-            self.intervals_left -= 1;
+            algo.attack_process_init(self, pixel, interest, game_statistics);
         } else {
             self.intervals_left -= 1;
         }
-        None
     }
 
     pub fn remove_entry(&mut self) {

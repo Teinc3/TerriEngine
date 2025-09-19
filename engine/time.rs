@@ -58,15 +58,8 @@ impl Time {
             return Ok(false); // Illegal attack - sim ended
         }
         
-        // Handle algo return remaining case
-        if self.speed.attacking {
-            // Update speed and handle attack processing
-            if let Some(returned_troops) = self.speed.update(&mut self.pixel, &mut self.algo) {
-                // Algo returned remaining troops, add them back to interest
-                self.interest.troops += returned_troops;
-                self.game_statistics.expenses[1] -= returned_troops;
-            }
-        }
+        // Update speed
+        self.speed.update(&mut self.pixel, &mut self.algo, &mut self.interest, &mut self.game_statistics);
         
         // Update game statistics
         self.game_statistics.update(self.tick, &self.interest, &self.pixel, &self.speed);

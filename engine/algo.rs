@@ -1,5 +1,7 @@
 use crate::pixel::Pixel;
 use crate::speed::Speed;
+use crate::interest::Interest;
+use crate::game_statistics::GameStatistics;
 
 #[derive(Debug, Clone)]
 pub struct Algo {
@@ -15,21 +17,24 @@ impl Algo {
         }
     }
 
-    pub fn attack_process_init(&mut self, speed: &mut Speed, pixel: &mut Pixel) -> bool {
+    pub fn attack_process_init(&mut self, speed: &mut Speed, pixel: &mut Pixel, interest: &mut Interest, game_statistics: &mut GameStatistics) {
         self.marked_pixel_count = pixel.border + pixel.border_increment;
         if self.marked_pixel_count == 0 {
-            speed.remove_entry();
-            return true; // Signal that troops should be returned
+            self.return_remaining(speed, interest, game_statistics);
         } else {
             let remaining = speed.remaining;
             if remaining / self.marked_pixel_count > self.neut_cost {
                 self.take_border_pixels(speed, pixel);
-                return false; // No troops to return
             } else {
-                speed.remove_entry();
-                return true; // Signal that troops should be returned
+                self.return_remaining(speed, interest, game_statistics);
             }
         }
+    }
+
+    pub fn return_remaining(&self, speed: &mut Speed, interest: &mut Interest, game_statistics: &mut GameStatistics) {
+        interest.troops += speed.remaining;
+        game_statistics.expenses[1] -= speed.remaining;
+        speed.remove_entry();
     }
 
     pub fn take_border_pixels(&self, speed: &mut Speed, pixel: &mut Pixel) {
