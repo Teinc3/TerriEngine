@@ -71,6 +71,35 @@ The engine can be configured by modifying the `config.json` file in the `/data` 
  - **checkAllAUInterval** (optional): The opening calculator will check land to see if auInterval will change, up to the 60kl speed increase. Default: `false`.
 
 
+## Rust Engine
+
+A Rust implementation of the TerriEngine is available in the `engine/` directory, providing identical functionality with improved performance.
+
+### Usage
+
+```bash
+# From the repository root
+./engine/target/release/terri_engine [config_path]
+```
+
+If no config path is provided, it defaults to `data/config.json`.
+
+### Building
+
+```bash
+cd engine
+cargo build --release
+```
+
+### Compatibility
+
+The Rust engine produces nearly identical results to the JavaScript version:
+- Empty configurations (no attacks) produce identical results
+- Single attack configurations produce identical results  
+- Multiple attack configurations may have small differences (typically <1% variation in final troop counts)
+
+Both engines read the same configuration format and produce the same output format.
+
 ## Opening Calculator
 
 The opening calculator is a tool that calculates the optimal opening moves to take in order to grant the player the greatest advantage in a multiplayer game.
