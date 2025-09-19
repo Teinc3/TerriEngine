@@ -3,6 +3,7 @@ use crate::interest::Interest;
 use crate::speed::Speed;
 use crate::game_statistics::GameStatistics;
 
+/// Processes attack actions based on IFS (Info-For-Send) instructions
 #[derive(Debug, Clone)]
 pub struct ProcessAction {
     ratio_base: i32,
@@ -15,6 +16,8 @@ impl ProcessAction {
         }
     }
 
+    /// Process attacks for the current tick
+    /// Returns false if an illegal attack takes place, true otherwise
     pub fn update(&self, tick: i32, instructions: &Instructions, interest: &mut Interest, speed: &mut Speed, game_statistics: &mut GameStatistics) -> bool {
         // Find IFS for current tick
         let ifs = instructions.ifses.iter().find(|ifs| ifs.ifs == tick);
@@ -29,10 +32,13 @@ impl ProcessAction {
         }
     }
 
+    /// Check if the current tick is an info send tick (every 7 ticks)
     fn is_info_send(&self, tick: i32) -> bool {
         tick % 7 == 0
     }
 
+    /// Process a specific attack based on IFS instructions
+    /// Returns false if attack is impossible, true if successful
     fn process_attack(&self, ifs: &IFS, instructions: &Instructions, interest: &mut Interest, speed: &mut Speed, game_statistics: &mut GameStatistics) -> bool {
         let tax = interest.troops * 3 / 256;
         let use_ratio = ifs.ratio.is_some();
@@ -53,7 +59,7 @@ impl ProcessAction {
             amount -= if amount * 2 >= interest.troops { tax } else { 0 };
         }
 
-        if amount > 2 { // minDefensePerSquare
+        if amount > 2 { // minDefensePerSquare - minimum 2 troops per pixel attacked
             interest.troops -= amount + tax;
             if interest.troops < 0 {
                 return false; // Impossible attack

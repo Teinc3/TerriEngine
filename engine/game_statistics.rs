@@ -13,8 +13,10 @@ pub struct GameStatisticsState {
 
 #[derive(Debug, Clone)]
 pub struct GameStatistics {
-    pub income: [i32; 2], // [Land, Interest]
-    pub expenses: [i32; 2], // [Tax, Attack]
+    /// Income sources: [Land, Interest]
+    pub income: [i32; 2],
+    /// Expense categories: [Tax, Attack]
+    pub expenses: [i32; 2],
     pub store_sim_logs: bool,
     pub logs: Option<Vec<SimulationLog>>,
 }
@@ -30,8 +32,8 @@ impl GameStatistics {
     }
 
     pub fn init(&mut self, instructions: &Instructions) {
-        self.income = [512, 0]; // Land, Interest
-        self.expenses = [0, 0]; // Tax, Attack
+        self.income = [512, 0]; // Land income starts at 512, Interest starts at 0
+        self.expenses = [0, 0]; // Tax and Attack expenses start at 0
         self.store_sim_logs = instructions.options
             .as_ref()
             .and_then(|opt| opt.store_sim_logs)
@@ -42,6 +44,7 @@ impl GameStatistics {
         }
     }
 
+    /// Get Overall Income (OI) - sum of Land income and Interest income
     pub fn get_oi(&self) -> i32 {
         self.income[1] + self.income[0]
     }

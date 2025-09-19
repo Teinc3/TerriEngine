@@ -6,6 +6,10 @@ use crate::speed::Speed;
 use crate::game_statistics::GameStatistics;
 use crate::process_action::ProcessAction;
 
+/// Main simulation engine that coordinates all game systems
+/// 
+/// This is the equivalent of the core.js file from the JavaScript version,
+/// managing the game loop and component dependencies.
 #[derive(Debug, Clone)]
 pub struct Time {
     pub tick: i32,
@@ -32,6 +36,7 @@ impl Time {
         }
     }
 
+    /// Initialize the simulation with given instructions
     pub fn init(&mut self, instructions: &Instructions) {
         self.instructions = Some(instructions.clone());
         self.tick = 0;
@@ -41,6 +46,9 @@ impl Time {
         self.game_statistics.init(instructions);
     }
 
+    /// Main game loop update
+    /// Returns Ok(true) if simulation continues, Ok(false) if illegal attack occurred,
+    /// or Err(SimulationResult) if simulation completed successfully
     pub fn update(&mut self) -> Result<bool, SimulationResult> {
         let instructions = self.instructions.as_ref().unwrap();
         
@@ -84,6 +92,7 @@ impl Time {
         Ok(true) // Sim has not yet ended
     }
 
+    /// Update the IFS list for dynamic attack modification
     pub fn add_ifses(&mut self, ifses: Vec<crate::config::IFS>) {
         if let Some(ref mut instructions) = self.instructions {
             instructions.ifses = ifses;

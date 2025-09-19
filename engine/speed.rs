@@ -4,6 +4,7 @@ use crate::interest::Interest;
 use crate::game_statistics::GameStatistics;
 use serde::Serialize;
 
+/// Serializable state for the Speed component
 #[derive(Debug, Clone, Serialize)]
 pub struct SpeedState {
     pub new_attack_intervals_left: i32,
@@ -12,11 +13,13 @@ pub struct SpeedState {
     pub remaining: i32,
 }
 
+/// Speed control system for managing attack timing and intervals
 #[derive(Debug, Clone)]
 pub struct Speed {
     pub new_attack_intervals_left: i32,
     pub intervals_left: i32,
     pub attacking: bool,
+    /// Number of troops remaining to be used in the current attack
     pub remaining: i32,
 }
 
@@ -30,6 +33,8 @@ impl Speed {
         }
     }
 
+    /// Set attack speed interval based on current land size
+    /// Larger territories attack faster: 1000+ land = 3 intervals, 10000+ land = 2 intervals, else 1 interval
     pub fn set_speed_interval(&mut self, pixel: &Pixel) {
         self.intervals_left = if self.intervals_left == 10 {
             self.new_attack_intervals_left
@@ -42,6 +47,7 @@ impl Speed {
         };
     }
 
+    /// Update attack timing and trigger algorithm when ready
     pub fn update(&mut self, pixel: &mut Pixel, algo: &mut Algo, interest: &mut Interest, game_statistics: &mut GameStatistics) {
         if !self.attacking {
             return;
@@ -58,11 +64,13 @@ impl Speed {
         }
     }
 
+    /// Stop attacking and clear remaining troops
     pub fn remove_entry(&mut self) {
         self.attacking = false;
         self.remaining = 0;
     }
 
+    /// Start a new attack or add troops to existing attack
     pub fn add_entry(&mut self, amount: i32) {
         if self.attacking {
             self.remaining += amount;

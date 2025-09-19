@@ -1,6 +1,7 @@
 use crate::pixel::Pixel;
 use crate::game_statistics::GameStatistics;
 
+/// Interest calculation system for troop management
 #[derive(Debug, Clone)]
 pub struct Interest {
     pub troops: i32,
@@ -11,6 +12,9 @@ impl Interest {
         Self { troops: 0 }
     }
 
+    /// Update interest and land income based on game tick
+    /// Interest is calculated every 10 ticks (tick % 10 == 9)
+    /// Land income is added every 100 ticks (tick % 100 == 99)
     pub fn update(&mut self, tick: i32, pixel: &Pixel, game_statistics: &mut GameStatistics) {
         if tick % 10 == 9 {
             let new_interest = std::cmp::max(
@@ -29,6 +33,8 @@ impl Interest {
         }
     }
 
+    /// Calculate interest rate based on current troop count and land
+    /// Interest rate decreases if troops exceed 100 * land (max_interest)
     pub fn get_interest_rate(&self, tick: i32, land: i32) -> i32 {
         let mut interest_rate = self.get_base_i_rate(tick);
         let max_interest = 100 * land;
@@ -38,10 +44,14 @@ impl Interest {
         interest_rate.clamp(0, 700)
     }
 
+    /// Calculate base interest rate that decreases over time
+    /// Formula: 100 * (13440 - 6 * tick) / 1920
     pub fn get_base_i_rate(&self, tick: i32) -> i32 {
         (100 * (13440 - 6 * tick)) / 1920
     }
 
+    /// Cap troops to maximum allowed (150 * land)
+    /// Returns the number of troops lost due to capping
     pub fn cap_troops(&mut self, land: i32) -> i32 {
         let max_troops = 150 * land;
         if self.troops > max_troops {
