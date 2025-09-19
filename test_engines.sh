@@ -11,7 +11,7 @@ echo -n "JavaScript: "
 npm start 2>/dev/null >/dev/null && cat data/results.json | jq -r '.troops' || echo "failed"
 
 echo -n "Rust: "
-./engine/target/release/terri_engine 2>/dev/null >/dev/null && cat data/results.json | jq -r '.troops' || echo "failed"
+./target/release/terri_engine 2>/dev/null >/dev/null && cat data/results.json | jq -r '.troops' || echo "failed"
 
 # Test with v4 opening
 echo -e "\nTesting with v4 opening..."
@@ -21,6 +21,6 @@ echo -n "JavaScript: "
 npm start 2>/dev/null >/dev/null && cat data/results.json | jq -r '.troops' || echo "failed"
 
 echo -n "Rust: "
-./engine/target/release/terri_engine 2>/dev/null >/dev/null && cat data/results.json | jq -r '.troops' || echo "failed"
+./target/release/terri_engine 2>/dev/null >/dev/null && cat data/results.json | jq -r '.troops' || echo "failed"
 
 echo -e "\nBoth engines are working correctly!"

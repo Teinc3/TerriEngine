@@ -79,7 +79,7 @@ A Rust implementation of the TerriEngine is available in the `engine/` directory
 
 ```bash
 # From the repository root
-./engine/target/release/terri_engine [config_path]
+./target/release/terri_engine [config_path]
 ```
 
 If no config path is provided, it defaults to `data/config.json`.
@@ -87,7 +87,7 @@ If no config path is provided, it defaults to `data/config.json`.
 ### Building
 
 ```bash
-cd engine
+# From the repository root
 cargo build --release
 ```
 

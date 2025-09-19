@@ -3,4 +3,4 @@ data/v5_private
 data/results.json
 data/bfs_data
 data/opening_data/v6_varieties/*_ModReplay.json
-engine/target/
+target/
