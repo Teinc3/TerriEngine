@@ -168,6 +168,7 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
     }
     
     let save_state = engine.save_state();
+    let initial_land = engine.get_land(); // Store for debugging
     
     // Use a for loop to go through all IFS-Combinations this cycle (matching JS exactly)
     'combin_loop: for combin_value in 0..(1u32 << (num_ifses + 1)) {
@@ -256,18 +257,31 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                 if cycle_ifses.is_empty() {
                     if abort_final_au {
                         // Without AFAU there would be no cycleIFSes anyways so skip
+                        if current_cycle == 2 && initial_land == 12 {
+                            println!("  SKIPPING: Empty IFS list after CAUT + abort_final_au");
+                        }
                         continue 'combin_loop;
                     }
                     // If we have no IFSes left, then we skip this combination
+                    if current_cycle == 2 && initial_land == 12 {
+                        println!("  SKIPPING: Empty IFS list after CAUT");
+                    }
                     continue 'combin_loop;
                 } else if abort_final_au {
                     // Check if we can abort final AU
                     if let Some(last_ifs) = cycle_ifses.last() {
                         if last_ifs.au_diffs <= 1 {
+                            if current_cycle == 2 && initial_land == 12 {
+                                println!("  SKIPPING: Abort final AU failed (auDiffs <= 1)");
+                            }
                             continue 'combin_loop;
                         }
                         // Abort final AU - decrement auDiffs and mark as AFAU
                         if let Some(last_ifs_mut) = cycle_ifses.last_mut() {
+                            if current_cycle == 2 && initial_land == 12 {
+                                println!("  ABORT FINAL AU: Decrementing auDiffs from {} to {}", 
+                                         last_ifs_mut.au_diffs, last_ifs_mut.au_diffs - 1);
+                            }
                             last_ifs_mut.au_diffs -= 1;
                             last_ifs_mut.remarks = "AFAU".to_string();
                         }
@@ -291,6 +305,9 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                 match result {
                     Ok(true) => continue,
                     Ok(false) => {
+                        if current_cycle == 2 && initial_land == 12 {
+                            println!("  SIMULATION FAILED: Engine returned false");
+                        }
                         if abort_final_au {
                             // If we abort final AU but still fail, skip next combination too
                             continue 'combin_loop;
@@ -303,6 +320,10 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
             }
             
             if !simulation_failed {
+                if current_cycle == 2 && initial_land == 12 {
+                    println!("  SUCCESS: Combination produced result with land={}, troops={}", 
+                             engine.get_land(), engine.get_troops());
+                }
                 // Create result - get OI and tax from game statistics
                 let (oi, tax) = get_game_statistics(&engine);
                 let result = BfsResult {
@@ -314,6 +335,8 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                     remaining: engine.get_remaining(),
                 };
                 results.push(result);
+            } else if current_cycle == 2 && initial_land == 12 {
+                println!("  FAILED: Simulation failed for this combination");
             }
         }
     }
