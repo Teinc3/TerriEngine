@@ -2,6 +2,14 @@ use crate::pixel::Pixel;
 use crate::speed::Speed;
 use crate::interest::Interest;
 use crate::game_statistics::GameStatistics;
+use serde::Serialize;
+
+/// Serializable state for the Algo component
+#[derive(Debug, Clone, Serialize)]
+pub struct AlgoState {
+    pub neut_cost: i32,
+    pub marked_pixel_count: i32,
+}
 
 /// Attack algorithm for territorial expansion
 /// 
@@ -54,5 +62,19 @@ impl Algo {
         speed.remaining -= self.marked_pixel_count * self.neut_cost;
         pixel.land += self.marked_pixel_count;
         pixel.border += pixel.border_increment;
+    }
+
+    /// Load state from a previous simulation
+    pub fn load_state(&mut self, state: &AlgoState) {
+        self.neut_cost = state.neut_cost;
+        self.marked_pixel_count = state.marked_pixel_count;
+    }
+
+    /// Save current state for serialization
+    pub fn save_state(&self) -> AlgoState {
+        AlgoState {
+            neut_cost: self.neut_cost,
+            marked_pixel_count: self.marked_pixel_count,
+        }
     }
 }

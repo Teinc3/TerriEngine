@@ -8,6 +8,10 @@ description = "Rust implementation of TerriEngine for territorial.io opening sim
 name = "terri_engine"
 path = "engine/main.rs"
 
+[[bin]]
+name = "bfs"
+path = "bfs.rs"
+
 [lib]
 name = "terri_engine"
 path = "engine/lib.rs"
