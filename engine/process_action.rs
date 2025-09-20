@@ -2,6 +2,13 @@ use crate::config::{Instructions, IFS};
 use crate::interest::Interest;
 use crate::speed::Speed;
 use crate::game_statistics::GameStatistics;
+use serde::Serialize;
+
+/// Serializable state for the ProcessAction component
+#[derive(Debug, Clone, Serialize)]
+pub struct ProcessActionState {
+    pub ratio_base: i32,
+}
 
 /// Processes attack actions based on IFS (Info-For-Send) instructions
 #[derive(Debug, Clone)]
@@ -70,6 +77,18 @@ impl ProcessAction {
             true // Attack successful
         } else {
             false // No attack executed
+        }
+    }
+
+    /// Load state from a previous simulation
+    pub fn load_state(&mut self, state: &ProcessActionState) {
+        self.ratio_base = state.ratio_base;
+    }
+
+    /// Save current state for serialization
+    pub fn save_state(&self) -> ProcessActionState {
+        ProcessActionState {
+            ratio_base: self.ratio_base,
         }
     }
 }

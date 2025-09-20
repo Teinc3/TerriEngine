@@ -80,9 +80,12 @@ A Rust implementation of the TerriEngine is available in the `engine/` directory
 ```bash
 # From the repository root
 ./target/release/terri_engine [config_path]
+
+# Rust BFS implementation
+./target/release/bfs [config_path]
 ```
 
-If no config path is provided, it defaults to `data/config.json`.
+If no config path is provided, it defaults to `data/config.json` for the engine and `data/bfs_config.json` for the BFS.
 
 ### Building
 
@@ -96,6 +99,7 @@ cargo build --release
 The Rust engine produces completely identical results to the JavaScript version:
 - All configurations produce identical results across both engines
 - Both engines read the same configuration format and produce the same output format
+- The Rust BFS implementation produces results comparable to the JavaScript version with significantly improved performance
 
 ## Opening Calculator
 
