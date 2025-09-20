@@ -160,7 +160,15 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
         }
     }
     
+    // Debug output for cycle 2 to understand the state
+    if current_cycle == 2 {
+        println!("DEBUG: Starting cycle 2 with engine state:");
+        println!("  Land: {}, Troops: {}, Tick: {}", engine.get_land(), engine.get_troops(), engine.tick);
+        println!("  Previous IFSes: {:?}", prev_ifses.iter().map(|ifs| ifs.ifs).collect::<Vec<_>>());
+    }
+    
     let save_state = engine.save_state();
+    let initial_land = engine.get_land(); // Store for debugging
     
     // Use a for loop to go through all IFS-Combinations this cycle (matching JS exactly)
     'combin_loop: for combin_value in 0..(1u32 << (num_ifses + 1)) {
@@ -194,14 +202,6 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                 // We can set option for PIAI if its initIFS
                 ifs.remarks = "PIAI".to_string();
             }
-        }
-        
-        // Debug the empty IFS case specifically
-        let debug_empty_case = current_cycle == 2 && base_cycle_ifses.is_empty() && prev_ifses.is_empty();
-        if debug_empty_case {
-            println!("DEBUG EMPTY CASE: Processing empty IFS list for cycle 2");
-            println!("  Starting engine state: Land={}, Troops={}, Tick={}", 
-                     engine.get_land(), engine.get_troops(), engine.tick);
         }
         
         // Determine PIAI variants
@@ -246,29 +246,42 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                     remarks: "end_marker".to_string(),
                 });
                 
-                // Calculate AU differences and CAUT (with marker present)
+                // Calculate AU differences and CAUT
                 if !calculate_au_and_caut(&mut cycle_ifses, &engine, current_cycle, config) {
                     continue 'piai_loop;
                 }
                 
-                // Remove the cycle-end IFS marker (AFTER CAUT calculation)
+                // Remove the cycle-end IFS marker
                 cycle_ifses.pop();
                 
                 if cycle_ifses.is_empty() {
                     if abort_final_au {
                         // Without AFAU there would be no cycleIFSes anyways so skip
+                        if current_cycle == 2 && initial_land == 12 {
+                            println!("  SKIPPING: Empty IFS list after CAUT + abort_final_au");
+                        }
                         continue 'combin_loop;
                     }
                     // If we have no IFSes left, then we skip this combination
+                    if current_cycle == 2 && initial_land == 12 {
+                        println!("  SKIPPING: Empty IFS list after CAUT");
+                    }
                     continue 'combin_loop;
                 } else if abort_final_au {
                     // Check if we can abort final AU
                     if let Some(last_ifs) = cycle_ifses.last() {
                         if last_ifs.au_diffs <= 1 {
+                            if current_cycle == 2 && initial_land == 12 {
+                                println!("  SKIPPING: Abort final AU failed (auDiffs <= 1)");
+                            }
                             continue 'combin_loop;
                         }
                         // Abort final AU - decrement auDiffs and mark as AFAU
                         if let Some(last_ifs_mut) = cycle_ifses.last_mut() {
+                            if current_cycle == 2 && initial_land == 12 {
+                                println!("  ABORT FINAL AU: Decrementing auDiffs from {} to {}", 
+                                         last_ifs_mut.au_diffs, last_ifs_mut.au_diffs - 1);
+                            }
                             last_ifs_mut.au_diffs -= 1;
                             last_ifs_mut.remarks = "AFAU".to_string();
                         }
@@ -279,8 +292,8 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                 calculate_troops_for_cycle_ifses(&mut cycle_ifses, &engine, piai == 1);
             } else {
                 // Empty IFS list - skip this combination (matching JavaScript behavior)
-                if debug_empty_case {
-                    println!("  -> SKIPPING: Empty IFS list, no attacks this cycle");
+                if current_cycle == 2 {
+                    println!("DEBUG: Skipping empty IFS combination for cycle 2");
                 }
                 continue 'combin_loop;
             }
@@ -298,6 +311,9 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                 match result {
                     Ok(true) => continue,
                     Ok(false) => {
+                        if current_cycle == 2 && initial_land == 12 {
+                            println!("  SIMULATION FAILED: Engine returned false");
+                        }
                         if abort_final_au {
                             // If we abort final AU but still fail, skip next combination too
                             continue 'combin_loop;
@@ -310,15 +326,10 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
             }
             
             if !simulation_failed {
-                // For debugging: In JavaScript, ALL cycle 2 combinations should be eliminated
-                if current_cycle == 2 {
-                    println!("SURVIVING COMBINATION:");
-                    println!("  Final land: {}, Final troops: {}", 
+                if current_cycle == 2 && initial_land == 12 {
+                    println!("  SUCCESS: Combination produced result with land={}, troops={}", 
                              engine.get_land(), engine.get_troops());
-                    println!("  IFSes: {:?}", all_ifses.iter().map(|ifs| ifs.ifs).collect::<Vec<_>>());
-                    println!("  Previous IFSes: {:?}", prev_ifses.iter().map(|ifs| ifs.ifs).collect::<Vec<_>>());
                 }
-                
                 // Create result - get OI and tax from game statistics
                 let (oi, tax) = get_game_statistics(&engine);
                 let result = BfsResult {
@@ -330,6 +341,8 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                     remaining: engine.get_remaining(),
                 };
                 results.push(result);
+            } else if current_cycle == 2 && initial_land == 12 {
+                println!("  FAILED: Simulation failed for this combination");
             }
         }
     }
@@ -393,6 +406,15 @@ fn calculate_au_and_caut(cycle_ifses: &mut Vec<ExtendedIFS>, engine: &Time, curr
     let mut au_interval = if accumulated_land > 10000 { 2 } else if accumulated_land > 1000 { 3 } else { 4 };
     let cycle_end_threshold = current_cycle * 100 - 1;
     
+    // Special debug for land = 12 case in cycle 2
+    let debug_this = current_cycle == 2 && accumulated_land == 12;
+    if debug_this {
+        println!("DEBUG LAND=12: Cycle 2 CAUT calculation");
+        println!("  Land: {}, closest_au: {}, au_interval: {}, threshold: {}", 
+                 accumulated_land, closest_au, au_interval, cycle_end_threshold);
+        println!("  IFSes to process: {:?}", cycle_ifses.iter().map(|ifs| ifs.ifs).collect::<Vec<_>>());
+    }
+    
     while index < cycle_ifses.len() {
         let mut au_diffs = 0;
         let current_ifs = cycle_ifses[index].ifs;
@@ -416,12 +438,20 @@ fn calculate_au_and_caut(cycle_ifses: &mut Vec<ExtendedIFS>, engine: &Time, curr
         // Set CAUT for this IFS
         cycle_ifses[index].caut = closest_au;
         
+        if debug_this {
+            println!("  IFS[{}] {}: CAUT={}, auDiffs={}, accumulated_land={}", 
+                     index, current_ifs, closest_au, au_diffs, accumulated_land);
+        }
+        
         if index > 0 {
             // Assign the auDiffs to the previous IFS
             cycle_ifses[index - 1].au_diffs = au_diffs;
             
             // Check if this IFS's CAUT exceeds the cycle-end IFS (second-to-last check)
             if index == cycle_ifses.len() - 2 && closest_au >= cycle_end_threshold {
+                if debug_this {
+                    println!("  REMOVING second-to-last IFS: CAUT {} >= threshold {}", closest_au, cycle_end_threshold);
+                }
                 // Remove this IFS from the array
                 cycle_ifses.remove(index);
                 break;
@@ -429,11 +459,18 @@ fn calculate_au_and_caut(cycle_ifses: &mut Vec<ExtendedIFS>, engine: &Time, curr
         } else {
             // If this is the first IFS, check if the CAUT exceeds the cycle-end IFS
             if closest_au >= cycle_end_threshold {
+                if debug_this {
+                    println!("  ELIMINATING first IFS: CAUT {} >= threshold {}", closest_au, cycle_end_threshold);
+                }
                 // No way to actually get any land from this IFS, skip entire combination
                 return false;
             }
         }
         index += 1;
+    }
+    
+    if debug_this {
+        println!("  RESULT: {} IFSes remaining", cycle_ifses.len());
     }
     
     true
