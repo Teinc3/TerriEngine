@@ -169,11 +169,10 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                     cycle_ifses.insert(0, piai_ifs);
                 }
                 
-                // Add end-of-cycle marker (this should not be processed as an attack)
-                // We don't add this as it causes issues - just run to end of cycle
-                
                 // Calculate troops for each IFS based on AU differences
-                calculate_troops_for_ifses(&mut cycle_ifses, &engine, piai == 1);
+                if !cycle_ifses.is_empty() {
+                    calculate_troops_for_ifses(&mut cycle_ifses, &engine, piai == 1);
+                }
             }
             
             // Append instructions to the cycle
@@ -214,58 +213,85 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
 }
 
 fn get_earliest_ifs(cycle: i32) -> i32 {
-    cycle * 100 // Start of cycle
+    let earliest_tick = match cycle {
+        1 => 56,
+        2 => 104,
+        3 => 240,
+        4 => 330,
+        5 => 420,
+        6 => 504,
+        _ => (cycle - 1) * 100,
+    };
+    get_next_ifs(earliest_tick)
 }
 
-fn get_cycle_ifses(min_ifs: i32) -> Vec<IFS> {
-    let mut ifses = vec![];
-    let max_ifs = min_ifs + 99; // End of cycle
+fn get_cycle_ifses(current_ifs: i32) -> Vec<IFS> {
+    let mut cycle_ifses = vec![];
+    let current_cycle = (current_ifs + 1) / 100 + 1;
+    let mut ifs = current_ifs;
     
-    // Generate IFSes every 7 ticks (info send intervals)
-    let mut ifs = get_next_ifs(min_ifs);
-    while ifs < max_ifs {
-        ifses.push(IFS {
+    while ifs < 100 * current_cycle {
+        cycle_ifses.push(IFS {
             ifs,
             troops: None, // Will be calculated later
             ratio: None,
         });
-        ifs = get_next_ifs(ifs + 1);
+        ifs += 7; // Next IFS is 7 ticks later
     }
     
-    ifses
+    cycle_ifses
 }
 
 fn get_next_ifs(tick: i32) -> i32 {
-    // Round up to next multiple of 7
+    // When is the next time an attack can start in multiplayer?
     ((tick + 6) / 7) * 7
 }
 
 fn get_i_tick(tick: i32) -> i32 {
-    // Interest tick calculation - every 10 ticks
-    tick / 10
+    // Interest tick level of a tick
+    (tick + 1) / 10
 }
 
 fn calculate_troops_for_ifses(cycle_ifses: &mut Vec<IFS>, engine: &Time, is_piai: bool) {
-    // This is a simplified version - the original has complex AU calculation
-    // For now, we'll use a basic troop calculation
-    let _current_land = engine.get_land();
-    let current_border = engine.get_border();
+    // More sophisticated calculation based on AU differences and land expansion
+    let initial_land = engine.get_land();
+    let mut land_diff = 0i32;
+    let mut current_border = (2.0 * (2.0 * initial_land as f64 + 1.0).sqrt() - 2.0) as i32;
     
-    let cycle_len = cycle_ifses.len();
     for (index, ifs) in cycle_ifses.iter_mut().enumerate() {
-        if ifs.troops.is_none() && index < cycle_len - 1 { // Skip end marker
-            // Basic troop calculation - this would need to be more sophisticated
-            // in a full implementation to match the JavaScript version
-            let base_troops = current_border * 2; // Basic neut cost calculation
-            
-            // Adjust for PIAI
-            let mut troops = base_troops;
-            if is_piai && index == 1 {
-                troops -= 3; // Deduct PIAI troops
+        let mut old_border_troops = 0;
+        
+        if is_piai && index == 0 {
+            // PIAI initial IFS
+            ifs.troops = Some(3);
+            continue;
+        } else {
+            land_diff = 0;
+            // For non-initial IFS or when not doing PIAI, we need to account for border troops
+            if (!is_piai && index != 0) || (is_piai && index != 1) {
+                old_border_troops = current_border;
             }
-            
-            ifs.troops = Some(troops.max(1)); // Ensure at least 1 troop
         }
+        
+        // Calculate AU differences - simplified version
+        // In the real version this would be based on the CAUT calculation
+        let au_diffs = if index == 0 { 1 } else { index as i32 + 1 };
+        
+        // Calculate land expansion based on AU differences
+        for _ in 0..au_diffs {
+            land_diff += current_border + 4;
+            current_border += 4;
+        }
+        
+        // Calculate troops required: 2 * land difference + current border - old border troops
+        let mut troops = 2 * land_diff + current_border - old_border_troops;
+        
+        // Adjust for PIAI second IFS
+        if is_piai && index == 1 {
+            troops -= 3;
+        }
+        
+        ifs.troops = Some(troops.max(1));
     }
 }
 
