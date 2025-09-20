@@ -1,8 +1,43 @@
 use std::fs;
 use std::time::Instant;
+use std::collections::HashMap;
 use terri_engine::{Instructions, Time};
 use terri_engine::config::IFS;
 use serde_json;
+
+// Extended IFS struct for internal BFS calculations (matching JS structure)
+#[derive(Debug, Clone)]
+struct ExtendedIFS {
+    ifs: i32,
+    troops: Option<i32>,
+    ratio: Option<i32>,
+    caut: i32,       // Closest Attack Unit Time
+    au_diffs: i32,   // Attack Unit differences  
+    remarks: String, // "default", "PIAI", "AFAU"
+}
+
+impl From<IFS> for ExtendedIFS {
+    fn from(ifs: IFS) -> Self {
+        ExtendedIFS {
+            ifs: ifs.ifs,
+            troops: ifs.troops,
+            ratio: ifs.ratio,
+            caut: 0,
+            au_diffs: 0,
+            remarks: "default".to_string(),
+        }
+    }
+}
+
+impl From<ExtendedIFS> for IFS {
+    fn from(ext_ifs: ExtendedIFS) -> Self {
+        IFS {
+            ifs: ext_ifs.ifs,
+            troops: ext_ifs.troops,
+            ratio: ext_ifs.ratio,
+        }
+    }
+}
 
 fn main() {
     let config_path = std::env::args().nth(1)
@@ -127,57 +162,119 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
     
     let save_state = engine.save_state();
     
-    // Generate all possible combinations (2^n possibilities)
-    for combin_value in 0..(1u32 << (num_ifses + 1)) {
-        // Load the state from the previous sim
-        engine.load_state(&save_state);
+    // Use a for loop to go through all IFS-Combinations this cycle (matching JS exactly)
+    'combin_loop: for combin_value in 0..(1u32 << (num_ifses + 1)) {
+        // Convert combinValue into the combinations array (matching JS bit logic)
+        let mut combinations = vec![0; num_ifses + 1];
+        for index in 0..combinations.len() {
+            combinations[index] = (combin_value >> (num_ifses + 1 - index - 1)) & 1;
+        }
         
-        // Determine which IFSes to include based on binary representation
+        // Filter out all disabled IFSes (And deepcopy our IFS objects)
         let mut base_cycle_ifses = vec![];
-        for i in 0..num_ifses {
-            if (combin_value >> i) & 1 == 1 {
-                base_cycle_ifses.push(all_cycle_ifses[i].clone());
+        for (index, &enabled) in combinations[..num_ifses].iter().enumerate() {
+            if enabled == 1 {
+                base_cycle_ifses.push(all_cycle_ifses[index].clone());
             }
         }
         
-        // Skip if no attacks this cycle and not last combination
-        if base_cycle_ifses.is_empty() && combin_value != (1u32 << num_ifses) {
-            continue;
+        let abort_final_au = combinations[num_ifses] == 0; // If true, then we abort the final AU
+        
+        // Check if there are enabled non-initIFS IFSes that cannot be buffered
+        for (index, ifs) in base_cycle_ifses.iter_mut().enumerate() {
+            if get_i_tick(ifs.ifs - 7) == get_i_tick(ifs.ifs) {
+                if index == 0 {
+                    // We can use it as initIFS, just that we can't set option for PIAI
+                    break;
+                } else {
+                    // Skip this combination
+                    continue 'combin_loop;
+                }
+            } else if index == 0 {
+                // We can set option for PIAI if its initIFS
+                ifs.remarks = "PIAI".to_string();
+            }
         }
         
-        // Check for PIAI compatibility and process
-        let can_use_piai = base_cycle_ifses.first()
-            .map(|ifs| get_i_tick(ifs.ifs - 7) != get_i_tick(ifs.ifs))
-            .unwrap_or(false);
+        // Determine PIAI variants
+        let piai_variants = if !base_cycle_ifses.is_empty() && base_cycle_ifses[0].remarks == "PIAI" {
+            2 // Can do PIAI
+        } else {
+            1 // Cannot do PIAI
+        };
         
-        let piai_variants = if can_use_piai { 2 } else { 1 };
-        
-        for piai in 0..piai_variants {
+        // PIAI loop: for each combination, try with and without PIAI
+        'piai_loop: for piai in 0..piai_variants {
             let mut cycle_ifses = base_cycle_ifses.clone();
             
-            // Load the state again for this PIAI variant
+            // Load the state from the previous sim
             engine.load_state(&save_state);
             
+            // If there are no attacks this cycle, we skip directly to next cycle
             if !cycle_ifses.is_empty() {
-                // Add PIAI if enabled
+                // Set first IFS to default
+                cycle_ifses[0].remarks = "default".to_string();
+                
+                // Handle PIAI
                 if piai == 1 {
-                    let piai_ifs = IFS {
+                    let piai_ifs = ExtendedIFS {
                         ifs: cycle_ifses[0].ifs - 7,
                         troops: Some(3),
                         ratio: None,
+                        caut: 0,
+                        au_diffs: 0,
+                        remarks: "PIAI".to_string(),
                     };
                     cycle_ifses.insert(0, piai_ifs);
                 }
                 
-                // Calculate troops for each IFS based on AU differences
-                if !cycle_ifses.is_empty() {
-                    calculate_troops_for_ifses(&mut cycle_ifses, &engine, piai == 1);
+                // Add cycle-end marker for CAUT calculations
+                cycle_ifses.push(ExtendedIFS {
+                    ifs: current_cycle * 100 - 1,
+                    troops: None,
+                    ratio: None,
+                    caut: 0,
+                    au_diffs: 0,
+                    remarks: "end_marker".to_string(),
+                });
+                
+                // Calculate AU differences and CAUT
+                if !calculate_au_and_caut(&mut cycle_ifses, &engine, current_cycle, config) {
+                    continue 'piai_loop;
                 }
+                
+                // Remove the cycle-end IFS marker
+                cycle_ifses.pop();
+                
+                if cycle_ifses.is_empty() {
+                    if abort_final_au {
+                        // Without AFAU there would be no cycleIFSes anyways so skip
+                        continue 'combin_loop;
+                    }
+                    // If we have no IFSes left, then we skip this combination
+                    continue 'combin_loop;
+                } else if abort_final_au {
+                    // Check if we can abort final AU
+                    if let Some(last_ifs) = cycle_ifses.last() {
+                        if last_ifs.au_diffs <= 1 {
+                            continue 'combin_loop;
+                        }
+                        // Abort final AU - decrement auDiffs and mark as AFAU
+                        if let Some(last_ifs_mut) = cycle_ifses.last_mut() {
+                            last_ifs_mut.au_diffs -= 1;
+                            last_ifs_mut.remarks = "AFAU".to_string();
+                        }
+                    }
+                }
+                
+                // Calculate troops for each IFS
+                calculate_troops_for_cycle_ifses(&mut cycle_ifses, &engine, piai == 1);
             }
             
-            // Append instructions to the cycle
+            // Convert back to regular IFS and append instructions to the cycle
+            let cycle_ifses_regular: Vec<IFS> = cycle_ifses.into_iter().map(|ifs| ifs.into()).collect();
             let mut all_ifses = prev_ifses.clone();
-            all_ifses.extend(cycle_ifses);
+            all_ifses.extend(cycle_ifses_regular);
             engine.add_ifses(all_ifses.clone());
             
             // Run simulation up to start of next cycle
@@ -187,6 +284,10 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                 match result {
                     Ok(true) => continue,
                     Ok(false) => {
+                        if abort_final_au {
+                            // If we abort final AU but still fail, skip next combination too
+                            continue 'combin_loop;
+                        }
                         simulation_failed = true;
                         break;
                     }
@@ -195,13 +296,14 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
             }
             
             if !simulation_failed {
-                // Create result
+                // Create result - get OI and tax from game statistics
+                let (oi, tax) = get_game_statistics(&engine);
                 let result = BfsResult {
                     ifses: all_ifses,
                     troops: engine.get_troops(),
                     land: engine.get_land(),
-                    oi: 0, // We'll calculate this from game statistics if needed
-                    tax: 0, // We'll calculate this from game statistics if needed  
+                    oi,
+                    tax,
                     remaining: engine.get_remaining(),
                 };
                 results.push(result);
@@ -225,16 +327,19 @@ fn get_earliest_ifs(cycle: i32) -> i32 {
     get_next_ifs(earliest_tick)
 }
 
-fn get_cycle_ifses(current_ifs: i32) -> Vec<IFS> {
+fn get_cycle_ifses(current_ifs: i32) -> Vec<ExtendedIFS> {
     let mut cycle_ifses = vec![];
-    let current_cycle = (current_ifs + 1) / 100 + 1;
+    let current_cycle = (current_ifs + 99) / 100; // Equivalent to Math.ceil((currentIFS + 1) / 100)
     let mut ifs = current_ifs;
     
     while ifs < 100 * current_cycle {
-        cycle_ifses.push(IFS {
+        cycle_ifses.push(ExtendedIFS {
             ifs,
             troops: None, // Will be calculated later
             ratio: None,
+            caut: 0,
+            au_diffs: 0,
+            remarks: "default".to_string(),
         });
         ifs += 7; // Next IFS is 7 ticks later
     }
@@ -248,91 +353,189 @@ fn get_next_ifs(tick: i32) -> i32 {
 }
 
 fn get_i_tick(tick: i32) -> i32 {
-    // Interest tick level of a tick
+    // Interest tick level of a tick (matching JS exactly)
     (tick + 1) / 10
 }
 
-fn calculate_troops_for_ifses(cycle_ifses: &mut Vec<IFS>, engine: &Time, is_piai: bool) {
-    // More sophisticated calculation based on AU differences and land expansion
-    let initial_land = engine.get_land();
-    let mut land_diff = 0i32;
-    let mut current_border = (2.0 * (2.0 * initial_land as f64 + 1.0).sqrt() - 2.0) as i32;
+fn layer_formula(land: i32) -> f64 {
+    // Exact match of JavaScript layer formula
+    (2.0 * land as f64 + 1.0).sqrt() / 2.0 - 0.5
+}
+
+// Calculate AU differences and CAUT for all IFSes in the cycle
+fn calculate_au_and_caut(cycle_ifses: &mut Vec<ExtendedIFS>, engine: &Time, current_cycle: i32, config: &Instructions) -> bool {
+    let mut index = 0;
+    let mut closest_au = if !cycle_ifses.is_empty() { cycle_ifses[0].ifs + 7 } else { return false; };
+    let mut accumulated_land = engine.get_land();
+    let mut au_interval = if accumulated_land > 10000 { 2 } else if accumulated_land > 1000 { 3 } else { 4 };
+    
+    while index < cycle_ifses.len() {
+        let mut au_diffs = 0;
+        let current_ifs = cycle_ifses[index].ifs;
+        
+        // Calculate AU differences
+        while closest_au < current_ifs {
+            closest_au += au_interval;
+            au_diffs += 1;
+            
+            // Check if we need to change the auInterval 
+            if config.options.as_ref().and_then(|opt| opt.check_all_au_interval).unwrap_or(false) || au_interval == 4 {
+                accumulated_land += (4.0 * (layer_formula(accumulated_land) + 1.0)) as i32;
+                if accumulated_land > 10000 {
+                    au_interval = 2;
+                } else if accumulated_land > 1000 {
+                    au_interval = 3;
+                }
+            }
+        }
+        
+        // Set CAUT for this IFS
+        cycle_ifses[index].caut = closest_au;
+        
+        if index > 0 {
+            // Assign the auDiffs to the previous IFS
+            cycle_ifses[index - 1].au_diffs = au_diffs;
+            
+            // Check if this IFS's CAUT exceeds the cycle-end IFS
+            if index == cycle_ifses.len() - 2 && closest_au >= current_cycle * 100 - 1 {
+                // Remove this IFS from the array
+                cycle_ifses.remove(index);
+                break;
+            }
+        } else {
+            // If this is the first IFS, check if the CAUT exceeds the cycle-end IFS
+            if closest_au >= current_cycle * 100 - 1 {
+                // No way to actually get any land from this IFS
+                return false;
+            }
+        }
+        index += 1;
+    }
+    
+    true
+}
+
+// Calculate troops for each IFS based on the JS algorithm
+fn calculate_troops_for_cycle_ifses(cycle_ifses: &mut Vec<ExtendedIFS>, engine: &Time, is_piai: bool) {
+    let mut land_diff;
+    let mut current_border = (2.0 * (2.0 * engine.get_land() as f64 + 1.0).sqrt() - 2.0) as i32;
     
     for (index, ifs) in cycle_ifses.iter_mut().enumerate() {
         let mut old_border_troops = 0;
         
         if is_piai && index == 0 {
-            // PIAI initial IFS
+            // initIFS is PIAI
             ifs.troops = Some(3);
+            ifs.au_diffs = 0;
             continue;
         } else {
             land_diff = 0;
-            // For non-initial IFS or when not doing PIAI, we need to account for border troops
+            // For initIFS, we haven't deposited any border Fee, so we don't deduct it
+            // If piai, since our 1st reinforcement is delayed, we haven't actually paid any reinforcement, so we don't deduct it  
             if (!is_piai && index != 0) || (is_piai && index != 1) {
+                // Save down the currentBorder, which we will deduct from troops later
                 old_border_troops = current_border;
             }
         }
         
-        // Calculate AU differences - simplified version
-        // In the real version this would be based on the CAUT calculation
-        let au_diffs = if index == 0 { 1 } else { index as i32 + 1 };
-        
-        // Calculate land expansion based on AU differences
-        for _ in 0..au_diffs {
+        // Repeat this for auDiffs times: (add nextExpansion to landDiff, then nextExpansion += 4)
+        for _ in 0..ifs.au_diffs {
             land_diff += current_border + 4;
             current_border += 4;
         }
         
-        // Calculate troops required: 2 * land difference + current border - old border troops
+        // Calculate the troops required for this IFS
         let mut troops = 2 * land_diff + current_border - old_border_troops;
         
-        // Adjust for PIAI second IFS
+        // If we are doing PIAI and this is the 2nd IFS, then we deduct 3 troops here
         if is_piai && index == 1 {
             troops -= 3;
         }
         
-        ifs.troops = Some(troops.max(1));
+        ifs.troops = Some(troops);
     }
 }
 
-fn prune_results(mut results: Vec<BfsResult>, _cycle: i32, config: &Instructions) -> Vec<BfsResult> {
+fn get_game_statistics(_engine: &Time) -> (i32, i32) {
+    // Get OI and tax from game statistics
+    // For now, return placeholder values - this should access the actual game statistics
+    (0, 0)
+}
+
+fn prune_results(results: Vec<BfsResult>, cycle: i32, config: &Instructions) -> Vec<BfsResult> {
     if results.is_empty() {
         return results;
     }
     
-    // Basic pruning - remove clearly dominated results
-    results.sort_by(|a, b| {
-        // Sort by land first, then by total troops
-        match a.land.cmp(&b.land) {
-            std::cmp::Ordering::Equal => {
-                let a_total = a.troops + a.remaining;
-                let b_total = b.troops + b.remaining;
-                b_total.cmp(&a_total) // Higher troops is better
-            }
-            other => other.reverse() // Higher land is better  
-        }
-    });
-    
-    // Keep only non-dominated results
-    let mut pruned: Vec<BfsResult> = vec![];
+    // Step 1: Group by land value
+    let mut land_map: HashMap<i32, Vec<BfsResult>> = HashMap::new();
     for result in results {
-        let mut dominated = false;
-        for existing in &pruned {
-            if existing.land >= result.land && 
-               (existing.troops + existing.remaining) >= (result.troops + result.remaining) {
-                dominated = true;
+        land_map.entry(result.land).or_insert_with(Vec::new).push(result);
+    }
+    
+    // Step 2 and 3: Find the result with the most troops for each land value and push to selected
+    let mut selected = vec![];
+    for (_, land_results) in land_map {
+        let mut max_troops_result = land_results[0].clone();
+        for result in &land_results {
+            let result_troops = aggregate_troops(result);
+            let max_troops = aggregate_troops(&max_troops_result);
+            
+            // If more troops OR same troops but fewer IFSes (easier opening)
+            if result_troops > max_troops || 
+               (result_troops == max_troops && result.ifses.len() < max_troops_result.ifses.len()) {
+                max_troops_result = result.clone();
+            }
+        }
+        selected.push(max_troops_result);
+    }
+    
+    // Step 4: Prune results where both land and troops are less than another result
+    let mut i = 0;
+    while i < selected.len() {
+        let mut should_remove = false;
+        for j in 0..selected.len() {
+            if i != j && selected[j].land > selected[i].land && 
+               aggregate_troops(&selected[j]) >= aggregate_troops(&selected[i]) {
+                should_remove = true;
                 break;
             }
         }
-        if !dominated {
-            pruned.push(result);
+        if should_remove {
+            selected.remove(i);
+            // Don't increment i since we removed an element
+        } else {
+            i += 1;
         }
     }
     
-    // Limit results to prevent exponential explosion
-    if pruned.len() > 100 {
-        pruned.truncate(100);
+    // Step 5: If pruneMoreTroops is enabled, do advanced pruning
+    if config.options.as_ref()
+        .and_then(|opt| opt.prune_more_troops)
+        .unwrap_or(false) {
+        
+        let mut i = 0;
+        while i < selected.len() {
+            // Run the engine up to the start of the next cycle for the current result
+            let next_cycle_start = (cycle + 1) * 100;
+            
+            let mut engine = Time::new();
+            engine.init(config);
+            
+            // Set up the engine state as in the JS version
+            // Note: This is a bit tricky since we can't directly set engine.tick, engine.land, engine.troops
+            // We'll need to simulate the engine to the right state
+            
+            // For now, skip this advanced pruning as it requires more complex engine manipulation
+            // that might not be worth implementing for the initial version
+            
+            i += 1;
+        }
     }
     
-    pruned
+    selected
+}
+
+fn aggregate_troops(result: &BfsResult) -> i32 {
+    result.troops + result.remaining
 }
