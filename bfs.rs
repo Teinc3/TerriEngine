@@ -160,6 +160,13 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
         }
     }
     
+    // Debug output for cycle 2 to understand the state
+    if current_cycle == 2 {
+        println!("DEBUG: Starting cycle 2 with engine state:");
+        println!("  Land: {}, Troops: {}, Tick: {}", engine.get_land(), engine.get_troops(), engine.tick);
+        println!("  Previous IFSes: {:?}", prev_ifses.iter().map(|ifs| ifs.ifs).collect::<Vec<_>>());
+    }
+    
     let save_state = engine.save_state();
     
     // Use a for loop to go through all IFS-Combinations this cycle (matching JS exactly)
@@ -368,6 +375,16 @@ fn calculate_au_and_caut(cycle_ifses: &mut Vec<ExtendedIFS>, engine: &Time, curr
     let mut closest_au = if !cycle_ifses.is_empty() { cycle_ifses[0].ifs + 7 } else { return false; };
     let mut accumulated_land = engine.get_land();
     let mut au_interval = if accumulated_land > 10000 { 2 } else if accumulated_land > 1000 { 3 } else { 4 };
+    let cycle_end_threshold = current_cycle * 100 - 1;
+    
+    // Special debug for land = 12 case in cycle 2
+    let debug_this = current_cycle == 2 && accumulated_land == 12;
+    if debug_this {
+        println!("DEBUG LAND=12: Cycle 2 CAUT calculation");
+        println!("  Land: {}, closest_au: {}, au_interval: {}, threshold: {}", 
+                 accumulated_land, closest_au, au_interval, cycle_end_threshold);
+        println!("  IFSes to process: {:?}", cycle_ifses.iter().map(|ifs| ifs.ifs).collect::<Vec<_>>());
+    }
     
     while index < cycle_ifses.len() {
         let mut au_diffs = 0;
@@ -392,24 +409,39 @@ fn calculate_au_and_caut(cycle_ifses: &mut Vec<ExtendedIFS>, engine: &Time, curr
         // Set CAUT for this IFS
         cycle_ifses[index].caut = closest_au;
         
+        if debug_this {
+            println!("  IFS[{}] {}: CAUT={}, auDiffs={}, accumulated_land={}", 
+                     index, current_ifs, closest_au, au_diffs, accumulated_land);
+        }
+        
         if index > 0 {
             // Assign the auDiffs to the previous IFS
             cycle_ifses[index - 1].au_diffs = au_diffs;
             
-            // Check if this IFS's CAUT exceeds the cycle-end IFS
-            if index == cycle_ifses.len() - 2 && closest_au >= current_cycle * 100 - 1 {
+            // Check if this IFS's CAUT exceeds the cycle-end IFS (second-to-last check)
+            if index == cycle_ifses.len() - 2 && closest_au >= cycle_end_threshold {
+                if debug_this {
+                    println!("  REMOVING second-to-last IFS: CAUT {} >= threshold {}", closest_au, cycle_end_threshold);
+                }
                 // Remove this IFS from the array
                 cycle_ifses.remove(index);
                 break;
             }
         } else {
             // If this is the first IFS, check if the CAUT exceeds the cycle-end IFS
-            if closest_au >= current_cycle * 100 - 1 {
-                // No way to actually get any land from this IFS
+            if closest_au >= cycle_end_threshold {
+                if debug_this {
+                    println!("  ELIMINATING first IFS: CAUT {} >= threshold {}", closest_au, cycle_end_threshold);
+                }
+                // No way to actually get any land from this IFS, skip entire combination
                 return false;
             }
         }
         index += 1;
+    }
+    
+    if debug_this {
+        println!("  RESULT: {} IFSes remaining", cycle_ifses.len());
     }
     
     true
