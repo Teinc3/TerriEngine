@@ -1,0 +1,3859 @@
+[
+  {
+    "IFSes": [
+      {
+        "IFS": 84,
+        "troops": 72,
+        "remarks": "default",
+        "CAUT": 91,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 273,
+        "troops": 316,
+        "remarks": "default",
+        "CAUT": 280,
+        "auDiffs": 5
+      }
+    ],
+    "troops": 16714,
+    "land": 180,
+    "oi": 17092,
+    "tax": 42,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 476,
+        "troops": 312,
+        "remarks": "default",
+        "CAUT": 483,
+        "auDiffs": 4
+      }
+    ],
+    "troops": 16630,
+    "land": 220,
+    "oi": 17174,
+    "tax": 128,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 404,
+        "remarks": "AFAU",
+        "CAUT": 476,
+        "auDiffs": 5
+      }
+    ],
+    "troops": 16579,
+    "land": 264,
+    "oi": 17211,
+    "tax": 128,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 504,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 6
+      }
+    ],
+    "troops": 16515,
+    "land": 312,
+    "oi": 17243,
+    "tax": 128,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 612,
+        "remarks": "AFAU",
+        "CAUT": 469,
+        "auDiffs": 7
+      }
+    ],
+    "troops": 16387,
+    "land": 364,
+    "oi": 17214,
+    "tax": 123,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 728,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 8
+      }
+    ],
+    "troops": 16296,
+    "land": 420,
+    "oi": 17235,
+    "tax": 123,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 371,
+        "troops": 504,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 483,
+        "troops": 396,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 16137,
+    "land": 480,
+    "oi": 17256,
+    "tax": 183,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 371,
+        "troops": 404,
+        "remarks": "AFAU",
+        "CAUT": 378,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 469,
+        "troops": 624,
+        "remarks": "AFAU",
+        "CAUT": 476,
+        "auDiffs": 5
+      }
+    ],
+    "troops": 16028,
+    "land": 544,
+    "oi": 17271,
+    "tax": 179,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 371,
+        "troops": 404,
+        "remarks": "AFAU",
+        "CAUT": 378,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 469,
+        "troops": 764,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 6
+      }
+    ],
+    "troops": 15937,
+    "land": 612,
+    "oi": 17316,
+    "tax": 179,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 371,
+        "troops": 504,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 469,
+        "troops": 816,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 6
+      }
+    ],
+    "troops": 15840,
+    "land": 684,
+    "oi": 17362,
+    "tax": 178,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 504,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 560,
+        "troops": 972,
+        "remarks": "AFAU",
+        "CAUT": 567,
+        "auDiffs": 7
+      }
+    ],
+    "troops": 15663,
+    "land": 760,
+    "oi": 17442,
+    "tax": 283,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 504,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 560,
+        "troops": 1136,
+        "remarks": "default",
+        "CAUT": 567,
+        "auDiffs": 8
+      }
+    ],
+    "troops": 15544,
+    "land": 840,
+    "oi": 17483,
+    "tax": 283,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 612,
+        "remarks": "AFAU",
+        "CAUT": 469,
+        "auDiffs": 7
+      },
+      {
+        "IFS": 560,
+        "troops": 1204,
+        "remarks": "default",
+        "CAUT": 567,
+        "auDiffs": 8
+      }
+    ],
+    "troops": 15371,
+    "land": 924,
+    "oi": 17471,
+    "tax": 276,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 728,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 8
+      },
+      {
+        "IFS": 560,
+        "troops": 1272,
+        "remarks": "default",
+        "CAUT": 567,
+        "auDiffs": 8
+      }
+    ],
+    "troops": 15235,
+    "land": 1012,
+    "oi": 17510,
+    "tax": 275,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 371,
+        "troops": 504,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 469,
+        "troops": 816,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 574,
+        "troops": 932,
+        "remarks": "default",
+        "CAUT": 581,
+        "auDiffs": 5
+      }
+    ],
+    "troops": 14999,
+    "land": 1104,
+    "oi": 17605,
+    "tax": 330,
+    "remaining": 92
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 259,
+        "troops": 204,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 420,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 371,
+        "troops": 816,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 469,
+        "troops": 1128,
+        "remarks": "AFAU",
+        "CAUT": 476,
+        "auDiffs": 6
+      }
+    ],
+    "troops": 14919,
+    "land": 1200,
+    "oi": 17499,
+    "tax": 204,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 259,
+        "troops": 204,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 420,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 371,
+        "troops": 816,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 469,
+        "troops": 1332,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 7
+      }
+    ],
+    "troops": 14782,
+    "land": 1300,
+    "oi": 17562,
+    "tax": 204,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 84,
+        "troops": 72,
+        "remarks": "default",
+        "CAUT": 91,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 259,
+        "troops": 240,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 460,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 371,
+        "troops": 868,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 469,
+        "troops": 1392,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 7
+      }
+    ],
+    "troops": 14622,
+    "land": 1404,
+    "oi": 17606,
+    "tax": 200,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 371,
+        "troops": 504,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 469,
+        "troops": 816,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 560,
+        "troops": 1764,
+        "remarks": "AFAU",
+        "CAUT": 567,
+        "auDiffs": 9
+      }
+    ],
+    "troops": 14447,
+    "land": 1512,
+    "oi": 17770,
+    "tax": 323,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 371,
+        "troops": 504,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 469,
+        "troops": 816,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 560,
+        "troops": 1992,
+        "remarks": "default",
+        "CAUT": 567,
+        "auDiffs": 10
+      }
+    ],
+    "troops": 14165,
+    "land": 1624,
+    "oi": 17824,
+    "tax": 323,
+    "remaining": 112
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 182,
+        "troops": 144,
+        "remarks": "default",
+        "CAUT": 189,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 312,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 540,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 371,
+        "troops": 972,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 469,
+        "troops": 1064,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 490,
+        "troops": 684,
+        "remarks": "default",
+        "CAUT": 492,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 14113,
+    "land": 1740,
+    "oi": 17846,
+    "tax": 277,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 84,
+        "troops": 72,
+        "remarks": "default",
+        "CAUT": 91,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 259,
+        "troops": 240,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 460,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 371,
+        "troops": 868,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 469,
+        "troops": 1392,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 7
+      },
+      {
+        "IFS": 581,
+        "troops": 1032,
+        "remarks": "default",
+        "CAUT": 588,
+        "auDiffs": 4
+      }
+    ],
+    "troops": 13783,
+    "land": 1860,
+    "oi": 17939,
+    "tax": 340,
+    "remaining": 120
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 91,
+        "troops": 36,
+        "remarks": "default",
+        "CAUT": 98,
+        "auDiffs": 1
+      },
+      {
+        "IFS": 175,
+        "troops": 92,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 180,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 384,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 620,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 371,
+        "troops": 708,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 392,
+        "troops": 368,
+        "remarks": "default",
+        "CAUT": 394,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 469,
+        "troops": 1152,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 490,
+        "troops": 732,
+        "remarks": "default",
+        "CAUT": 491,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 13750,
+    "land": 1984,
+    "oi": 18007,
+    "tax": 313,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 13573,
+    "land": 2112,
+    "oi": 17962,
+    "tax": 189,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 77,
+        "troops": 72,
+        "remarks": "default",
+        "CAUT": 84,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 91,
+        "troops": 96,
+        "remarks": "default",
+        "CAUT": 92,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 152,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 252,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 492,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 420,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 320,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 371,
+        "troops": 816,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 392,
+        "troops": 636,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 476,
+        "troops": 816,
+        "remarks": "default",
+        "CAUT": 483,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 490,
+        "troops": 780,
+        "remarks": "default",
+        "CAUT": 492,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 13367,
+    "land": 2244,
+    "oi": 18124,
+    "tax": 293,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 483,
+        "troops": 672,
+        "remarks": "AFAU",
+        "CAUT": 490,
+        "auDiffs": 2
+      }
+    ],
+    "troops": 13187,
+    "land": 2380,
+    "oi": 18162,
+    "tax": 239,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 77,
+        "troops": 72,
+        "remarks": "default",
+        "CAUT": 84,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 91,
+        "troops": 96,
+        "remarks": "default",
+        "CAUT": 92,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 152,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 252,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 492,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 420,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 320,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 371,
+        "troops": 816,
+        "remarks": "default",
+        "CAUT": 378,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 392,
+        "troops": 636,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 1328,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 490,
+        "troops": 828,
+        "remarks": "default",
+        "CAUT": 491,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 13042,
+    "land": 2520,
+    "oi": 18344,
+    "tax": 286,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 77,
+        "troops": 116,
+        "remarks": "AFAU",
+        "CAUT": 84,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 175,
+        "troops": 132,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 228,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 456,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 396,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 304,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1177,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 6
+      },
+      {
+        "IFS": 392,
+        "troops": 660,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 1372,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 490,
+        "troops": 852,
+        "remarks": "default",
+        "CAUT": 491,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 12778,
+    "land": 2664,
+    "oi": 18392,
+    "tax": 310,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 476,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 483,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 483,
+        "troops": 1545,
+        "remarks": "AFAU",
+        "CAUT": 483,
+        "auDiffs": 5
+      }
+    ],
+    "troops": 12643,
+    "land": 2812,
+    "oi": 18528,
+    "tax": 285,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 476,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 483,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 483,
+        "troops": 953,
+        "remarks": "default",
+        "CAUT": 483,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 490,
+        "troops": 900,
+        "remarks": "default",
+        "CAUT": 492,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 12491,
+    "land": 2964,
+    "oi": 18719,
+    "tax": 324,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 1548,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 490,
+        "troops": 624,
+        "remarks": "AFAU",
+        "CAUT": 491,
+        "auDiffs": 2
+      }
+    ],
+    "troops": 12254,
+    "land": 3120,
+    "oi": 18738,
+    "tax": 268,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 1548,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 490,
+        "troops": 948,
+        "remarks": "default",
+        "CAUT": 491,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 12106,
+    "land": 3280,
+    "oi": 18910,
+    "tax": 268,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 147,
+        "troops": 72,
+        "remarks": "default",
+        "CAUT": 154,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 161,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 162,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 182,
+        "troops": 176,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 324,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 600,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 492,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 368,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1149,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 480,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 780,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 1592,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 490,
+        "troops": 972,
+        "remarks": "default",
+        "CAUT": 491,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 11804,
+    "land": 3444,
+    "oi": 18921,
+    "tax": 253,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1545,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 624,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 996,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 11632,
+    "land": 3612,
+    "oi": 19164,
+    "tax": 332,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 1548,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 490,
+        "troops": 948,
+        "remarks": "default",
+        "CAUT": 491,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 581,
+        "troops": 1180,
+        "remarks": "AFAU",
+        "CAUT": 588,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 11384,
+    "land": 3784,
+    "oi": 19289,
+    "tax": 361,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 1548,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 490,
+        "troops": 948,
+        "remarks": "default",
+        "CAUT": 491,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 581,
+        "troops": 1536,
+        "remarks": "default",
+        "CAUT": 588,
+        "auDiffs": 4
+      }
+    ],
+    "troops": 10986,
+    "land": 3960,
+    "oi": 19419,
+    "tax": 361,
+    "remaining": 176
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1545,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 624,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 996,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 581,
+        "troops": 1236,
+        "remarks": "AFAU",
+        "CAUT": 588,
+        "auDiffs": 3
+      }
+    ],
+    "troops": 10889,
+    "land": 4140,
+    "oi": 19562,
+    "tax": 417,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1545,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 624,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 996,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 581,
+        "troops": 1608,
+        "remarks": "default",
+        "CAUT": 588,
+        "auDiffs": 4
+      }
+    ],
+    "troops": 10473,
+    "land": 4324,
+    "oi": 19698,
+    "tax": 417,
+    "remaining": 184
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 147,
+        "troops": 72,
+        "remarks": "default",
+        "CAUT": 154,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 161,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 162,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 182,
+        "troops": 176,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 324,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 600,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 492,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 368,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1149,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 480,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 780,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1589,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 640,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 1020,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 581,
+        "troops": 1644,
+        "remarks": "default",
+        "CAUT": 588,
+        "auDiffs": 4
+      }
+    ],
+    "troops": 10160,
+    "land": 4512,
+    "oi": 19738,
+    "tax": 390,
+    "remaining": 188
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1545,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 624,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 996,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 574,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 581,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 581,
+        "troops": 2373,
+        "remarks": "default",
+        "CAUT": 581,
+        "auDiffs": 6
+      }
+    ],
+    "troops": 10103,
+    "land": 4704,
+    "oi": 19983,
+    "tax": 496,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 1548,
+        "remarks": "default",
+        "CAUT": 476,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 490,
+        "troops": 948,
+        "remarks": "default",
+        "CAUT": 491,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 567,
+        "troops": 1180,
+        "remarks": "default",
+        "CAUT": 574,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 581,
+        "troops": 2256,
+        "remarks": "default",
+        "CAUT": 583,
+        "auDiffs": 6
+      }
+    ],
+    "troops": 9600,
+    "land": 4900,
+    "oi": 20001,
+    "tax": 429,
+    "remaining": 196
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1545,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 624,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 996,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 567,
+        "troops": 1236,
+        "remarks": "default",
+        "CAUT": 574,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 581,
+        "troops": 1940,
+        "remarks": "AFAU",
+        "CAUT": 583,
+        "auDiffs": 5
+      }
+    ],
+    "troops": 9505,
+    "land": 5100,
+    "oi": 20157,
+    "tax": 476,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1545,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 624,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 996,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 567,
+        "troops": 1236,
+        "remarks": "default",
+        "CAUT": 574,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 581,
+        "troops": 2352,
+        "remarks": "default",
+        "CAUT": 583,
+        "auDiffs": 6
+      }
+    ],
+    "troops": 9044,
+    "land": 5304,
+    "oi": 20308,
+    "tax": 476,
+    "remaining": 204
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1545,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 624,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 996,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 560,
+        "troops": 1988,
+        "remarks": "default",
+        "CAUT": 567,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 581,
+        "troops": 2020,
+        "remarks": "AFAU",
+        "CAUT": 582,
+        "auDiffs": 5
+      }
+    ],
+    "troops": 8929,
+    "land": 5512,
+    "oi": 20395,
+    "tax": 466,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1545,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 624,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 996,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 560,
+        "troops": 1988,
+        "remarks": "default",
+        "CAUT": 567,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 581,
+        "troops": 2448,
+        "remarks": "default",
+        "CAUT": 582,
+        "auDiffs": 6
+      }
+    ],
+    "troops": 8448,
+    "land": 5724,
+    "oi": 20550,
+    "tax": 466,
+    "remaining": 212
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 147,
+        "troops": 72,
+        "remarks": "default",
+        "CAUT": 154,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 161,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 162,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 182,
+        "troops": 176,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 324,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 600,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 492,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 368,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1149,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 480,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 780,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1589,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 640,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 1020,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 560,
+        "troops": 2032,
+        "remarks": "default",
+        "CAUT": 567,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 581,
+        "troops": 2496,
+        "remarks": "default",
+        "CAUT": 582,
+        "auDiffs": 6
+      }
+    ],
+    "troops": 8102,
+    "land": 5940,
+    "oi": 20608,
+    "tax": 434,
+    "remaining": 216
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 455,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 462,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 462,
+        "troops": 953,
+        "remarks": "default",
+        "CAUT": 462,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 1216,
+        "remarks": "default",
+        "CAUT": 471,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 483,
+        "troops": 996,
+        "remarks": "default",
+        "CAUT": 483,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 490,
+        "troops": 704,
+        "remarks": "AFAU",
+        "CAUT": 492,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 560,
+        "troops": 2076,
+        "remarks": "default",
+        "CAUT": 567,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 581,
+        "troops": 2544,
+        "remarks": "default",
+        "CAUT": 582,
+        "auDiffs": 6
+      }
+    ],
+    "troops": 7774,
+    "land": 6160,
+    "oi": 20744,
+    "tax": 454,
+    "remaining": 220
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 147,
+        "troops": 72,
+        "remarks": "default",
+        "CAUT": 154,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 161,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 162,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 182,
+        "troops": 176,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 324,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 600,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 492,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 368,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1149,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 480,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 780,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 462,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 469,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 469,
+        "troops": 1589,
+        "remarks": "default",
+        "CAUT": 469,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 483,
+        "troops": 640,
+        "remarks": "default",
+        "CAUT": 484,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 490,
+        "troops": 1020,
+        "remarks": "default",
+        "CAUT": 490,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 553,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 560,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 560,
+        "troops": 2829,
+        "remarks": "default",
+        "CAUT": 560,
+        "auDiffs": 7
+      },
+      {
+        "IFS": 581,
+        "troops": 2140,
+        "remarks": "default",
+        "CAUT": 581,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 595,
+        "troops": 452,
+        "remarks": "default",
+        "CAUT": 596,
+        "auDiffs": 1
+      }
+    ],
+    "troops": 7619,
+    "land": 6384,
+    "oi": 20869,
+    "tax": 506,
+    "remaining": 0
+  },
+  {
+    "IFSes": [
+      {
+        "IFS": 70,
+        "troops": 168,
+        "remarks": "default",
+        "CAUT": 77,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 91,
+        "troops": 128,
+        "remarks": "default",
+        "CAUT": 93,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 175,
+        "troops": 192,
+        "remarks": "default",
+        "CAUT": 182,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 189,
+        "troops": 300,
+        "remarks": "default",
+        "CAUT": 190,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 259,
+        "troops": 564,
+        "remarks": "default",
+        "CAUT": 266,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 280,
+        "troops": 468,
+        "remarks": "default",
+        "CAUT": 282,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 294,
+        "troops": 352,
+        "remarks": "default",
+        "CAUT": 294,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 364,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 371,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 371,
+        "troops": 1105,
+        "remarks": "default",
+        "CAUT": 371,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 385,
+        "troops": 464,
+        "remarks": "default",
+        "CAUT": 386,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 392,
+        "troops": 756,
+        "remarks": "default",
+        "CAUT": 392,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 455,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 462,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 462,
+        "troops": 953,
+        "remarks": "default",
+        "CAUT": 462,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 469,
+        "troops": 1216,
+        "remarks": "default",
+        "CAUT": 471,
+        "auDiffs": 4
+      },
+      {
+        "IFS": 483,
+        "troops": 996,
+        "remarks": "default",
+        "CAUT": 483,
+        "auDiffs": 3
+      },
+      {
+        "IFS": 490,
+        "troops": 704,
+        "remarks": "AFAU",
+        "CAUT": 492,
+        "auDiffs": 2
+      },
+      {
+        "IFS": 553,
+        "troops": 3,
+        "remarks": "PIAI",
+        "CAUT": 560,
+        "auDiffs": 0
+      },
+      {
+        "IFS": 560,
+        "troops": 2889,
+        "remarks": "default",
+        "CAUT": 560,
+        "auDiffs": 7
+      },
+      {
+        "IFS": 581,
+        "troops": 2180,
+        "remarks": "default",
+        "CAUT": 581,
+        "auDiffs": 5
+      },
+      {
+        "IFS": 595,
+        "troops": 460,
+        "remarks": "default",
+        "CAUT": 596,
+        "auDiffs": 1
+      }
+    ],
+    "troops": 7296,
+    "land": 6612,
+    "oi": 21012,
+    "tax": 516,
+    "remaining": 0
+  }
+]
