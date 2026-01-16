@@ -1,6 +1,6 @@
 use std::fs;
 use std::time::Instant;
-use std::collections::HashMap;
+use std::collections::BTreeMap;
 use terri_engine::{Instructions, Time};
 use terri_engine::config::IFS;
 use serde_json;
@@ -10,9 +10,8 @@ use serde_json;
 struct ExtendedIFS {
     ifs: i32,
     troops: Option<i32>,
-    ratio: Option<i32>,
     caut: i32,       // Closest Attack Unit Time
-    au_diffs: i32,   // Attack Unit differences  
+    au_diffs: i32,   // Attack Unit differences
     remarks: String, // "default", "PIAI", "AFAU"
 }
 
@@ -21,7 +20,6 @@ impl From<IFS> for ExtendedIFS {
         ExtendedIFS {
             ifs: ifs.ifs,
             troops: ifs.troops,
-            ratio: ifs.ratio,
             caut: 0,
             au_diffs: 0,
             remarks: "default".to_string(),
@@ -34,9 +32,75 @@ impl From<ExtendedIFS> for IFS {
         IFS {
             ifs: ext_ifs.ifs,
             troops: ext_ifs.troops,
-            ratio: ext_ifs.ratio,
+            ratio: None,
         }
     }
+}
+
+#[derive(Debug, Clone, serde::Serialize)]
+struct JsIFS {
+    #[serde(rename = "IFS")]
+    ifs: i32,
+    troops: Option<i32>,
+    remarks: String,
+    #[serde(rename = "CAUT")]
+    caut: i32,
+    #[serde(rename = "auDiffs")]
+    au_diffs: i32,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    remaining: Option<i32>,
+}
+
+impl From<&ExtendedIFS> for JsIFS {
+    fn from(value: &ExtendedIFS) -> Self {
+        Self {
+            ifs: value.ifs,
+            troops: value.troops,
+            remarks: value.remarks.clone(),
+            caut: value.caut,
+            au_diffs: value.au_diffs,
+            remaining: None,
+        }
+    }
+}
+
+impl From<&IFS> for JsIFS {
+    fn from(value: &IFS) -> Self {
+        Self {
+            ifs: value.ifs,
+            troops: value.troops,
+            remarks: "default".to_string(),
+            caut: 0,
+            au_diffs: 0,
+            remaining: None,
+        }
+    }
+}
+
+fn build_js_output_ifses(
+    engine_ifses: &[IFS],
+    prev_output_ifses: &[JsIFS],
+    cycle_overrides: &[JsIFS],
+) -> Vec<JsIFS> {
+    let mut by_tick: BTreeMap<i32, JsIFS> = BTreeMap::new();
+    for x in prev_output_ifses {
+        by_tick.insert(x.ifs, x.clone());
+    }
+    for x in cycle_overrides {
+        by_tick.insert(x.ifs, x.clone());
+    }
+
+    let mut out = Vec::with_capacity(engine_ifses.len());
+    for ifs in engine_ifses {
+        if let Some(existing) = by_tick.get(&ifs.ifs) {
+            let mut merged = existing.clone();
+            merged.troops = ifs.troops;
+            out.push(merged);
+        } else {
+            out.push(JsIFS::from(ifs));
+        }
+    }
+    out
 }
 
 fn main() {
@@ -80,12 +144,17 @@ fn run_bfs(config: &Instructions, start_cycle: i32, end_cycle: i32) {
         let cycle_start = Instant::now();
         
         if prev_ifses.is_empty() {
-            prev_ifses = cycle_loop(cycle, vec![], config);
+            prev_ifses = cycle_loop(cycle, vec![], vec![], config);
             prev_ifses = prune_results(prev_ifses, cycle, config);
         } else {
             let mut new_results = vec![];
             for result in prev_ifses.iter() {
-                let cycle_results = cycle_loop(cycle, result.ifses.clone(), config);
+                let cycle_results = cycle_loop(
+                    cycle,
+                    result.engine_ifses.clone(),
+                    result.output_ifses.clone(),
+                    config,
+                );
                 new_results.extend(cycle_results);
             }
             prev_ifses = prune_results(new_results, cycle, config);
@@ -127,7 +196,9 @@ fn run_bfs(config: &Instructions, start_cycle: i32, end_cycle: i32) {
 #[derive(Debug, Clone, serde::Serialize)]
 struct BfsResult {
     #[serde(rename = "IFSes")]
-    ifses: Vec<IFS>,
+    output_ifses: Vec<JsIFS>,
+    #[serde(skip_serializing)]
+    engine_ifses: Vec<IFS>,
     troops: i32,
     land: i32,
     oi: i32,
@@ -135,7 +206,7 @@ struct BfsResult {
     remaining: i32,
 }
 
-fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -> Vec<BfsResult> {
+fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, prev_output_ifses: Vec<JsIFS>, config: &Instructions) -> Vec<BfsResult> {
     // Generate all possible IFSes for this cycle
     let min_ifs = get_earliest_ifs(current_cycle);
     let all_cycle_ifses = get_cycle_ifses(min_ifs);
@@ -220,7 +291,6 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                     let piai_ifs = ExtendedIFS {
                         ifs: cycle_ifses[0].ifs - 7,
                         troops: Some(3),
-                        ratio: None,
                         caut: 0,
                         au_diffs: 0,
                         remarks: "PIAI".to_string(),
@@ -232,7 +302,6 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
                 cycle_ifses.push(ExtendedIFS {
                     ifs: current_cycle * 100 - 1,
                     troops: None,
-                    ratio: None,
                     caut: 0,
                     au_diffs: 0,
                     remarks: "end_marker".to_string(),
@@ -272,11 +341,13 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
             }
             // Note: JavaScript doesn't skip empty IFS lists - it still runs the simulation
             
-            // Convert back to regular IFS and append instructions to the cycle
+            // Convert to regular IFS for the engine, while keeping detailed JS-like IFS objects for output
+            let cycle_ifses_js: Vec<JsIFS> = cycle_ifses.iter().map(JsIFS::from).collect();
             let cycle_ifses_regular: Vec<IFS> = cycle_ifses.into_iter().map(|ifs| ifs.into()).collect();
-            let mut all_ifses = prev_ifses.clone();
-            all_ifses.extend(cycle_ifses_regular);
-            engine.add_ifses(all_ifses.clone());
+
+            let mut all_ifses_for_engine = prev_ifses.clone();
+            all_ifses_for_engine.extend(cycle_ifses_regular);
+            engine.add_ifses(all_ifses_for_engine.clone());
             
             // Run simulation up to start of next cycle
             let mut simulation_failed = false;
@@ -299,8 +370,16 @@ fn cycle_loop(current_cycle: i32, prev_ifses: Vec<IFS>, config: &Instructions) -
             if !simulation_failed {
                 // Create result - get OI and tax from game statistics
                 let (oi, tax) = get_game_statistics(&engine);
+
+                // JS output uses the engine's full instruction list, but with per-IFS metadata
+                let output_ifses = build_js_output_ifses(
+                    &all_ifses_for_engine,
+                    &prev_output_ifses,
+                    &cycle_ifses_js,
+                );
                 let result = BfsResult {
-                    ifses: all_ifses,
+                    output_ifses,
+                    engine_ifses: all_ifses_for_engine,
                     troops: engine.get_troops(),
                     land: engine.get_land(),
                     oi,
@@ -337,7 +416,6 @@ fn get_cycle_ifses(current_ifs: i32) -> Vec<ExtendedIFS> {
         cycle_ifses.push(ExtendedIFS {
             ifs,
             troops: None, // Will be calculated later
-            ratio: None,
             caut: 0,
             au_diffs: 0,
             remarks: "default".to_string(),
@@ -468,8 +546,8 @@ fn prune_results(results: Vec<BfsResult>, _cycle: i32, config: &Instructions) ->
         return results;
     }
     
-    // Step 1: Group by land value
-    let mut land_map: HashMap<i32, Vec<BfsResult>> = HashMap::new();
+    // Step 1: Group by land value (BTreeMap for deterministic order like JS)
+    let mut land_map: BTreeMap<i32, Vec<BfsResult>> = BTreeMap::new();
     for result in results {
         land_map.entry(result.land).or_insert_with(Vec::new).push(result);
     }
@@ -484,12 +562,16 @@ fn prune_results(results: Vec<BfsResult>, _cycle: i32, config: &Instructions) ->
             
             // If more troops OR same troops but fewer IFSes (easier opening)
             if result_troops > max_troops || 
-               (result_troops == max_troops && result.ifses.len() < max_troops_result.ifses.len()) {
+                    (result_troops == max_troops && result.engine_ifses.len() < max_troops_result.engine_ifses.len()) {
                 max_troops_result = result.clone();
             }
         }
         selected.push(max_troops_result);
     }
+
+    // JS preserves insertion order by increasing land.
+    // Our pruning mutations should be deterministic too.
+    selected.sort_by_key(|r| r.land);
     
     // Step 4: Prune results where both land and troops are less than another result
     let mut i = 0;
@@ -560,7 +642,9 @@ fn prune_results(results: Vec<BfsResult>, _cycle: i32, config: &Instructions) ->
             }
         }
     }
-    
+
+    // Final deterministic ordering for byte-for-byte JSON identity.
+    selected.sort_by_key(|r| r.land);
     selected
 }
 
