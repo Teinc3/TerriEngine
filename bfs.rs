@@ -463,7 +463,7 @@ fn get_game_statistics(engine: &Time) -> (i32, i32) {
     (engine.get_oi(), engine.get_tax())
 }
 
-fn prune_results(results: Vec<BfsResult>, cycle: i32, config: &Instructions) -> Vec<BfsResult> {
+fn prune_results(results: Vec<BfsResult>, _cycle: i32, config: &Instructions) -> Vec<BfsResult> {
     if results.is_empty() {
         return results;
     }
@@ -517,17 +517,7 @@ fn prune_results(results: Vec<BfsResult>, cycle: i32, config: &Instructions) -> 
         
         let mut i = 0;
         while i < selected.len() {
-            // Run the engine up to the start of the next cycle for the current result
-            let _next_cycle_start = (cycle + 1) * 100;
-            
-            let mut engine = Time::new();
-            engine.init(config);
-            
-            // Set up the engine state as in the JS version
-            // Note: This is a bit tricky since we can't directly set engine.tick, engine.land, engine.troops
-            // We'll need to simulate the engine to the right state
-            
-            // For now, skip this advanced pruning as it requires more complex engine manipulation
+            // For now, skip advanced pruning as it requires more complex engine manipulation
             // that might not be worth implementing for the initial version
             
             i += 1;

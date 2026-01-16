@@ -92,7 +92,7 @@ If no config path is provided, it defaults to `data/config.json` for the engine 
 The Rust BFS implementation provides significant performance improvements over the JavaScript version:
 
 - **JavaScript BFS**: ~43 seconds for 7 cycles
-- **Rust BFS**: ~3.5 seconds for 7 cycles (~12x faster)
+- **Rust BFS**: ~3.2 seconds for 7 cycles (~13.5x faster)
 
 The Rust implementation produces **exactly identical results** to the JavaScript version:
 - All combination counts match perfectly (10, 16, 21, 29, 38, 49, 64)
