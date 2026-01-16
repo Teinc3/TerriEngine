@@ -2,5 +2,13 @@
 data/v5_private
 data/results.json
 data/bfs_data
+examples/data/bfs_data/
 data/opening_data/v6_varieties/*_ModReplay.json
 target/
+debug_bfs
+debug_bfs.rs
+simple_debug
+simple_debug.rs
+data/debug_bfs_config.json
+data/simple_bfs_config.json
+data/test_bfs_config.json

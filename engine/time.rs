@@ -1,10 +1,23 @@
 use crate::config::{Instructions, SimulationResult};
-use crate::pixel::Pixel;
+use crate::pixel::{Pixel, PixelState};
 use crate::interest::Interest;
-use crate::algo::Algo;
-use crate::speed::Speed;
-use crate::game_statistics::GameStatistics;
-use crate::process_action::ProcessAction;
+use crate::algo::{Algo, AlgoState};
+use crate::speed::{Speed, SpeedState};
+use crate::game_statistics::{GameStatistics, GameStatisticsState};
+use crate::process_action::{ProcessAction, ProcessActionState};
+use serde::Serialize;
+
+/// Serializable state for the entire Time (engine) component
+#[derive(Debug, Clone, Serialize)]
+pub struct TimeState {
+    pub tick: i32,
+    pub interest_troops: i32,
+    pub pixel: PixelState,
+    pub algo: AlgoState,
+    pub speed: SpeedState,
+    pub game_statistics: GameStatisticsState,
+    pub process_action: ProcessActionState,
+}
 
 /// Main simulation engine that coordinates all game systems
 /// 
@@ -44,6 +57,68 @@ impl Time {
         self.speed.remove_entry();
         self.pixel.init();
         self.game_statistics.init(instructions);
+    }
+
+    /// Save current engine state
+    pub fn save_state(&self) -> TimeState {
+        TimeState {
+            tick: self.tick,
+            interest_troops: self.interest.troops,
+            pixel: self.pixel.save_state(),
+            algo: self.algo.save_state(),
+            speed: self.speed.save_state(),
+            game_statistics: self.game_statistics.save_state(),
+            process_action: self.process_action.save_state(),
+        }
+    }
+
+    /// Load engine state from a previous simulation
+    pub fn load_state(&mut self, state: &TimeState) {
+        self.tick = state.tick;
+        self.interest.load_state(state.interest_troops);
+        self.pixel.load_state(&state.pixel);
+        self.algo.load_state(&state.algo);
+        self.speed.load_state(&state.speed);
+        self.game_statistics.load_state(&state.game_statistics);
+        self.process_action.load_state(&state.process_action);
+    }
+
+    /// Get current land count (for BFS access)
+    pub fn get_land(&self) -> i32 {
+        self.pixel.land
+    }
+
+    /// Get current troop count (for BFS access)
+    pub fn get_troops(&self) -> i32 {
+        self.interest.troops
+    }
+
+    /// Get current border count (for BFS access)
+    pub fn get_border(&self) -> i32 {
+        self.pixel.border
+    }
+
+    /// Get remaining troops in current attack (for BFS access)
+    pub fn get_remaining(&self) -> i32 {
+        self.speed.remaining
+    }
+    
+    pub fn get_oi(&self) -> i32 {
+        self.game_statistics.get_oi()
+    }
+    
+    pub fn get_tax(&self) -> i32 {
+        self.game_statistics.expenses[0]
+    }
+    
+    /// Set land count (for BFS advanced pruning)
+    pub fn set_land(&mut self, land: i32) {
+        self.pixel.land = land;
+    }
+    
+    /// Set troop count (for BFS advanced pruning)
+    pub fn set_troops(&mut self, troops: i32) {
+        self.interest.troops = troops;
     }
 
     /// Main game loop update
