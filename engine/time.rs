@@ -110,6 +110,16 @@ impl Time {
     pub fn get_tax(&self) -> i32 {
         self.game_statistics.expenses[0]
     }
+    
+    /// Set land count (for BFS advanced pruning)
+    pub fn set_land(&mut self, land: i32) {
+        self.pixel.land = land;
+    }
+    
+    /// Set troop count (for BFS advanced pruning)
+    pub fn set_troops(&mut self, troops: i32) {
+        self.interest.troops = troops;
+    }
 
     /// Main game loop update
     /// Returns Ok(true) if simulation continues, Ok(false) if illegal attack occurred,

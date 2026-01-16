@@ -97,7 +97,8 @@ The Rust BFS implementation provides significant performance improvements over t
 The Rust implementation produces **exactly identical results** to the JavaScript version:
 - All combination counts match perfectly (10, 16, 21, 29, 38, 49, 64)
 - All land/troop values are identical
-- Algorithm logic is functionally equivalent
+- Full algorithmic parity including advanced pruning (`pruneMoreTroops` option)
+- Alpha-beta pruning implemented exactly as JavaScript
 
 ### Building
 

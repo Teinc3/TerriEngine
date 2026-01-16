@@ -511,16 +511,53 @@ fn prune_results(results: Vec<BfsResult>, _cycle: i32, config: &Instructions) ->
     }
     
     // Step 5: If pruneMoreTroops is enabled, do advanced pruning
+    // For every remaining result we have, we run the engine up to the start of the next cycle
+    // If the difference in troops decreases for the result with more land, then we prune the result with less land
     if config.options.as_ref()
         .and_then(|opt| opt.prune_more_troops)
         .unwrap_or(false) {
         
         let mut i = 0;
         while i < selected.len() {
-            // For now, skip advanced pruning as it requires more complex engine manipulation
-            // that might not be worth implementing for the initial version
+            // Run the engine up to the start of the next cycle for the current result
+            let next_cycle_start = (_cycle + 1) * 100;
             
-            i += 1;
+            let mut temp_engine = Time::new();
+            temp_engine.init(config);
+            temp_engine.tick = next_cycle_start - 100;
+            
+            // Set land to a large number so that red interest does not affect the result
+            temp_engine.set_land(9999);
+            // Add remaining troops if any
+            temp_engine.set_troops(selected[i].troops + selected[i].remaining);
+            
+            while temp_engine.tick < next_cycle_start {
+                temp_engine.update().ok();
+            }
+            
+            // Calculate future benchmark: engine.deps.pixel.troops - 9999 + selected[i].land
+            let future_benchmark = temp_engine.get_troops() - 9999 + selected[i].land;
+            
+            let mut should_remove = false;
+            for j in 0..selected.len() {
+                if i != j && selected[j].land > selected[i].land {
+                    // If the difference in troops decreases for the result with more land, prune the result with less land
+                    let diff_before = selected[i].troops - selected[j].troops; // No aggregate, cuz remaining troops return in future
+                    let diff_after = future_benchmark - selected[j].troops;
+                    
+                    if diff_after < diff_before {
+                        should_remove = true;
+                        break;
+                    }
+                }
+            }
+            
+            if should_remove {
+                selected.remove(i);
+                // Don't increment i since we removed an element
+            } else {
+                i += 1;
+            }
         }
     }
     
