@@ -102,6 +102,14 @@ impl Time {
     pub fn get_remaining(&self) -> i32 {
         self.speed.remaining
     }
+    
+    pub fn get_oi(&self) -> i32 {
+        self.game_statistics.get_oi()
+    }
+    
+    pub fn get_tax(&self) -> i32 {
+        self.game_statistics.expenses[0]
+    }
 
     /// Main game loop update
     /// Returns Ok(true) if simulation continues, Ok(false) if illegal attack occurred,

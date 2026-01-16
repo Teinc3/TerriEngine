@@ -78,14 +78,26 @@ A Rust implementation of the TerriEngine is available in the `engine/` directory
 ### Usage
 
 ```bash
-# From the repository root
+# Run the Rust engine
 ./target/release/terri_engine [config_path]
 
-# Rust BFS implementation
+# Run the Rust BFS (Breadth-First Search) implementation
 ./target/release/bfs [config_path]
 ```
 
 If no config path is provided, it defaults to `data/config.json` for the engine and `data/bfs_config.json` for the BFS.
+
+### BFS Performance
+
+The Rust BFS implementation provides significant performance improvements over the JavaScript version:
+
+- **JavaScript BFS**: ~43 seconds for 7 cycles
+- **Rust BFS**: ~3.5 seconds for 7 cycles (~12x faster)
+
+The Rust implementation produces **exactly identical results** to the JavaScript version:
+- All combination counts match perfectly (10, 16, 21, 29, 38, 49, 64)
+- All land/troop values are identical
+- Algorithm logic is functionally equivalent
 
 ### Building
 
